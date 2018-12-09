@@ -689,8 +689,133 @@
   <script>
     // Script section to load models into a JS Var
     var defs = {}
-            defs.InventoryItem = {
-  "required" : [ "id", "manufacturer", "name", "releaseDate" ],
+            defs.ArgumentPredicateTuple = {
+  "required" : [ "argument", "document_id", "predicate", "role" ],
+  "type" : "object",
+  "properties" : {
+    "document_id" : {
+      "type" : "string",
+      "format" : "uuid",
+      "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+    },
+    "role" : {
+      "type" : "string",
+      "example" : "локатив"
+    },
+    "predicate" : {
+      "type" : "string",
+      "example" : "создавать"
+    },
+    "context" : {
+      "type" : "string",
+      "example" : "других для кого-то в постоянно <b>меняющимся</b> мире ?"
+    }
+  }
+};
+            defs.Corpus = {
+  "required" : [ "id", "org_id", "title" ],
+  "type" : "object",
+  "properties" : {
+    "id" : {
+      "type" : "string",
+      "format" : "uuid",
+      "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+    },
+    "title" : {
+      "type" : "string",
+      "example" : "студенты-социологи"
+    },
+    "owner_id" : {
+      "type" : "string",
+      "format" : "uuid",
+      "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+    },
+    "parent_id" : {
+      "type" : "string",
+      "format" : "uuid",
+      "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+    },
+    "documents" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/Document"
+      }
+    }
+  }
+};
+            defs.Document = {
+  "required" : [ "author", "created_at", "id", "title" ],
+  "type" : "object",
+  "properties" : {
+    "id" : {
+      "type" : "string",
+      "format" : "uuid",
+      "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+    },
+    "title" : {
+      "type" : "string",
+      "example" : "Эссе"
+    },
+    "author" : {
+      "type" : "string",
+      "example" : "Moscowithka"
+    },
+    "created_at" : {
+      "type" : "string",
+      "format" : "date-time"
+    },
+    "text" : {
+      "type" : "string",
+      "example" : "Сейчас я закончила второй курс университета. Кстати я поступила в университет в Воронеже, а не в Липецке."
+    },
+    "metadata" : {
+      "type" : "object"
+    }
+  }
+};
+            defs.DocumentStatistic = {
+  "required" : [ "document_id", "statistic" ],
+  "type" : "object",
+  "properties" : {
+    "document_id" : {
+      "type" : "string",
+      "format" : "uuid",
+      "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+    },
+    "statistic" : {
+      "type" : "number",
+      "example" : 0.1281
+    }
+  }
+};
+            defs.EntityStatistic = {
+  "required" : [ "entity", "statistic" ],
+  "type" : "object",
+  "properties" : {
+    "entity" : {
+      "$ref" : "#/components/schemas/EntityStatistic_entity"
+    },
+    "statistic" : {
+      "type" : "number",
+      "example" : 6798.0
+    }
+  }
+};
+            defs.EntityStatistic_entity = {
+  "type" : "object",
+  "properties" : {
+    "entity_type" : {
+      "type" : "string",
+      "enum" : [ "global_counter", "local_entity" ]
+    },
+    "entity_name" : {
+      "type" : "string",
+      "example" : "количество слов"
+    }
+  }
+};
+            defs.Member = {
+  "required" : [ "id", "name", "org_id" ],
   "type" : "object",
   "properties" : {
     "id" : {
@@ -700,33 +825,62 @@
     },
     "name" : {
       "type" : "string",
-      "example" : "Widget Adapter"
+      "example" : "Иван Иванов"
     },
-    "releaseDate" : {
+    "org_id" : {
       "type" : "string",
-      "format" : "date-time"
-    },
-    "manufacturer" : {
-      "$ref" : "#/components/schemas/Manufacturer"
+      "format" : "uuid",
+      "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
     }
   }
 };
-            defs.Manufacturer = {
-  "required" : [ "name" ],
+            defs.Organization = {
+  "required" : [ "created_at", "id", "manager_id", "title" ],
   "type" : "object",
   "properties" : {
-    "name" : {
+    "id" : {
       "type" : "string",
-      "example" : "ACME Corporation"
+      "format" : "uuid",
+      "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
     },
-    "homePage" : {
+    "title" : {
       "type" : "string",
-      "format" : "url",
-      "example" : "https://www.acme-corp.com"
+      "example" : "Филологический факультет МГУ"
     },
-    "phone" : {
+    "manager_id" : {
       "type" : "string",
-      "example" : "408-867-5309"
+      "format" : "uuid",
+      "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+    },
+    "parent_id" : {
+      "type" : "string",
+      "format" : "uuid",
+      "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+    },
+    "members" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/Member"
+      }
+    }
+  }
+};
+            defs.WordTuple = {
+  "required" : [ "context", "document_id", "word" ],
+  "type" : "object",
+  "properties" : {
+    "document_id" : {
+      "type" : "string",
+      "format" : "uuid",
+      "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+    },
+    "word" : {
+      "type" : "string",
+      "example" : "других"
+    },
+    "context" : {
+      "type" : "string",
+      "example" : "других для кого-то в постоянно <b>меняющимся</b> мире ?"
     }
   }
 };
@@ -746,13 +900,9 @@
             -->
             <li class="nav-fixed nav-header active" data-group="_"><a href="#api-_">API Summary</a></li>
 
-                  <li class="nav-header" data-group="Admins"><a href="#api-Admins">API Methods - Admins</a></li>
-                    <li data-group="Admins" data-name="addInventory" class="">
-                      <a href="#api-Admins-addInventory">addInventory</a>
-                    </li>
-                  <li class="nav-header" data-group="Developers"><a href="#api-Developers">API Methods - Developers</a></li>
-                    <li data-group="Developers" data-name="searchInventory" class="">
-                      <a href="#api-Developers-searchInventory">searchInventory</a>
+                  <li class="nav-header" data-group="ReadDocs"><a href="#api-ReadDocs">API Methods - ReadDocs</a></li>
+                    <li data-group="ReadDocs" data-name="listCorpuses" class="">
+                      <a href="#api-ReadDocs-listCorpuses">listCorpuses</a>
                     </li>
           </ul>
         </nav>
@@ -767,381 +917,107 @@
         <div id="header">
           <div id="api-_">
             <h2 id="welcome-to-apidoc">API and SDK Documentation</h2>
-              <div class="app-desc">Version: 1.0.0</div>
+              <div class="app-desc">Version: 3.0.0</div>
             <hr>
-            <div>API для реляционно-ситуационного анализа текстов</div>
+            <div>API системы реляционно-ситуационного анализа текстов</div>
           </div>
         </div>
         <div id="sections">
-                <section id="api-Admins">
-                  <h1>Admins</h1>
-                    <div id="api-Admins-addInventory">
-                      <article id="api-Admins-addInventory-0" data-group="User" data-name="addInventory" data-version="0">
+                <section id="api-ReadDocs">
+                  <h1>ReadDocs</h1>
+                    <div id="api-ReadDocs-listCorpuses">
+                      <article id="api-ReadDocs-listCorpuses-0" data-group="User" data-name="listCorpuses" data-version="0">
                         <div class="pull-left">
-                          <h1>addInventory</h1>
-                          <p>adds an inventory item</p>
+                          <h1>listCorpuses</h1>
+                          <p>List all corpuses</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
                         <p></p>
-                        <p class="marked">Adds an item to the system</p>
+                        <p class="marked"></p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/corp</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
                         <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Admins-addInventory-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Admins-addInventory-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Admins-addInventory-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Admins-addInventory-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Admins-addInventory-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Admins-addInventory-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Admins-addInventory-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Admins-addInventory-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Admins-addInventory-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Admins-addInventory-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Admins-addInventory-0-python">Python</a></li>
+                          <li class="active"><a href="#examples-ReadDocs-listCorpuses-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-ReadDocs-listCorpuses-0-java">Java</a></li>
+                          <li class=""><a href="#examples-ReadDocs-listCorpuses-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-ReadDocs-listCorpuses-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-ReadDocs-listCorpuses-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-ReadDocs-listCorpuses-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-ReadDocs-listCorpuses-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-ReadDocs-listCorpuses-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-ReadDocs-listCorpuses-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-ReadDocs-listCorpuses-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-ReadDocs-listCorpuses-0-python">Python</a></li>
                         </ul>
 
                         <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Admins-addInventory-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X POST "https://virtserver.swaggerhub.com/Rexhaif/RSA-API/1.0.0/"</code></pre>
+                          <div class="tab-pane active" id="examples-ReadDocs-listCorpuses-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://virtserver.swaggerhub.com/Rexhaif/RSA-API/3.0.0/corp?limit="</code></pre>
                           </div>
-                          <div class="tab-pane" id="examples-Admins-addInventory-0-java">
+                          <div class="tab-pane" id="examples-ReadDocs-listCorpuses-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
-import io.swagger.client.api.AdminsApi;
+import io.swagger.client.api.ReadDocsApi;
 
 import java.io.File;
 import java.util.*;
 
-public class AdminsApiExample {
+public class ReadDocsApiExample {
 
     public static void main(String[] args) {
-        
-        AdminsApi apiInstance = new AdminsApi();
-        InventoryItem body = ; // InventoryItem | 
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
+        ReadDocsApi apiInstance = new ReadDocsApi();
+        Integer limit = 56; // Integer | How many items to return at one time (max 100)
         try {
-            apiInstance.addInventory(body);
+            Document result = apiInstance.listCorpuses(limit);
+            System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AdminsApi#addInventory");
+            System.err.println("Exception when calling ReadDocsApi#listCorpuses");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
 
-                          <div class="tab-pane" id="examples-Admins-addInventory-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.AdminsApi;
+                          <div class="tab-pane" id="examples-ReadDocs-listCorpuses-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.ReadDocsApi;
 
-public class AdminsApiExample {
+public class ReadDocsApiExample {
 
     public static void main(String[] args) {
-        AdminsApi apiInstance = new AdminsApi();
-        InventoryItem body = ; // InventoryItem | 
+        ReadDocsApi apiInstance = new ReadDocsApi();
+        Integer limit = 56; // Integer | How many items to return at one time (max 100)
         try {
-            apiInstance.addInventory(body);
+            Document result = apiInstance.listCorpuses(limit);
+            System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling AdminsApi#addInventory");
+            System.err.println("Exception when calling ReadDocsApi#listCorpuses");
             e.printStackTrace();
         }
     }
 }</code></pre>
                           </div>
   <!--
-  <div class="tab-pane" id="examples-Admins-addInventory-0-groovy">
+  <div class="tab-pane" id="examples-ReadDocs-listCorpuses-0-groovy">
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
-                            <div class="tab-pane" id="examples-Admins-addInventory-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">InventoryItem *body = ; //  (optional)
+                            <div class="tab-pane" id="examples-ReadDocs-listCorpuses-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+Integer *limit = 56; // How many items to return at one time (max 100) (optional)
 
-AdminsApi *apiInstance = [[AdminsApi alloc] init];
+ReadDocsApi *apiInstance = [[ReadDocsApi alloc] init];
 
-// adds an inventory item
-[apiInstance addInventoryWith:body
-              completionHandler: ^(NSError* error) {
-                            if (error) {
-                                NSLog(@"Error: %@", error);
-                            }
-                        }];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Admins-addInventory-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var ApiRsa = require('api__rsa');
-
-var api = new ApiRsa.AdminsApi()
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-api.addInventory(, callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-Admins-addInventory-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-Admins-addInventory-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class addInventoryExample
-    {
-        public void main()
-        {
-
-            var apiInstance = new AdminsApi();
-            var body = new InventoryItem(); // InventoryItem |  (optional) 
-
-            try
-            {
-                // adds an inventory item
-                apiInstance.addInventory(body);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling AdminsApi.addInventory: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Admins-addInventory-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new Swagger\Client\Api{{classname}}();
-$body = ; // InventoryItem | 
-
-try {
-    $api_instance->addInventory($body);
-} catch (Exception $e) {
-    echo 'Exception when calling AdminsApi->addInventory: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Admins-addInventory-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::AdminsApi;
-
-my $api_instance = WWW::SwaggerClient::AdminsApi->new();
-my $body = WWW::SwaggerClient::Object::InventoryItem->new(); # InventoryItem | 
-
-eval { 
-    $api_instance->addInventory(body => $body);
-};
-if ($@) {
-    warn "Exception when calling AdminsApi->addInventory: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Admins-addInventory-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.AdminsApi()
-body =  # InventoryItem |  (optional)
-
-try: 
-    # adds an inventory item
-    api_instance.add_inventory(body=body)
-except ApiException as e:
-    print("Exception when calling AdminsApi->addInventory: %s\n" % e)</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Parameters</h2>
-
-
-
-                            <div class="methodsubtabletitle">Body parameters</div>
-                            <table id="methodsubtable">
-                              <tr>
-                                <th width="150px">Name</th>
-                                <th>Description</th>
-                              </tr>
-                                <tr><td style="width:150px;">body </td>
-                                <td>
-                                
-                                
-                                <script>
-                                $(document).ready(function() {
-                                  var schemaWrapper = ;
-                                  var schema = schemaWrapper.schema;
-                                  if (schema.$ref != null) {
-                                    schema = defsParser.$refs.get(schema.$ref);
-                                  } else {
-                                    schemaWrapper.definitions = Object.assign({}, defs);
-                                    $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                      console.log(err);
-                                    });
-                                  }
-                                
-                                  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-                                  var result = $('#d2e199_addInventory_body');
-                                  result.empty();
-                                  result.append(view.render());
-                                });
-                                </script>
-                                <div id="d2e199_addInventory_body"></div>
-                                </td>
-                                </tr>
-                            </table>
-
-
-
-                          <h2>Responses</h2>
-                            <h3> Status: 201 - item created </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                            <h3> Status: 400 - invalid input, object invalid </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                            <h3> Status: 409 - an existing item already exists </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                            </div>
-
-                        </article>
-                      </div>
-                      <hr>
-                  </section>
-                <section id="api-Developers">
-                  <h1>Developers</h1>
-                    <div id="api-Developers-searchInventory">
-                      <article id="api-Developers-searchInventory-0" data-group="User" data-name="searchInventory" data-version="0">
-                        <div class="pull-left">
-                          <h1>searchInventory</h1>
-                          <p>searches inventory</p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked">By passing in the appropriate options, you can search for
-available inventory in the system
-</p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Developers-searchInventory-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Developers-searchInventory-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Developers-searchInventory-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Developers-searchInventory-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Developers-searchInventory-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Developers-searchInventory-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Developers-searchInventory-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Developers-searchInventory-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Developers-searchInventory-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Developers-searchInventory-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Developers-searchInventory-0-python">Python</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Developers-searchInventory-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://virtserver.swaggerhub.com/Rexhaif/RSA-API/1.0.0/?searchString=&skip=&limit="</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-Developers-searchInventory-0-java">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.DevelopersApi;
-
-import java.io.File;
-import java.util.*;
-
-public class DevelopersApiExample {
-
-    public static void main(String[] args) {
-        
-        DevelopersApi apiInstance = new DevelopersApi();
-        String searchString = searchString_example; // String | pass an optional search string for looking up inventory
-        Integer skip = 56; // Integer | number of records to skip for pagination
-        Integer limit = 56; // Integer | maximum number of records to return
-        try {
-            array[InventoryItem] result = apiInstance.searchInventory(searchString, skip, limit);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DevelopersApi#searchInventory");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-Developers-searchInventory-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DevelopersApi;
-
-public class DevelopersApiExample {
-
-    public static void main(String[] args) {
-        DevelopersApi apiInstance = new DevelopersApi();
-        String searchString = searchString_example; // String | pass an optional search string for looking up inventory
-        Integer skip = 56; // Integer | number of records to skip for pagination
-        Integer limit = 56; // Integer | maximum number of records to return
-        try {
-            array[InventoryItem] result = apiInstance.searchInventory(searchString, skip, limit);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DevelopersApi#searchInventory");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-Developers-searchInventory-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-Developers-searchInventory-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">String *searchString = searchString_example; // pass an optional search string for looking up inventory (optional)
-Integer *skip = 56; // number of records to skip for pagination (optional)
-Integer *limit = 56; // maximum number of records to return (optional)
-
-DevelopersApi *apiInstance = [[DevelopersApi alloc] init];
-
-// searches inventory
-[apiInstance searchInventoryWith:searchString
-    skip:skip
-    limit:limit
-              completionHandler: ^(array[InventoryItem] output, NSError* error) {
+// List all corpuses
+[apiInstance listCorpusesWith:limit
+              completionHandler: ^(Document output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -1152,14 +1028,14 @@ DevelopersApi *apiInstance = [[DevelopersApi alloc] init];
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Developers-searchInventory-0-javascript">
+                            <div class="tab-pane" id="examples-ReadDocs-listCorpuses-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var ApiRsa = require('api__rsa');
+var defaultClient = ApiRsa.ApiClient.instance;
 
-var api = new ApiRsa.DevelopersApi()
+
+var api = new ApiRsa.ReadDocsApi()
 var opts = { 
-  'searchString': searchString_example, // {{String}} pass an optional search string for looking up inventory
-  'skip': 56, // {{Integer}} number of records to skip for pagination
-  'limit': 56 // {{Integer}} maximum number of records to return
+  'limit': 56 // {{Integer}} How many items to return at one time (max 100)
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -1168,14 +1044,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.searchInventory(opts, callback);
+api.listCorpuses(opts, callback);
 </code></pre>
                             </div>
 
-                            <!--<div class="tab-pane" id="examples-Developers-searchInventory-0-angular">
+                            <!--<div class="tab-pane" id="examples-ReadDocs-listCorpuses-0-angular">
               <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
             </div>-->
-                            <div class="tab-pane" id="examples-Developers-searchInventory-0-csharp">
+                            <div class="tab-pane" id="examples-ReadDocs-listCorpuses-0-csharp">
                               <pre class="prettyprint"><code class="language-cs">using System;
 using System.Diagnostics;
 using IO.Swagger.Api;
@@ -1184,25 +1060,24 @@ using IO.Swagger.Model;
 
 namespace Example
 {
-    public class searchInventoryExample
+    public class listCorpusesExample
     {
         public void main()
         {
 
-            var apiInstance = new DevelopersApi();
-            var searchString = searchString_example;  // String | pass an optional search string for looking up inventory (optional) 
-            var skip = 56;  // Integer | number of records to skip for pagination (optional) 
-            var limit = 56;  // Integer | maximum number of records to return (optional) 
+
+            var apiInstance = new ReadDocsApi();
+            var limit = 56;  // Integer | How many items to return at one time (max 100) (optional) 
 
             try
             {
-                // searches inventory
-                array[InventoryItem] result = apiInstance.searchInventory(searchString, skip, limit);
+                // List all corpuses
+                Document result = apiInstance.listCorpuses(limit);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling DevelopersApi.searchInventory: " + e.Message );
+                Debug.Print("Exception when calling ReadDocsApi.listCorpuses: " + e.Message );
             }
         }
     }
@@ -1210,62 +1085,59 @@ namespace Example
 </code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Developers-searchInventory-0-php">
+                            <div class="tab-pane" id="examples-ReadDocs-listCorpuses-0-php">
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 $api_instance = new Swagger\Client\Api{{classname}}();
-$searchString = searchString_example; // String | pass an optional search string for looking up inventory
-$skip = 56; // Integer | number of records to skip for pagination
-$limit = 56; // Integer | maximum number of records to return
+$limit = 56; // Integer | How many items to return at one time (max 100)
 
 try {
-    $result = $api_instance->searchInventory($searchString, $skip, $limit);
+    $result = $api_instance->listCorpuses($limit);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling DevelopersApi->searchInventory: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ReadDocsApi->listCorpuses: ', $e->getMessage(), PHP_EOL;
 }
 ?></code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Developers-searchInventory-0-perl">
+                            <div class="tab-pane" id="examples-ReadDocs-listCorpuses-0-perl">
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::DevelopersApi;
+use WWW::SwaggerClient::ReadDocsApi;
 
-my $api_instance = WWW::SwaggerClient::DevelopersApi->new();
-my $searchString = searchString_example; # String | pass an optional search string for looking up inventory
-my $skip = 56; # Integer | number of records to skip for pagination
-my $limit = 56; # Integer | maximum number of records to return
+
+my $api_instance = WWW::SwaggerClient::ReadDocsApi->new();
+my $limit = 56; # Integer | How many items to return at one time (max 100)
 
 eval { 
-    my $result = $api_instance->searchInventory(searchString => $searchString, skip => $skip, limit => $limit);
+    my $result = $api_instance->listCorpuses(limit => $limit);
     print Dumper($result);
 };
 if ($@) {
-    warn "Exception when calling DevelopersApi->searchInventory: $@\n";
+    warn "Exception when calling ReadDocsApi->listCorpuses: $@\n";
 }</code></pre>
                             </div>
 
-                            <div class="tab-pane" id="examples-Developers-searchInventory-0-python">
+                            <div class="tab-pane" id="examples-ReadDocs-listCorpuses-0-python">
                               <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
 import time
 import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
+
 # create an instance of the API class
-api_instance = swagger_client.DevelopersApi()
-searchString = searchString_example # String | pass an optional search string for looking up inventory (optional)
-skip = 56 # Integer | number of records to skip for pagination (optional)
-limit = 56 # Integer | maximum number of records to return (optional)
+api_instance = swagger_client.ReadDocsApi()
+limit = 56 # Integer | How many items to return at one time (max 100) (optional)
 
 try: 
-    # searches inventory
-    api_response = api_instance.search_inventory(searchString=searchString, skip=skip, limit=limit)
+    # List all corpuses
+    api_response = api_instance.list_corpuses(limit=limit)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DevelopersApi->searchInventory: %s\n" % e)</code></pre>
+    print("Exception when calling ReadDocsApi->listCorpuses: %s\n" % e)</code></pre>
                             </div>
                           </div>
 
@@ -1281,52 +1153,11 @@ except ApiException as e:
                                 <th width="150px">Name</th>
                                 <th>Description</th>
                               </tr>
-                                <tr><td style="width:150px;">searchString</td>
-                                <td>
-                                
-                                
-                                    <div id="d2e199_searchInventory_searchString">
-                                        <div class="json-schema-view">
-                                            <div class="primitive">
-                                                <span class="type">
-                                                    String
-                                                </span>
-                                
-                                                    <div class="inner description">
-                                                        pass an optional search string for looking up inventory
-                                                    </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                </tr>
-                                <tr><td style="width:150px;">skip</td>
-                                <td>
-                                
-                                
-                                    <div id="d2e199_searchInventory_skip">
-                                        <div class="json-schema-view">
-                                            <div class="primitive">
-                                                <span class="type">
-                                                    Integer
-                                                </span>
-                                                    <span class="format">
-                                                        (int32)
-                                                    </span>
-                                
-                                                    <div class="inner description">
-                                                        number of records to skip for pagination
-                                                    </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                </tr>
                                 <tr><td style="width:150px;">limit</td>
                                 <td>
                                 
                                 
-                                    <div id="d2e199_searchInventory_limit">
+                                    <div id="d2e199_listCorpuses_limit">
                                         <div class="json-schema-view">
                                             <div class="primitive">
                                                 <span class="type">
@@ -1337,7 +1168,7 @@ except ApiException as e:
                                                     </span>
                                 
                                                     <div class="inner description">
-                                                        maximum number of records to return
+                                                        How many items to return at one time (max 100)
                                                     </div>
                                             </div>
                                         </div>
@@ -1347,29 +1178,26 @@ except ApiException as e:
                             </table>
 
                           <h2>Responses</h2>
-                            <h3> Status: 200 - search results matching criteria </h3>
+                            <h3> Status: 200 - A array of corpuses </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                                 <li class="active">
-                                  <a data-toggle="tab" href="#responses-searchInventory-200-schema">Schema</a>
+                                  <a data-toggle="tab" href="#responses-listCorpuses-200-schema">Schema</a>
                                 </li>
 
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-searchInventory-200-schema">
-                                  <div id='responses-searchInventory-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <div class="tab-pane active" id="responses-listCorpuses-200-schema">
+                                  <div id='responses-listCorpuses-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                     <script>
                                       $(document).ready(function() {
                                         var schemaWrapper = {
-  "description" : "search results matching criteria",
+  "description" : "A array of corpuses",
   "content" : {
     "application/json" : {
       "schema" : {
-        "type" : "array",
-        "items" : {
-          "$ref" : "#/components/schemas/InventoryItem"
-        }
+        "$ref" : "#/components/schemas/Document"
       }
     }
   }
@@ -1386,23 +1214,15 @@ except ApiException as e:
 
                                         //console.log(JSON.stringify(schema));
                                         var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-searchInventory-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-searchInventory-200-schema-200');
+                                        $('#responses-listCorpuses-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-listCorpuses-200-schema-200');
                                         result.empty();
                                         result.append(view.render());
                                       });
                                     </script>
                                   </div>
-                                  <input id='responses-searchInventory-200-schema-data' type='hidden' value=''></input>
+                                  <input id='responses-listCorpuses-200-schema-data' type='hidden' value=''></input>
                                 </div>
-                            </div>
-
-                            <h3> Status: 400 - bad input parameter </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
                             </div>
 
                         </article>
