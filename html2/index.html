@@ -977,7 +977,7 @@ public class ReadDocsApiExample {
         ReadDocsApi apiInstance = new ReadDocsApi();
         Integer limit = 56; // Integer | How many items to return at one time (max 100)
         try {
-            Document result = apiInstance.listCorpuses(limit);
+            Corpus result = apiInstance.listCorpuses(limit);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ReadDocsApi#listCorpuses");
@@ -996,7 +996,7 @@ public class ReadDocsApiExample {
         ReadDocsApi apiInstance = new ReadDocsApi();
         Integer limit = 56; // Integer | How many items to return at one time (max 100)
         try {
-            Document result = apiInstance.listCorpuses(limit);
+            Corpus result = apiInstance.listCorpuses(limit);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ReadDocsApi#listCorpuses");
@@ -1017,7 +1017,7 @@ ReadDocsApi *apiInstance = [[ReadDocsApi alloc] init];
 
 // List all corpuses
 [apiInstance listCorpusesWith:limit
-              completionHandler: ^(Document output, NSError* error) {
+              completionHandler: ^(Corpus output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -1072,7 +1072,7 @@ namespace Example
             try
             {
                 // List all corpuses
-                Document result = apiInstance.listCorpuses(limit);
+                Corpus result = apiInstance.listCorpuses(limit);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1197,7 +1197,7 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/Document"
+        "$ref" : "#/components/schemas/Corpus"
       }
     }
   }
