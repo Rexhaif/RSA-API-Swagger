@@ -179,79 +179,35 @@
   </head>
   <body>
   <h1>API Машины RSA</h1>
-    <div class="app-desc">API для реляционно-ситуационного анализа текстов</div>
+    <div class="app-desc">API системы реляционно-ситуационного анализа текстов</div>
     <div class="app-desc">More information: <a href="https://helloreverb.com">https://helloreverb.com</a></div>
     <div class="app-desc">Contact Info: <a href="rexhaif.io@gmail.com">rexhaif.io@gmail.com</a></div>
-    <div class="app-desc">Version: 1.0.0</div>
-    <div class="app-desc">BasePath:/Rexhaif/RSA-API/1.0.0</div>
+    <div class="app-desc">Version: 3.0.0</div>
+    <div class="app-desc">BasePath:/Rexhaif/RSA-API/3.0.0</div>
     <div class="license-info">MIT</div>
     <div class="license-url">https://mit-license.org/</div>
   <h2>Access</h2>
+    <ol>
+      <li></li>
+    </ol>
 
   <h2><a name="__Methods">Methods</a></h2>
   [ Jump to <a href="#__Models">Models</a> ]
 
   <h3>Table of Contents </h3>
   <div class="method-summary"></div>
-  <h4><a href="#Admins">Admins</a></h4>
+  <h4><a href="#ReadDocs">ReadDocs</a></h4>
   <ul>
-  <li><a href="#addInventory"><code><span class="http-method">post</span> /</code></a></li>
-  </ul>
-  <h4><a href="#Developers">Developers</a></h4>
-  <ul>
-  <li><a href="#searchInventory"><code><span class="http-method">get</span> /</code></a></li>
+  <li><a href="#listCorpuses"><code><span class="http-method">get</span> /corp</code></a></li>
   </ul>
 
-  <h1><a name="Admins">Admins</a></h1>
-  <div class="method"><a name="addInventory"></a>
+  <h1><a name="ReadDocs">ReadDocs</a></h1>
+  <div class="method"><a name="listCorpuses"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /</code></pre></div>
-    <div class="method-summary">adds an inventory item (<span class="nickname">addInventory</span>)</div>
-    <div class="method-notes">Adds an item to the system</div>
-
-
-    <h3 class="field-label">Consumes</h3>
-    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Request body</h3>
-    <div class="field-items">
-      <div class="param">body <a href="#InventoryItem">InventoryItem</a> (optional)</div>
-      
-            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
-    </div>  <!-- field-items -->
-
-
-
-
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">201</h4>
-    item created
-        <a href="#"></a>
-    <h4 class="field-label">400</h4>
-    invalid input, object invalid
-        <a href="#"></a>
-    <h4 class="field-label">409</h4>
-    an existing item already exists
-        <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
-  <h1><a name="Developers">Developers</a></h1>
-  <div class="method"><a name="searchInventory"></a>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /</code></pre></div>
-    <div class="method-summary">searches inventory (<span class="nickname">searchInventory</span>)</div>
-    <div class="method-notes">By passing in the appropriate options, you can search for
-available inventory in the system</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /corp</code></pre></div>
+    <div class="method-summary">List all corpuses (<span class="nickname">listCorpuses</span>)</div>
+    <div class="method-notes"></div>
 
 
 
@@ -259,18 +215,14 @@ available inventory in the system</div>
 
     <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
-      <div class="param">searchString (optional)</div>
+      <div class="param">limit (optional)</div>
       
-            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; pass an optional search string for looking up inventory </div>      <div class="param">skip (optional)</div>
-      
-            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; number of records to skip for pagination format: int32</div>      <div class="param">limit (optional)</div>
-      
-            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; maximum number of records to return format: int32</div>    </div>  <!-- field-items -->
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; How many items to return at one time (max 100) format: int32</div>    </div>  <!-- field-items -->
 
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      array[<a href="#InventoryItem">InventoryItem</a>]
+      <a href="#Document">Document</a>
       
     </div>
 
@@ -286,11 +238,8 @@ available inventory in the system</div>
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    search results matching criteria
-        
-    <h4 class="field-label">400</h4>
-    bad input parameter
-        <a href="#"></a>
+    A array of corpuses
+        <a href="#Document">Document</a>
   </div> <!-- method -->
   <hr/>
 
@@ -299,27 +248,103 @@ available inventory in the system</div>
 
   <h3>Table of Contents</h3>
   <ol>
-    <li><a href="#InventoryItem"><code>InventoryItem</code></a></li>
-    <li><a href="#Manufacturer"><code>Manufacturer</code></a></li>
+    <li><a href="#ArgumentPredicateTuple"><code>ArgumentPredicateTuple</code></a></li>
+    <li><a href="#Corpus"><code>Corpus</code></a></li>
+    <li><a href="#Document"><code>Document</code></a></li>
+    <li><a href="#DocumentStatistic"><code>DocumentStatistic</code></a></li>
+    <li><a href="#EntityStatistic"><code>EntityStatistic</code></a></li>
+    <li><a href="#EntityStatistic_entity"><code>EntityStatistic_entity</code></a></li>
+    <li><a href="#Member"><code>Member</code></a></li>
+    <li><a href="#Organization"><code>Organization</code></a></li>
+    <li><a href="#WordTuple"><code>WordTuple</code></a></li>
   </ol>
 
   <div class="model">
-    <h3><a name="InventoryItem"><code>InventoryItem</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="ArgumentPredicateTuple"><code>ArgumentPredicateTuple</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">document_id </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
+<div class="param">role </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">predicate </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">context (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Corpus"><code>Corpus</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
+<div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">owner_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
+<div class="param">parent_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
+<div class="param">documents (optional)</div><div class="param-desc"><span class="param-type"><a href="#Document">array[Document]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Document"><code>Document</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
+<div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">author </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">created_at </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">text (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">metadata (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">Object</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="DocumentStatistic"><code>DocumentStatistic</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">document_id </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
+<div class="param">statistic </div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EntityStatistic"><code>EntityStatistic</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">entity </div><div class="param-desc"><span class="param-type"><a href="#EntityStatistic_entity">EntityStatistic_entity</a></span>  </div>
+<div class="param">statistic </div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="EntityStatistic_entity"><code>EntityStatistic_entity</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">entity_type (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">global_counter</div><div class="param-enum">local_entity</div>
+<div class="param">entity_name (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Member"><code>Member</code></a> <a class="up" href="#__Models">Up</a></h3>
     
     <div class="field-items">
       <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
 <div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">releaseDate </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
-<div class="param">manufacturer </div><div class="param-desc"><span class="param-type"><a href="#Manufacturer">Manufacturer</a></span>  </div>
+<div class="param">org_id </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Manufacturer"><code>Manufacturer</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="Organization"><code>Organization</code></a> <a class="up" href="#__Models">Up</a></h3>
     
     <div class="field-items">
-      <div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">homePage (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  format: url</div>
-<div class="param">phone (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
+<div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">manager_id </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
+<div class="param">parent_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
+<div class="param">members (optional)</div><div class="param-desc"><span class="param-type"><a href="#Member">array[Member]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="WordTuple"><code>WordTuple</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">document_id </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
+<div class="param">word </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">context </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   </body>
