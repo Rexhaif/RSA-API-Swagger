@@ -725,6 +725,19 @@
     }
   }
 };
+            defs.body_1 = {
+  "required" : [ "manager_id", "title" ],
+  "type" : "object",
+  "properties" : {
+    "title" : {
+      "type" : "string"
+    },
+    "manager_id" : {
+      "type" : "string",
+      "format" : "uuid"
+    }
+  }
+};
             defs.Corpus = {
   "required" : [ "id", "org_id", "title" ],
   "type" : "object",
@@ -914,12 +927,11 @@
             <li class="nav-fixed nav-header active" data-group="_"><a href="#api-_">API Summary</a></li>
 
                   <li class="nav-header" data-group="Admin"><a href="#api-Admin">API Methods - Admin</a></li>
+                    <li data-group="Admin" data-name="createOrg" class="">
+                      <a href="#api-Admin-createOrg">createOrg</a>
+                    </li>
                     <li data-group="Admin" data-name="listOrgs" class="">
                       <a href="#api-Admin-listOrgs">listOrgs</a>
-                    </li>
-                  <li class="nav-header" data-group="Default"><a href="#api-Default">API Methods - Default</a></li>
-                    <li data-group="Default" data-name="orgPost" class="">
-                      <a href="#api-Default-orgPost">orgPost</a>
                     </li>
                   <li class="nav-header" data-group="ManageDocs"><a href="#api-ManageDocs">API Methods - ManageDocs</a></li>
                     <li data-group="ManageDocs" data-name="createCorp" class="">
@@ -950,6 +962,309 @@
         <div id="sections">
                 <section id="api-Admin">
                   <h1>Admin</h1>
+                    <div id="api-Admin-createOrg">
+                      <article id="api-Admin-createOrg-0" data-group="User" data-name="createOrg" data-version="0">
+                        <div class="pull-left">
+                          <h1>createOrg</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">Создать новую организацию</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/org</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Admin-createOrg-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Admin-createOrg-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Admin-createOrg-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Admin-createOrg-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Admin-createOrg-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Admin-createOrg-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Admin-createOrg-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Admin-createOrg-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Admin-createOrg-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Admin-createOrg-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Admin-createOrg-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Admin-createOrg-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X POST "https://virtserver.swaggerhub.com/Rexhaif/RSA-API/3.0.0/org"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Admin-createOrg-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.AdminApi;
+
+import java.io.File;
+import java.util.*;
+
+public class AdminApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
+        AdminApi apiInstance = new AdminApi();
+        Body_1 body = ; // Body_1 | 
+        try {
+            Organization result = apiInstance.createOrg(body);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AdminApi#createOrg");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Admin-createOrg-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.AdminApi;
+
+public class AdminApiExample {
+
+    public static void main(String[] args) {
+        AdminApi apiInstance = new AdminApi();
+        Body_1 body = ; // Body_1 | 
+        try {
+            Organization result = apiInstance.createOrg(body);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AdminApi#createOrg");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Admin-createOrg-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Admin-createOrg-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+Body_1 *body = ; // 
+
+AdminApi *apiInstance = [[AdminApi alloc] init];
+
+[apiInstance createOrgWith:body
+              completionHandler: ^(Organization output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Admin-createOrg-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ApiRsa = require('api__rsa');
+var defaultClient = ApiRsa.ApiClient.instance;
+
+
+var api = new ApiRsa.AdminApi()
+var body = ; // {{Body_1}} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.createOrg(body, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Admin-createOrg-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Admin-createOrg-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class createOrgExample
+    {
+        public void main()
+        {
+
+
+            var apiInstance = new AdminApi();
+            var body = new Body_1(); // Body_1 | 
+
+            try
+            {
+                Organization result = apiInstance.createOrg(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling AdminApi.createOrg: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Admin-createOrg-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$api_instance = new Swagger\Client\ApiAdminApi();
+$body = ; // Body_1 | 
+
+try {
+    $result = $api_instance->createOrg($body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AdminApi->createOrg: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Admin-createOrg-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::AdminApi;
+
+
+my $api_instance = WWW::SwaggerClient::AdminApi->new();
+my $body = WWW::SwaggerClient::Object::Body_1->new(); # Body_1 | 
+
+eval { 
+    my $result = $api_instance->createOrg(body => $body);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling AdminApi->createOrg: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Admin-createOrg-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = swagger_client.AdminApi()
+body =  # Body_1 | 
+
+try: 
+    api_response = api_instance.create_org(body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AdminApi->createOrg: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">body <span style="color:red;">*</span></td>
+                                <td>
+                                
+                                
+                                <script>
+                                $(document).ready(function() {
+                                  var schemaWrapper = ;
+                                  var schema = schemaWrapper.schema;
+                                  if (schema.$ref != null) {
+                                    schema = defsParser.$refs.get(schema.$ref);
+                                  } else {
+                                    schemaWrapper.definitions = Object.assign({}, defs);
+                                    $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                      console.log(err);
+                                    });
+                                  }
+                                
+                                  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+                                  var result = $('#d2e199_createOrg_body');
+                                  result.empty();
+                                  result.append(view.render());
+                                });
+                                </script>
+                                <div id="d2e199_createOrg_body"></div>
+                                </td>
+                                </tr>
+                            </table>
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 201 - Организация создана, возвращается объект орагнизации </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-createOrg-201-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-createOrg-201-schema">
+                                  <div id='responses-createOrg-201-schema-201' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Организация создана, возвращается объект орагнизации",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Organization"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-createOrg-201-schema-data').val(stringify(schema));
+                                        var result = $('#responses-createOrg-201-schema-201');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-createOrg-201-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
                     <div id="api-Admin-listOrgs">
                       <article id="api-Admin-listOrgs-0" data-group="User" data-name="listOrgs" data-version="0">
                         <div class="pull-left">
@@ -1211,205 +1526,6 @@ except ApiException as e:
                                 </div>
                             </div>
 
-                        </article>
-                      </div>
-                      <hr>
-                  </section>
-                <section id="api-Default">
-                  <h1>Default</h1>
-                    <div id="api-Default-orgPost">
-                      <article id="api-Default-orgPost-0" data-group="User" data-name="orgPost" data-version="0">
-                        <div class="pull-left">
-                          <h1>orgPost</h1>
-                          <p></p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked">Создать новую организацию</p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/org</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-Default-orgPost-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-Default-orgPost-0-java">Java</a></li>
-                          <li class=""><a href="#examples-Default-orgPost-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-Default-orgPost-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-Default-orgPost-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-Default-orgPost-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-Default-orgPost-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-Default-orgPost-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-Default-orgPost-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-Default-orgPost-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-Default-orgPost-0-python">Python</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-Default-orgPost-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X POST "https://virtserver.swaggerhub.com/Rexhaif/RSA-API/3.0.0/org"</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-Default-orgPost-0-java">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.DefaultApi;
-
-import java.io.File;
-import java.util.*;
-
-public class DefaultApiExample {
-
-    public static void main(String[] args) {
-        
-        DefaultApi apiInstance = new DefaultApi();
-        try {
-            apiInstance.orgPost();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#orgPost");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-Default-orgPost-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
-
-public class DefaultApiExample {
-
-    public static void main(String[] args) {
-        DefaultApi apiInstance = new DefaultApi();
-        try {
-            apiInstance.orgPost();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#orgPost");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-Default-orgPost-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-Default-orgPost-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">
-DefaultApi *apiInstance = [[DefaultApi alloc] init];
-
-[apiInstance orgPostWithCompletionHandler: 
-              ^(NSError* error) {
-                            if (error) {
-                                NSLog(@"Error: %@", error);
-                            }
-                        }];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-orgPost-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var ApiRsa = require('api__rsa');
-
-var api = new ApiRsa.DefaultApi()
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-api.orgPost(callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-Default-orgPost-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-Default-orgPost-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class orgPostExample
-    {
-        public void main()
-        {
-
-            var apiInstance = new DefaultApi();
-
-            try
-            {
-                apiInstance.orgPost();
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling DefaultApi.orgPost: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-orgPost-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new Swagger\Client\ApiDefaultApi();
-
-try {
-    $api_instance->orgPost();
-} catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->orgPost: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-orgPost-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::DefaultApi;
-
-my $api_instance = WWW::SwaggerClient::DefaultApi->new();
-
-eval { 
-    $api_instance->orgPost();
-};
-if ($@) {
-    warn "Exception when calling DefaultApi->orgPost: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-Default-orgPost-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.DefaultApi()
-
-try: 
-    api_instance.org_post()
-except ApiException as e:
-    print("Exception when calling DefaultApi->orgPost: %s\n" % e)</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Parameters</h2>
-
-
-
-
-
-
-                          <h2>Responses</h2>
                         </article>
                       </div>
                       <hr>
