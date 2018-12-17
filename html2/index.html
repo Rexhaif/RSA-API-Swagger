@@ -913,6 +913,10 @@
             -->
             <li class="nav-fixed nav-header active" data-group="_"><a href="#api-_">API Summary</a></li>
 
+                  <li class="nav-header" data-group="Admin"><a href="#api-Admin">API Methods - Admin</a></li>
+                    <li data-group="Admin" data-name="listOrgs" class="">
+                      <a href="#api-Admin-listOrgs">listOrgs</a>
+                    </li>
                   <li class="nav-header" data-group="ManageDocs"><a href="#api-ManageDocs">API Methods - ManageDocs</a></li>
                     <li data-group="ManageDocs" data-name="createCorp" class="">
                       <a href="#api-ManageDocs-createCorp">createCorp</a>
@@ -940,6 +944,273 @@
           </div>
         </div>
         <div id="sections">
+                <section id="api-Admin">
+                  <h1>Admin</h1>
+                    <div id="api-Admin-listOrgs">
+                      <article id="api-Admin-listOrgs-0" data-group="User" data-name="listOrgs" data-version="0">
+                        <div class="pull-left">
+                          <h1>listOrgs</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">Вывести список всех организаций</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/org</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Admin-listOrgs-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Admin-listOrgs-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Admin-listOrgs-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Admin-listOrgs-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Admin-listOrgs-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Admin-listOrgs-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Admin-listOrgs-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Admin-listOrgs-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Admin-listOrgs-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Admin-listOrgs-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Admin-listOrgs-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Admin-listOrgs-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://virtserver.swaggerhub.com/Rexhaif/RSA-API/3.0.0/org"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Admin-listOrgs-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.AdminApi;
+
+import java.io.File;
+import java.util.*;
+
+public class AdminApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
+        AdminApi apiInstance = new AdminApi();
+        try {
+            array[Organization] result = apiInstance.listOrgs();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AdminApi#listOrgs");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Admin-listOrgs-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.AdminApi;
+
+public class AdminApiExample {
+
+    public static void main(String[] args) {
+        AdminApi apiInstance = new AdminApi();
+        try {
+            array[Organization] result = apiInstance.listOrgs();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AdminApi#listOrgs");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Admin-listOrgs-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Admin-listOrgs-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+
+AdminApi *apiInstance = [[AdminApi alloc] init];
+
+[apiInstance listOrgsWithCompletionHandler: 
+              ^(array[Organization] output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Admin-listOrgs-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ApiRsa = require('api__rsa');
+var defaultClient = ApiRsa.ApiClient.instance;
+
+
+var api = new ApiRsa.AdminApi()
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.listOrgs(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Admin-listOrgs-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Admin-listOrgs-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class listOrgsExample
+    {
+        public void main()
+        {
+
+
+            var apiInstance = new AdminApi();
+
+            try
+            {
+                array[Organization] result = apiInstance.listOrgs();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling AdminApi.listOrgs: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Admin-listOrgs-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$api_instance = new Swagger\Client\ApiAdminApi();
+
+try {
+    $result = $api_instance->listOrgs();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AdminApi->listOrgs: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Admin-listOrgs-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::AdminApi;
+
+
+my $api_instance = WWW::SwaggerClient::AdminApi->new();
+
+eval { 
+    my $result = $api_instance->listOrgs();
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling AdminApi->listOrgs: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Admin-listOrgs-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = swagger_client.AdminApi()
+
+try: 
+    api_response = api_instance.list_orgs()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AdminApi->listOrgs: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - Список организаций </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-listOrgs-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-listOrgs-200-schema">
+                                  <div id='responses-listOrgs-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Список организаций",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/Organization"
+        }
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-listOrgs-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-listOrgs-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-listOrgs-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                  </section>
                 <section id="api-ManageDocs">
                   <h1>ManageDocs</h1>
                     <div id="api-ManageDocs-createCorp">
