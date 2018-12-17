@@ -738,6 +738,25 @@
     }
   }
 };
+            defs.body_2 = {
+  "required" : [ "text", "title" ],
+  "type" : "object",
+  "properties" : {
+    "title" : {
+      "type" : "string"
+    },
+    "text" : {
+      "type" : "string"
+    },
+    "author" : {
+      "type" : "string"
+    },
+    "created_at" : {
+      "type" : "string",
+      "format" : "date-time"
+    }
+  }
+};
             defs.Corpus = {
   "required" : [ "id", "org_id", "title" ],
   "type" : "object",
@@ -837,6 +856,15 @@
     "entity_name" : {
       "type" : "string",
       "example" : "количество слов"
+    }
+  }
+};
+            defs.inline_response_201 = {
+  "type" : "object",
+  "properties" : {
+    "document_id" : {
+      "type" : "string",
+      "format" : "uuid"
     }
   }
 };
@@ -940,6 +968,9 @@
                       <a href="#api-Admin-listOrgs">listOrgs</a>
                     </li>
                   <li class="nav-header" data-group="ManageDocs"><a href="#api-ManageDocs">API Methods - ManageDocs</a></li>
+                    <li data-group="ManageDocs" data-name="addDocument" class="">
+                      <a href="#api-ManageDocs-addDocument">addDocument</a>
+                    </li>
                     <li data-group="ManageDocs" data-name="createCorp" class="">
                       <a href="#api-ManageDocs-createCorp">createCorp</a>
                     </li>
@@ -956,6 +987,9 @@
                   <li class="nav-header" data-group="ReadDocs"><a href="#api-ReadDocs">API Methods - ReadDocs</a></li>
                     <li data-group="ReadDocs" data-name="getCorp" class="">
                       <a href="#api-ReadDocs-getCorp">getCorp</a>
+                    </li>
+                    <li data-group="ReadDocs" data-name="getDoc" class="">
+                      <a href="#api-ReadDocs-getDoc">getDoc</a>
                     </li>
                     <li data-group="ReadDocs" data-name="listCorpuses" class="">
                       <a href="#api-ReadDocs-listCorpuses">listCorpuses</a>
@@ -2107,6 +2141,348 @@ except ApiException as e:
                   </section>
                 <section id="api-ManageDocs">
                   <h1>ManageDocs</h1>
+                    <div id="api-ManageDocs-addDocument">
+                      <article id="api-ManageDocs-addDocument-0" data-group="User" data-name="addDocument" data-version="0">
+                        <div class="pull-left">
+                          <h1>addDocument</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">Загрузка нового документа в корпус</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/corp/{corp_id}/doc</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-ManageDocs-addDocument-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-ManageDocs-addDocument-0-java">Java</a></li>
+                          <li class=""><a href="#examples-ManageDocs-addDocument-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-ManageDocs-addDocument-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-ManageDocs-addDocument-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-ManageDocs-addDocument-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-ManageDocs-addDocument-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-ManageDocs-addDocument-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-ManageDocs-addDocument-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-ManageDocs-addDocument-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-ManageDocs-addDocument-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-ManageDocs-addDocument-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X POST "https://virtserver.swaggerhub.com/Rexhaif/RSA-API/3.0.0/corp/{corp_id}/doc"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-ManageDocs-addDocument-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.ManageDocsApi;
+
+import java.io.File;
+import java.util.*;
+
+public class ManageDocsApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
+        ManageDocsApi apiInstance = new ManageDocsApi();
+        UUID corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id корпуса
+        Body_2 body = ; // Body_2 | 
+        try {
+            inline_response_201 result = apiInstance.addDocument(corpId, body);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ManageDocsApi#addDocument");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-ManageDocs-addDocument-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.ManageDocsApi;
+
+public class ManageDocsApiExample {
+
+    public static void main(String[] args) {
+        ManageDocsApi apiInstance = new ManageDocsApi();
+        UUID corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id корпуса
+        Body_2 body = ; // Body_2 | 
+        try {
+            inline_response_201 result = apiInstance.addDocument(corpId, body);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ManageDocsApi#addDocument");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-ManageDocs-addDocument-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-ManageDocs-addDocument-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+UUID *corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // id корпуса
+Body_2 *body = ; //  (optional)
+
+ManageDocsApi *apiInstance = [[ManageDocsApi alloc] init];
+
+[apiInstance addDocumentWith:corpId:body
+              completionHandler: ^(inline_response_201 output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-ManageDocs-addDocument-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ApiRsa = require('api__rsa');
+var defaultClient = ApiRsa.ApiClient.instance;
+
+
+var api = new ApiRsa.ManageDocsApi()
+var corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // {{UUID}} id корпуса
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.addDocument(corpId, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-ManageDocs-addDocument-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-ManageDocs-addDocument-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class addDocumentExample
+    {
+        public void main()
+        {
+
+
+            var apiInstance = new ManageDocsApi();
+            var corpId = new UUID(); // UUID | id корпуса
+            var body = new Body_2(); // Body_2 |  (optional) 
+
+            try
+            {
+                inline_response_201 result = apiInstance.addDocument(corpId, body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ManageDocsApi.addDocument: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-ManageDocs-addDocument-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$api_instance = new Swagger\Client\ApiManageDocsApi();
+$corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id корпуса
+$body = ; // Body_2 | 
+
+try {
+    $result = $api_instance->addDocument($corpId, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManageDocsApi->addDocument: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-ManageDocs-addDocument-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::ManageDocsApi;
+
+
+my $api_instance = WWW::SwaggerClient::ManageDocsApi->new();
+my $corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; # UUID | id корпуса
+my $body = WWW::SwaggerClient::Object::Body_2->new(); # Body_2 | 
+
+eval { 
+    my $result = $api_instance->addDocument(corpId => $corpId, body => $body);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling ManageDocsApi->addDocument: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-ManageDocs-addDocument-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = swagger_client.ManageDocsApi()
+corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d # UUID | id корпуса
+body =  # Body_2 |  (optional)
+
+try: 
+    api_response = api_instance.add_document(corpId, body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ManageDocsApi->addDocument: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">corp_id*</td>
+                                  <td>
+                                  
+                                  
+                                      <div id="d2e199_addDocument_corpId">
+                                          <div class="json-schema-view">
+                                              <div class="primitive">
+                                                  <span class="type">
+                                                      UUID
+                                                  </span>
+                                                      <span class="format">
+                                                          (uuid)
+                                                      </span>
+                                  
+                                                      <div class="inner description">
+                                                          id корпуса
+                                                      </div>
+                                              </div>
+                                                  <div class="inner required">
+                                                      Required
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+                            </table>
+
+
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">body </td>
+                                <td>
+                                
+                                
+                                <script>
+                                $(document).ready(function() {
+                                  var schemaWrapper = ;
+                                  var schema = schemaWrapper.schema;
+                                  if (schema.$ref != null) {
+                                    schema = defsParser.$refs.get(schema.$ref);
+                                  } else {
+                                    schemaWrapper.definitions = Object.assign({}, defs);
+                                    $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                      console.log(err);
+                                    });
+                                  }
+                                
+                                  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+                                  var result = $('#d2e199_addDocument_body');
+                                  result.empty();
+                                  result.append(view.render());
+                                });
+                                </script>
+                                <div id="d2e199_addDocument_body"></div>
+                                </td>
+                                </tr>
+                            </table>
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 201 - Документ создан, возвращается id </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-addDocument-201-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-addDocument-201-schema">
+                                  <div id='responses-addDocument-201-schema-201' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Документ создан, возвращается id",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/inline_response_201"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-addDocument-201-schema-data').val(stringify(schema));
+                                        var result = $('#responses-addDocument-201-schema-201');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-addDocument-201-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
                     <div id="api-ManageDocs-createCorp">
                       <article id="api-ManageDocs-createCorp-0" data-group="User" data-name="createCorp" data-version="0">
                         <div class="pull-left">
@@ -2425,7 +2801,7 @@ except ApiException as e:
                         <p class="marked">Удалить корпус</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/corp/{copr_id}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/corp/{corp_id}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -2445,7 +2821,7 @@ except ApiException as e:
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-ManageDocs-deleteCorp-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X DELETE "https://virtserver.swaggerhub.com/Rexhaif/RSA-API/3.0.0/corp/{copr_id}"</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X DELETE "https://virtserver.swaggerhub.com/Rexhaif/RSA-API/3.0.0/corp/{corp_id}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-ManageDocs-deleteCorp-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -2463,9 +2839,9 @@ public class ManageDocsApiExample {
 
 
         ManageDocsApi apiInstance = new ManageDocsApi();
-        UUID coprId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id корпуса
+        UUID corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id корпуса
         try {
-            apiInstance.deleteCorp(coprId);
+            apiInstance.deleteCorp(corpId);
         } catch (ApiException e) {
             System.err.println("Exception when calling ManageDocsApi#deleteCorp");
             e.printStackTrace();
@@ -2481,9 +2857,9 @@ public class ManageDocsApiExample {
 
     public static void main(String[] args) {
         ManageDocsApi apiInstance = new ManageDocsApi();
-        UUID coprId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id корпуса
+        UUID corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id корпуса
         try {
-            apiInstance.deleteCorp(coprId);
+            apiInstance.deleteCorp(corpId);
         } catch (ApiException e) {
             System.err.println("Exception when calling ManageDocsApi#deleteCorp");
             e.printStackTrace();
@@ -2497,11 +2873,11 @@ public class ManageDocsApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-ManageDocs-deleteCorp-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-UUID *coprId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // id корпуса
+UUID *corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // id корпуса
 
 ManageDocsApi *apiInstance = [[ManageDocsApi alloc] init];
 
-[apiInstance deleteCorpWith:coprId
+[apiInstance deleteCorpWith:corpId
               completionHandler: ^(NSError* error) {
                             if (error) {
                                 NSLog(@"Error: %@", error);
@@ -2516,7 +2892,7 @@ var defaultClient = ApiRsa.ApiClient.instance;
 
 
 var api = new ApiRsa.ManageDocsApi()
-var coprId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // {{UUID}} id корпуса
+var corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // {{UUID}} id корпуса
 
 var callback = function(error, data, response) {
   if (error) {
@@ -2525,7 +2901,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.deleteCorp(coprId, callback);
+api.deleteCorp(corpId, callback);
 </code></pre>
                             </div>
 
@@ -2548,11 +2924,11 @@ namespace Example
 
 
             var apiInstance = new ManageDocsApi();
-            var coprId = new UUID(); // UUID | id корпуса
+            var corpId = new UUID(); // UUID | id корпуса
 
             try
             {
-                apiInstance.deleteCorp(coprId);
+                apiInstance.deleteCorp(corpId);
             }
             catch (Exception e)
             {
@@ -2570,10 +2946,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api_instance = new Swagger\Client\ApiManageDocsApi();
-$coprId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id корпуса
+$corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id корпуса
 
 try {
-    $api_instance->deleteCorp($coprId);
+    $api_instance->deleteCorp($corpId);
 } catch (Exception $e) {
     echo 'Exception when calling ManageDocsApi->deleteCorp: ', $e->getMessage(), PHP_EOL;
 }
@@ -2587,10 +2963,10 @@ use WWW::SwaggerClient::ManageDocsApi;
 
 
 my $api_instance = WWW::SwaggerClient::ManageDocsApi->new();
-my $coprId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; # UUID | id корпуса
+my $corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; # UUID | id корпуса
 
 eval { 
-    $api_instance->deleteCorp(coprId => $coprId);
+    $api_instance->deleteCorp(corpId => $corpId);
 };
 if ($@) {
     warn "Exception when calling ManageDocsApi->deleteCorp: $@\n";
@@ -2607,10 +2983,10 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.ManageDocsApi()
-coprId = 38400000-8cf0-11bd-b23e-10b96e4ef00d # UUID | id корпуса
+corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d # UUID | id корпуса
 
 try: 
-    api_instance.delete_corp(coprId)
+    api_instance.delete_corp(corpId)
 except ApiException as e:
     print("Exception when calling ManageDocsApi->deleteCorp: %s\n" % e)</code></pre>
                             </div>
@@ -2624,11 +3000,11 @@ except ApiException as e:
                                   <th width="150px">Name</th>
                                   <th>Description</th>
                                 </tr>
-                                  <tr><td style="width:150px;">copr_id*</td>
+                                  <tr><td style="width:150px;">corp_id*</td>
                                   <td>
                                   
                                   
-                                      <div id="d2e199_deleteCorp_coprId">
+                                      <div id="d2e199_deleteCorp_corpId">
                                           <div class="json-schema-view">
                                               <div class="primitive">
                                                   <span class="type">
@@ -3241,7 +3617,7 @@ except ApiException as e:
                         <p class="marked">Вернуть все данные по корпусу</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/corp/{copr_id}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/corp/{corp_id}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -3261,7 +3637,7 @@ except ApiException as e:
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-ReadDocs-getCorp-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://virtserver.swaggerhub.com/Rexhaif/RSA-API/3.0.0/corp/{copr_id}"</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://virtserver.swaggerhub.com/Rexhaif/RSA-API/3.0.0/corp/{corp_id}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-ReadDocs-getCorp-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -3279,9 +3655,9 @@ public class ReadDocsApiExample {
 
 
         ReadDocsApi apiInstance = new ReadDocsApi();
-        UUID coprId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id корпуса
+        UUID corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id корпуса
         try {
-            Corpus result = apiInstance.getCorp(coprId);
+            Corpus result = apiInstance.getCorp(corpId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ReadDocsApi#getCorp");
@@ -3298,9 +3674,9 @@ public class ReadDocsApiExample {
 
     public static void main(String[] args) {
         ReadDocsApi apiInstance = new ReadDocsApi();
-        UUID coprId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id корпуса
+        UUID corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id корпуса
         try {
-            Corpus result = apiInstance.getCorp(coprId);
+            Corpus result = apiInstance.getCorp(corpId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ReadDocsApi#getCorp");
@@ -3315,11 +3691,11 @@ public class ReadDocsApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-ReadDocs-getCorp-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-UUID *coprId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // id корпуса
+UUID *corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // id корпуса
 
 ReadDocsApi *apiInstance = [[ReadDocsApi alloc] init];
 
-[apiInstance getCorpWith:coprId
+[apiInstance getCorpWith:corpId
               completionHandler: ^(Corpus output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
@@ -3337,7 +3713,7 @@ var defaultClient = ApiRsa.ApiClient.instance;
 
 
 var api = new ApiRsa.ReadDocsApi()
-var coprId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // {{UUID}} id корпуса
+var corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // {{UUID}} id корпуса
 
 var callback = function(error, data, response) {
   if (error) {
@@ -3346,7 +3722,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.getCorp(coprId, callback);
+api.getCorp(corpId, callback);
 </code></pre>
                             </div>
 
@@ -3369,11 +3745,11 @@ namespace Example
 
 
             var apiInstance = new ReadDocsApi();
-            var coprId = new UUID(); // UUID | id корпуса
+            var corpId = new UUID(); // UUID | id корпуса
 
             try
             {
-                Corpus result = apiInstance.getCorp(coprId);
+                Corpus result = apiInstance.getCorp(corpId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -3392,10 +3768,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api_instance = new Swagger\Client\ApiReadDocsApi();
-$coprId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id корпуса
+$corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id корпуса
 
 try {
-    $result = $api_instance->getCorp($coprId);
+    $result = $api_instance->getCorp($corpId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReadDocsApi->getCorp: ', $e->getMessage(), PHP_EOL;
@@ -3410,10 +3786,10 @@ use WWW::SwaggerClient::ReadDocsApi;
 
 
 my $api_instance = WWW::SwaggerClient::ReadDocsApi->new();
-my $coprId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; # UUID | id корпуса
+my $corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; # UUID | id корпуса
 
 eval { 
-    my $result = $api_instance->getCorp(coprId => $coprId);
+    my $result = $api_instance->getCorp(corpId => $corpId);
     print Dumper($result);
 };
 if ($@) {
@@ -3431,10 +3807,10 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.ReadDocsApi()
-coprId = 38400000-8cf0-11bd-b23e-10b96e4ef00d # UUID | id корпуса
+corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d # UUID | id корпуса
 
 try: 
-    api_response = api_instance.get_corp(coprId)
+    api_response = api_instance.get_corp(corpId)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ReadDocsApi->getCorp: %s\n" % e)</code></pre>
@@ -3449,11 +3825,11 @@ except ApiException as e:
                                   <th width="150px">Name</th>
                                   <th>Description</th>
                                 </tr>
-                                  <tr><td style="width:150px;">copr_id*</td>
+                                  <tr><td style="width:150px;">corp_id*</td>
                                   <td>
                                   
                                   
-                                      <div id="d2e199_getCorp_coprId">
+                                      <div id="d2e199_getCorp_corpId">
                                           <div class="json-schema-view">
                                               <div class="primitive">
                                                   <span class="type">
@@ -3531,6 +3907,342 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
+                    <div id="api-ReadDocs-getDoc">
+                      <article id="api-ReadDocs-getDoc-0" data-group="User" data-name="getDoc" data-version="0">
+                        <div class="pull-left">
+                          <h1>getDoc</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">Получить документ</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/corp/{corp_id}/doc/{doc_id}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-ReadDocs-getDoc-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-ReadDocs-getDoc-0-java">Java</a></li>
+                          <li class=""><a href="#examples-ReadDocs-getDoc-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-ReadDocs-getDoc-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-ReadDocs-getDoc-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-ReadDocs-getDoc-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-ReadDocs-getDoc-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-ReadDocs-getDoc-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-ReadDocs-getDoc-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-ReadDocs-getDoc-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-ReadDocs-getDoc-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-ReadDocs-getDoc-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://virtserver.swaggerhub.com/Rexhaif/RSA-API/3.0.0/corp/{corp_id}/doc/{doc_id}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-ReadDocs-getDoc-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.ReadDocsApi;
+
+import java.io.File;
+import java.util.*;
+
+public class ReadDocsApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
+        ReadDocsApi apiInstance = new ReadDocsApi();
+        UUID corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id корпуса
+        UUID docId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id документа
+        try {
+            Document result = apiInstance.getDoc(corpId, docId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ReadDocsApi#getDoc");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-ReadDocs-getDoc-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.ReadDocsApi;
+
+public class ReadDocsApiExample {
+
+    public static void main(String[] args) {
+        ReadDocsApi apiInstance = new ReadDocsApi();
+        UUID corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id корпуса
+        UUID docId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id документа
+        try {
+            Document result = apiInstance.getDoc(corpId, docId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ReadDocsApi#getDoc");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-ReadDocs-getDoc-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-ReadDocs-getDoc-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+UUID *corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // id корпуса
+UUID *docId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // id документа
+
+ReadDocsApi *apiInstance = [[ReadDocsApi alloc] init];
+
+[apiInstance getDocWith:corpId
+    docId:docId
+              completionHandler: ^(Document output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-ReadDocs-getDoc-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ApiRsa = require('api__rsa');
+var defaultClient = ApiRsa.ApiClient.instance;
+
+
+var api = new ApiRsa.ReadDocsApi()
+var corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // {{UUID}} id корпуса
+var docId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // {{UUID}} id документа
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.getDoc(corpId, docId, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-ReadDocs-getDoc-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-ReadDocs-getDoc-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class getDocExample
+    {
+        public void main()
+        {
+
+
+            var apiInstance = new ReadDocsApi();
+            var corpId = new UUID(); // UUID | id корпуса
+            var docId = new UUID(); // UUID | id документа
+
+            try
+            {
+                Document result = apiInstance.getDoc(corpId, docId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ReadDocsApi.getDoc: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-ReadDocs-getDoc-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$api_instance = new Swagger\Client\ApiReadDocsApi();
+$corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id корпуса
+$docId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id документа
+
+try {
+    $result = $api_instance->getDoc($corpId, $docId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReadDocsApi->getDoc: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-ReadDocs-getDoc-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::ReadDocsApi;
+
+
+my $api_instance = WWW::SwaggerClient::ReadDocsApi->new();
+my $corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; # UUID | id корпуса
+my $docId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; # UUID | id документа
+
+eval { 
+    my $result = $api_instance->getDoc(corpId => $corpId, docId => $docId);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling ReadDocsApi->getDoc: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-ReadDocs-getDoc-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = swagger_client.ReadDocsApi()
+corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d # UUID | id корпуса
+docId = 38400000-8cf0-11bd-b23e-10b96e4ef00d # UUID | id документа
+
+try: 
+    api_response = api_instance.get_doc(corpId, docId)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReadDocsApi->getDoc: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">corp_id*</td>
+                                  <td>
+                                  
+                                  
+                                      <div id="d2e199_getDoc_corpId">
+                                          <div class="json-schema-view">
+                                              <div class="primitive">
+                                                  <span class="type">
+                                                      UUID
+                                                  </span>
+                                                      <span class="format">
+                                                          (uuid)
+                                                      </span>
+                                  
+                                                      <div class="inner description">
+                                                          id корпуса
+                                                      </div>
+                                              </div>
+                                                  <div class="inner required">
+                                                      Required
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+                                  <tr><td style="width:150px;">doc_id*</td>
+                                  <td>
+                                  
+                                  
+                                      <div id="d2e199_getDoc_docId">
+                                          <div class="json-schema-view">
+                                              <div class="primitive">
+                                                  <span class="type">
+                                                      UUID
+                                                  </span>
+                                                      <span class="format">
+                                                          (uuid)
+                                                      </span>
+                                  
+                                                      <div class="inner description">
+                                                          id документа
+                                                      </div>
+                                              </div>
+                                                  <div class="inner required">
+                                                      Required
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - Документ найден </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-getDoc-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-getDoc-200-schema">
+                                  <div id='responses-getDoc-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Документ найден",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Document"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-getDoc-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-getDoc-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-getDoc-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
                     <div id="api-ReadDocs-listCorpuses">
                       <article id="api-ReadDocs-listCorpuses-0" data-group="User" data-name="listCorpuses" data-version="0">
                         <div class="pull-left">
@@ -3563,7 +4275,7 @@ except ApiException as e:
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-ReadDocs-listCorpuses-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://virtserver.swaggerhub.com/Rexhaif/RSA-API/3.0.0/corp?limit="</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://virtserver.swaggerhub.com/Rexhaif/RSA-API/3.0.0/corp"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-ReadDocs-listCorpuses-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -3581,9 +4293,8 @@ public class ReadDocsApiExample {
 
 
         ReadDocsApi apiInstance = new ReadDocsApi();
-        Integer limit = 56; // Integer | How many items to return at one time (max 100)
         try {
-            array[Corpus] result = apiInstance.listCorpuses(limit);
+            array[Corpus] result = apiInstance.listCorpuses();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ReadDocsApi#listCorpuses");
@@ -3600,9 +4311,8 @@ public class ReadDocsApiExample {
 
     public static void main(String[] args) {
         ReadDocsApi apiInstance = new ReadDocsApi();
-        Integer limit = 56; // Integer | How many items to return at one time (max 100)
         try {
-            array[Corpus] result = apiInstance.listCorpuses(limit);
+            array[Corpus] result = apiInstance.listCorpuses();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ReadDocsApi#listCorpuses");
@@ -3617,13 +4327,12 @@ public class ReadDocsApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-ReadDocs-listCorpuses-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-Integer *limit = 56; // How many items to return at one time (max 100) (optional)
 
 ReadDocsApi *apiInstance = [[ReadDocsApi alloc] init];
 
 // List all corpuses
-[apiInstance listCorpusesWith:limit
-              completionHandler: ^(array[Corpus] output, NSError* error) {
+[apiInstance listCorpusesWithCompletionHandler: 
+              ^(array[Corpus] output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -3640,9 +4349,6 @@ var defaultClient = ApiRsa.ApiClient.instance;
 
 
 var api = new ApiRsa.ReadDocsApi()
-var opts = { 
-  'limit': 56 // {{Integer}} How many items to return at one time (max 100)
-};
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -3650,7 +4356,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.listCorpuses(opts, callback);
+api.listCorpuses(callback);
 </code></pre>
                             </div>
 
@@ -3673,12 +4379,11 @@ namespace Example
 
 
             var apiInstance = new ReadDocsApi();
-            var limit = 56;  // Integer | How many items to return at one time (max 100) (optional) 
 
             try
             {
                 // List all corpuses
-                array[Corpus] result = apiInstance.listCorpuses(limit);
+                array[Corpus] result = apiInstance.listCorpuses();
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -3697,10 +4402,9 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api_instance = new Swagger\Client\ApiReadDocsApi();
-$limit = 56; // Integer | How many items to return at one time (max 100)
 
 try {
-    $result = $api_instance->listCorpuses($limit);
+    $result = $api_instance->listCorpuses();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReadDocsApi->listCorpuses: ', $e->getMessage(), PHP_EOL;
@@ -3715,10 +4419,9 @@ use WWW::SwaggerClient::ReadDocsApi;
 
 
 my $api_instance = WWW::SwaggerClient::ReadDocsApi->new();
-my $limit = 56; # Integer | How many items to return at one time (max 100)
 
 eval { 
-    my $result = $api_instance->listCorpuses(limit => $limit);
+    my $result = $api_instance->listCorpuses();
     print Dumper($result);
 };
 if ($@) {
@@ -3736,11 +4439,10 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.ReadDocsApi()
-limit = 56 # Integer | How many items to return at one time (max 100) (optional)
 
 try: 
     # List all corpuses
-    api_response = api_instance.list_corpuses(limit=limit)
+    api_response = api_instance.list_corpuses()
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ReadDocsApi->listCorpuses: %s\n" % e)</code></pre>
@@ -3753,35 +4455,6 @@ except ApiException as e:
 
 
 
-                            <div class="methodsubtabletitle">Query parameters</div>
-                            <table id="methodsubtable">
-                              <tr>
-                                <th width="150px">Name</th>
-                                <th>Description</th>
-                              </tr>
-                                <tr><td style="width:150px;">limit</td>
-                                <td>
-                                
-                                
-                                    <div id="d2e199_listCorpuses_limit">
-                                        <div class="json-schema-view">
-                                            <div class="primitive">
-                                                <span class="type">
-                                                    Integer
-                                                </span>
-                                                    <span class="format">
-                                                        (int32)
-                                                    </span>
-                                
-                                                    <div class="inner description">
-                                                        How many items to return at one time (max 100)
-                                                    </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                </tr>
-                            </table>
 
                           <h2>Responses</h2>
                             <h3> Status: 200 - A array of corpuses </h3>
