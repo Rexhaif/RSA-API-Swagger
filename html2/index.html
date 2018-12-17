@@ -3022,7 +3022,8 @@ public class ReadDocsApiExample {
         ReadDocsApi apiInstance = new ReadDocsApi();
         UUID coprId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id корпуса
         try {
-            apiInstance.getCorp(coprId);
+            Corpus result = apiInstance.getCorp(coprId);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ReadDocsApi#getCorp");
             e.printStackTrace();
@@ -3040,7 +3041,8 @@ public class ReadDocsApiExample {
         ReadDocsApi apiInstance = new ReadDocsApi();
         UUID coprId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id корпуса
         try {
-            apiInstance.getCorp(coprId);
+            Corpus result = apiInstance.getCorp(coprId);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ReadDocsApi#getCorp");
             e.printStackTrace();
@@ -3058,7 +3060,10 @@ public class ReadDocsApiExample {
 ReadDocsApi *apiInstance = [[ReadDocsApi alloc] init];
 
 [apiInstance getCorpWith:coprId
-              completionHandler: ^(NSError* error) {
+              completionHandler: ^(Corpus output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
                             if (error) {
                                 NSLog(@"Error: %@", error);
                             }
@@ -3076,7 +3081,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 api.getCorp(coprId, callback);
@@ -3105,7 +3110,8 @@ namespace Example
 
             try
             {
-                apiInstance.getCorp(coprId);
+                Corpus result = apiInstance.getCorp(coprId);
+                Debug.WriteLine(result);
             }
             catch (Exception e)
             {
@@ -3125,7 +3131,8 @@ $api_instance = new Swagger\Client\ApiReadDocsApi();
 $coprId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id корпуса
 
 try {
-    $api_instance->getCorp($coprId);
+    $result = $api_instance->getCorp($coprId);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReadDocsApi->getCorp: ', $e->getMessage(), PHP_EOL;
 }
@@ -3141,7 +3148,8 @@ my $api_instance = WWW::SwaggerClient::ReadDocsApi->new();
 my $coprId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; # UUID | id корпуса
 
 eval { 
-    $api_instance->getCorp(coprId => $coprId);
+    my $result = $api_instance->getCorp(coprId => $coprId);
+    print Dumper($result);
 };
 if ($@) {
     warn "Exception when calling ReadDocsApi->getCorp: $@\n";
@@ -3160,7 +3168,8 @@ api_instance = swagger_client.ReadDocsApi()
 coprId = 38400000-8cf0-11bd-b23e-10b96e4ef00d # UUID | id корпуса
 
 try: 
-    api_instance.get_corp(coprId)
+    api_response = api_instance.get_corp(coprId)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling ReadDocsApi->getCorp: %s\n" % e)</code></pre>
                             </div>
@@ -3209,9 +3218,48 @@ except ApiException as e:
                             <h3> Status: 200 - Корпус найден, возвращается объект </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-getCorp-200-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-getCorp-200-schema">
+                                  <div id='responses-getCorp-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Корпус найден, возвращается объект",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Corpus"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-getCorp-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-getCorp-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-getCorp-200-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
