@@ -917,6 +917,10 @@
                     <li data-group="Admin" data-name="listOrgs" class="">
                       <a href="#api-Admin-listOrgs">listOrgs</a>
                     </li>
+                  <li class="nav-header" data-group="Default"><a href="#api-Default">API Methods - Default</a></li>
+                    <li data-group="Default" data-name="orgPost" class="">
+                      <a href="#api-Default-orgPost">orgPost</a>
+                    </li>
                   <li class="nav-header" data-group="ManageDocs"><a href="#api-ManageDocs">API Methods - ManageDocs</a></li>
                     <li data-group="ManageDocs" data-name="createCorp" class="">
                       <a href="#api-ManageDocs-createCorp">createCorp</a>
@@ -1207,6 +1211,205 @@ except ApiException as e:
                                 </div>
                             </div>
 
+                        </article>
+                      </div>
+                      <hr>
+                  </section>
+                <section id="api-Default">
+                  <h1>Default</h1>
+                    <div id="api-Default-orgPost">
+                      <article id="api-Default-orgPost-0" data-group="User" data-name="orgPost" data-version="0">
+                        <div class="pull-left">
+                          <h1>orgPost</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">Создать новую организацию</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/org</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-orgPost-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-orgPost-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-orgPost-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-orgPost-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-orgPost-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-orgPost-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-orgPost-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-orgPost-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-orgPost-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-orgPost-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-orgPost-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-orgPost-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X POST "https://virtserver.swaggerhub.com/Rexhaif/RSA-API/3.0.0/org"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-orgPost-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        
+        DefaultApi apiInstance = new DefaultApi();
+        try {
+            apiInstance.orgPost();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#orgPost");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-orgPost-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
+
+public class DefaultApiExample {
+
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+        try {
+            apiInstance.orgPost();
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#orgPost");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-orgPost-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-orgPost-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+
+[apiInstance orgPostWithCompletionHandler: 
+              ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-orgPost-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ApiRsa = require('api__rsa');
+
+var api = new ApiRsa.DefaultApi()
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.orgPost(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-orgPost-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-orgPost-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class orgPostExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new DefaultApi();
+
+            try
+            {
+                apiInstance.orgPost();
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling DefaultApi.orgPost: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-orgPost-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiDefaultApi();
+
+try {
+    $api_instance->orgPost();
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->orgPost: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-orgPost-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::DefaultApi;
+
+my $api_instance = WWW::SwaggerClient::DefaultApi->new();
+
+eval { 
+    $api_instance->orgPost();
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->orgPost: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-orgPost-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.DefaultApi()
+
+try: 
+    api_instance.org_post()
+except ApiException as e:
+    print("Exception when calling DefaultApi->orgPost: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
                         </article>
                       </div>
                       <hr>
