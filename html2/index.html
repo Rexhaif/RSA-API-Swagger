@@ -8130,7 +8130,7 @@ public class ReadApiExample {
 
 
         ReadApi apiInstance = new ReadApi();
-        String title = title_example; // String | 
+        String title = title_example; // String | фильтровать по фрагменту названия документа
         String author = author_example; // String | фильтровать по автору документа
         Date createdBefore = 2013-10-20T19:20:30+01:00; // Date | фильтровать по времени создания документа(верхняя граница)
         Date createdAfter = 2013-10-20T19:20:30+01:00; // Date | фильтровать по времени создания документа(нижняя граница)
@@ -8153,7 +8153,7 @@ public class ReadApiExample {
 
     public static void main(String[] args) {
         ReadApi apiInstance = new ReadApi();
-        String title = title_example; // String | 
+        String title = title_example; // String | фильтровать по фрагменту названия документа
         String author = author_example; // String | фильтровать по автору документа
         Date createdBefore = 2013-10-20T19:20:30+01:00; // Date | фильтровать по времени создания документа(верхняя граница)
         Date createdAfter = 2013-10-20T19:20:30+01:00; // Date | фильтровать по времени создания документа(нижняя граница)
@@ -8174,7 +8174,7 @@ public class ReadApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-Read-searchDocs-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-String *title = title_example; //  (optional)
+String *title = title_example; // фильтровать по фрагменту названия документа (optional)
 String *author = author_example; // фильтровать по автору документа (optional)
 Date *createdBefore = 2013-10-20T19:20:30+01:00; // фильтровать по времени создания документа(верхняя граница) (optional)
 Date *createdAfter = 2013-10-20T19:20:30+01:00; // фильтровать по времени создания документа(нижняя граница) (optional)
@@ -8206,7 +8206,7 @@ var defaultClient = ApiRsa.ApiClient.instance;
 
 var api = new ApiRsa.ReadApi()
 var opts = { 
-  'title': title_example, // {{String}} 
+  'title': title_example, // {{String}} фильтровать по фрагменту названия документа
   'author': author_example, // {{String}} фильтровать по автору документа
   'createdBefore': 2013-10-20T19:20:30+01:00, // {{Date}} фильтровать по времени создания документа(верхняя граница)
   'createdAfter': 2013-10-20T19:20:30+01:00, // {{Date}} фильтровать по времени создания документа(нижняя граница)
@@ -8242,7 +8242,7 @@ namespace Example
 
 
             var apiInstance = new ReadApi();
-            var title = title_example;  // String |  (optional) 
+            var title = title_example;  // String | фильтровать по фрагменту названия документа (optional) 
             var author = author_example;  // String | фильтровать по автору документа (optional) 
             var createdBefore = 2013-10-20T19:20:30+01:00;  // Date | фильтровать по времени создания документа(верхняя граница) (optional) 
             var createdAfter = 2013-10-20T19:20:30+01:00;  // Date | фильтровать по времени создания документа(нижняя граница) (optional) 
@@ -8270,7 +8270,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api_instance = new Swagger\Client\ApiReadApi();
-$title = title_example; // String | 
+$title = title_example; // String | фильтровать по фрагменту названия документа
 $author = author_example; // String | фильтровать по автору документа
 $createdBefore = 2013-10-20T19:20:30+01:00; // Date | фильтровать по времени создания документа(верхняя граница)
 $createdAfter = 2013-10-20T19:20:30+01:00; // Date | фильтровать по времени создания документа(нижняя граница)
@@ -8292,7 +8292,7 @@ use WWW::SwaggerClient::ReadApi;
 
 
 my $api_instance = WWW::SwaggerClient::ReadApi->new();
-my $title = title_example; # String | 
+my $title = title_example; # String | фильтровать по фрагменту названия документа
 my $author = author_example; # String | фильтровать по автору документа
 my $createdBefore = 2013-10-20T19:20:30+01:00; # Date | фильтровать по времени создания документа(верхняя граница)
 my $createdAfter = 2013-10-20T19:20:30+01:00; # Date | фильтровать по времени создания документа(нижняя граница)
@@ -8317,7 +8317,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.ReadApi()
-title = title_example # String |  (optional)
+title = title_example # String | фильтровать по фрагменту названия документа (optional)
 author = author_example # String | фильтровать по автору документа (optional)
 createdBefore = 2013-10-20T19:20:30+01:00 # Date | фильтровать по времени создания документа(верхняя граница) (optional)
 createdAfter = 2013-10-20T19:20:30+01:00 # Date | фильтровать по времени создания документа(нижняя граница) (optional)
@@ -8355,6 +8355,9 @@ except ApiException as e:
                                                     String
                                                 </span>
                                 
+                                                    <div class="inner description">
+                                                        фильтровать по фрагменту названия документа
+                                                    </div>
                                             </div>
                                         </div>
                                     </div>
