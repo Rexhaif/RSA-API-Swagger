@@ -25,7 +25,7 @@ import javax.validation.constraints.*;
 /**
  * Corpus
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T17:59:28.366Z[GMT]")public class Corpus   {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T18:01:53.311Z[GMT]")public class Corpus   {
   @JsonProperty("id")
   private UUID id = null;
 

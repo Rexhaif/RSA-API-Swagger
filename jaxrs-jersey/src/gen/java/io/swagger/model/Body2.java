@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 /**
  * Body2
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T17:59:28.366Z[GMT]")public class Body2   {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T18:01:53.311Z[GMT]")public class Body2   {
   @JsonProperty("title")
   private String title = null;
 

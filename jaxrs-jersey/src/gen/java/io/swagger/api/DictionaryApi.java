@@ -36,7 +36,7 @@ import javax.validation.constraints.*;
 @Path("/dictionary")
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T17:59:28.366Z[GMT]")public class DictionaryApi  {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T18:01:53.311Z[GMT]")public class DictionaryApi  {
    private final DictionaryApiService delegate;
 
    public DictionaryApi(@Context ServletConfig servletContext) {
@@ -86,6 +86,18 @@ import javax.validation.constraints.*;
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.getDictionary(dictId,securityContext);
+    }
+    @GET
+    
+    
+    @Produces({ "application/json" })
+    @Operation(summary = "Вывести список всех словарей", description = "", security = {
+        @SecurityRequirement(name = "bearerAuth")    }, tags={ "read-docs" })
+    @ApiResponses(value = { 
+        @ApiResponse(responseCode = "200", description = "Список словарей", content = @Content(array = @ArraySchema(schema = @Schema(implementation = Dictionary.class)))) })
+    public Response listDictionaries(@Context SecurityContext securityContext)
+    throws NotFoundException {
+        return delegate.listDictionaries(securityContext);
     }
     @PUT
     @Path("/{dict_id}")

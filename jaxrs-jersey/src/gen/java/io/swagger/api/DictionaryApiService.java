@@ -18,8 +18,9 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.validation.constraints.*;
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T17:59:28.366Z[GMT]")public abstract class DictionaryApiService {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T18:01:53.311Z[GMT]")public abstract class DictionaryApiService {
     public abstract Response createDictionary(Dictionary body,SecurityContext securityContext) throws NotFoundException;
     public abstract Response getDictionary(UUID dictId,SecurityContext securityContext) throws NotFoundException;
+    public abstract Response listDictionaries(SecurityContext securityContext) throws NotFoundException;
     public abstract Response updateDictionary(UUID dictId,List<String> body,SecurityContext securityContext) throws NotFoundException;
 }
