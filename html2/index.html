@@ -788,6 +788,29 @@
     }
   }
 };
+            defs.Dictionary = {
+  "required" : [ "id", "name", "owner_id", "words" ],
+  "type" : "object",
+  "properties" : {
+    "id" : {
+      "type" : "string",
+      "format" : "uuid"
+    },
+    "name" : {
+      "type" : "string"
+    },
+    "owner_id" : {
+      "type" : "string",
+      "format" : "uuid"
+    },
+    "words" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    }
+  }
+};
             defs.Document = {
   "required" : [ "author", "created_at", "id", "title" ],
   "type" : "object",
@@ -1008,6 +1031,9 @@
                     <li data-group="ReadDocs" data-name="getCorp" class="">
                       <a href="#api-ReadDocs-getCorp">getCorp</a>
                     </li>
+                    <li data-group="ReadDocs" data-name="getDictionary" class="">
+                      <a href="#api-ReadDocs-getDictionary">getDictionary</a>
+                    </li>
                     <li data-group="ReadDocs" data-name="getDoc" class="">
                       <a href="#api-ReadDocs-getDoc">getDoc</a>
                     </li>
@@ -1045,12 +1071,12 @@
                       <article id="api-Admin-createOrg-0" data-group="User" data-name="createOrg" data-version="0">
                         <div class="pull-left">
                           <h1>createOrg</h1>
-                          <p></p>
+                          <p>Создать новую организацию</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
                         <p></p>
-                        <p class="marked">Создать новую организацию</p>
+                        <p class="marked"></p>
                         <p></p>
                         <br />
                         <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/org</span></code></pre>
@@ -1131,6 +1157,7 @@ Body *body = ; //
 
 AdminApi *apiInstance = [[AdminApi alloc] init];
 
+// Создать новую организацию
 [apiInstance createOrgWith:body
               completionHandler: ^(Organization output, NSError* error) {
                             if (output) {
@@ -1185,6 +1212,7 @@ namespace Example
 
             try
             {
+                // Создать новую организацию
                 Organization result = apiInstance.createOrg(body);
                 Debug.WriteLine(result);
             }
@@ -1246,6 +1274,7 @@ api_instance = swagger_client.AdminApi()
 body =  # Body | 
 
 try: 
+    # Создать новую организацию
     api_response = api_instance.create_org(body)
     pprint(api_response)
 except ApiException as e:
@@ -1348,12 +1377,12 @@ except ApiException as e:
                       <article id="api-Admin-deleteOrg-0" data-group="User" data-name="deleteOrg" data-version="0">
                         <div class="pull-left">
                           <h1>deleteOrg</h1>
-                          <p></p>
+                          <p>Удалить организацию по id</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
                         <p></p>
-                        <p class="marked">Удалить организацию по id</p>
+                        <p class="marked"></p>
                         <p></p>
                         <br />
                         <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/org/{org_id}</span></code></pre>
@@ -1432,6 +1461,7 @@ UUID *orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // id удаляемой о�
 
 AdminApi *apiInstance = [[AdminApi alloc] init];
 
+// Удалить организацию по id
 [apiInstance deleteOrgWith:orgId
               completionHandler: ^(NSError* error) {
                             if (error) {
@@ -1483,6 +1513,7 @@ namespace Example
 
             try
             {
+                // Удалить организацию по id
                 apiInstance.deleteOrg(orgId);
             }
             catch (Exception e)
@@ -1541,6 +1572,7 @@ api_instance = swagger_client.AdminApi()
 orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d # UUID | id удаляемой организации
 
 try: 
+    # Удалить организацию по id
     api_instance.delete_org(orgId)
 except ApiException as e:
     print("Exception when calling AdminApi->deleteOrg: %s\n" % e)</code></pre>
@@ -1602,12 +1634,12 @@ except ApiException as e:
                       <article id="api-Admin-getOrg-0" data-group="User" data-name="getOrg" data-version="0">
                         <div class="pull-left">
                           <h1>getOrg</h1>
-                          <p></p>
+                          <p>Вернуть всю информацию по организации</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
                         <p></p>
-                        <p class="marked">Вернуть всю информацию по организации</p>
+                        <p class="marked"></p>
                         <p></p>
                         <br />
                         <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/org/{org_id}</span></code></pre>
@@ -1688,6 +1720,7 @@ UUID *orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // id организации
 
 AdminApi *apiInstance = [[AdminApi alloc] init];
 
+// Вернуть всю информацию по организации
 [apiInstance getOrgWith:orgId
               completionHandler: ^(Organization output, NSError* error) {
                             if (output) {
@@ -1742,6 +1775,7 @@ namespace Example
 
             try
             {
+                // Вернуть всю информацию по организации
                 Organization result = apiInstance.getOrg(orgId);
                 Debug.WriteLine(result);
             }
@@ -1803,6 +1837,7 @@ api_instance = swagger_client.AdminApi()
 orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d # UUID | id организации
 
 try: 
+    # Вернуть всю информацию по организации
     api_response = api_instance.get_org(orgId)
     pprint(api_response)
 except ApiException as e:
@@ -1904,12 +1939,12 @@ except ApiException as e:
                       <article id="api-Admin-listOrgs-0" data-group="User" data-name="listOrgs" data-version="0">
                         <div class="pull-left">
                           <h1>listOrgs</h1>
-                          <p></p>
+                          <p>Вывести список всех организаций</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
                         <p></p>
-                        <p class="marked">Вывести список всех организаций</p>
+                        <p class="marked"></p>
                         <p></p>
                         <br />
                         <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/org</span></code></pre>
@@ -1987,6 +2022,7 @@ public class AdminApiExample {
 
 AdminApi *apiInstance = [[AdminApi alloc] init];
 
+// Вывести список всех организаций
 [apiInstance listOrgsWithCompletionHandler: 
               ^(array[Organization] output, NSError* error) {
                             if (output) {
@@ -2038,6 +2074,7 @@ namespace Example
 
             try
             {
+                // Вывести список всех организаций
                 array[Organization] result = apiInstance.listOrgs();
                 Debug.WriteLine(result);
             }
@@ -2096,6 +2133,7 @@ from pprint import pprint
 api_instance = swagger_client.AdminApi()
 
 try: 
+    # Вывести список всех организаций
     api_response = api_instance.list_orgs()
     pprint(api_response)
 except ApiException as e:
@@ -2171,12 +2209,12 @@ except ApiException as e:
                       <article id="api-ManageDocs-addDocument-0" data-group="User" data-name="addDocument" data-version="0">
                         <div class="pull-left">
                           <h1>addDocument</h1>
-                          <p></p>
+                          <p>Загрузка нового документа в корпус</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
                         <p></p>
-                        <p class="marked">Загрузка нового документа в корпус</p>
+                        <p class="marked"></p>
                         <p></p>
                         <br />
                         <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/corp/{corp_id}/doc</span></code></pre>
@@ -2260,6 +2298,7 @@ Body_2 *body = ; //  (optional)
 
 ManageDocsApi *apiInstance = [[ManageDocsApi alloc] init];
 
+// Загрузка нового документа в корпус
 [apiInstance addDocumentWith:corpId:body
               completionHandler: ^(inline_response_201 output, NSError* error) {
                             if (output) {
@@ -2315,6 +2354,7 @@ namespace Example
 
             try
             {
+                // Загрузка нового документа в корпус
                 inline_response_201 result = apiInstance.addDocument(corpId, body);
                 Debug.WriteLine(result);
             }
@@ -2379,6 +2419,7 @@ corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d # UUID | id корпуса
 body =  # Body_2 |  (optional)
 
 try: 
+    # Загрузка нового документа в корпус
     api_response = api_instance.add_document(corpId, body=body)
     pprint(api_response)
 except ApiException as e:
@@ -2819,12 +2860,12 @@ except ApiException as e:
                       <article id="api-ManageDocs-deleteCorp-0" data-group="User" data-name="deleteCorp" data-version="0">
                         <div class="pull-left">
                           <h1>deleteCorp</h1>
-                          <p></p>
+                          <p>Удалить корпус</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
                         <p></p>
-                        <p class="marked">Удалить корпус</p>
+                        <p class="marked"></p>
                         <p></p>
                         <br />
                         <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/corp/{corp_id}</span></code></pre>
@@ -2903,6 +2944,7 @@ UUID *corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // id корпуса
 
 ManageDocsApi *apiInstance = [[ManageDocsApi alloc] init];
 
+// Удалить корпус
 [apiInstance deleteCorpWith:corpId
               completionHandler: ^(NSError* error) {
                             if (error) {
@@ -2954,6 +2996,7 @@ namespace Example
 
             try
             {
+                // Удалить корпус
                 apiInstance.deleteCorp(corpId);
             }
             catch (Exception e)
@@ -3012,6 +3055,7 @@ api_instance = swagger_client.ManageDocsApi()
 corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d # UUID | id корпуса
 
 try: 
+    # Удалить корпус
     api_instance.delete_corp(corpId)
 except ApiException as e:
     print("Exception when calling ManageDocsApi->deleteCorp: %s\n" % e)</code></pre>
@@ -3076,12 +3120,12 @@ except ApiException as e:
                       <article id="api-ManageOrgs-deleteOrg-0" data-group="User" data-name="deleteOrg" data-version="0">
                         <div class="pull-left">
                           <h1>deleteOrg</h1>
-                          <p></p>
+                          <p>Удалить организацию по id</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
                         <p></p>
-                        <p class="marked">Удалить организацию по id</p>
+                        <p class="marked"></p>
                         <p></p>
                         <br />
                         <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/org/{org_id}</span></code></pre>
@@ -3160,6 +3204,7 @@ UUID *orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // id удаляемой о�
 
 ManageOrgsApi *apiInstance = [[ManageOrgsApi alloc] init];
 
+// Удалить организацию по id
 [apiInstance deleteOrgWith:orgId
               completionHandler: ^(NSError* error) {
                             if (error) {
@@ -3211,6 +3256,7 @@ namespace Example
 
             try
             {
+                // Удалить организацию по id
                 apiInstance.deleteOrg(orgId);
             }
             catch (Exception e)
@@ -3269,6 +3315,7 @@ api_instance = swagger_client.ManageOrgsApi()
 orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d # UUID | id удаляемой организации
 
 try: 
+    # Удалить организацию по id
     api_instance.delete_org(orgId)
 except ApiException as e:
     print("Exception when calling ManageOrgsApi->deleteOrg: %s\n" % e)</code></pre>
@@ -3330,12 +3377,12 @@ except ApiException as e:
                       <article id="api-ManageOrgs-getOrg-0" data-group="User" data-name="getOrg" data-version="0">
                         <div class="pull-left">
                           <h1>getOrg</h1>
-                          <p></p>
+                          <p>Вернуть всю информацию по организации</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
                         <p></p>
-                        <p class="marked">Вернуть всю информацию по организации</p>
+                        <p class="marked"></p>
                         <p></p>
                         <br />
                         <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/org/{org_id}</span></code></pre>
@@ -3416,6 +3463,7 @@ UUID *orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // id организации
 
 ManageOrgsApi *apiInstance = [[ManageOrgsApi alloc] init];
 
+// Вернуть всю информацию по организации
 [apiInstance getOrgWith:orgId
               completionHandler: ^(Organization output, NSError* error) {
                             if (output) {
@@ -3470,6 +3518,7 @@ namespace Example
 
             try
             {
+                // Вернуть всю информацию по организации
                 Organization result = apiInstance.getOrg(orgId);
                 Debug.WriteLine(result);
             }
@@ -3531,6 +3580,7 @@ api_instance = swagger_client.ManageOrgsApi()
 orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d # UUID | id организации
 
 try: 
+    # Вернуть всю информацию по организации
     api_response = api_instance.get_org(orgId)
     pprint(api_response)
 except ApiException as e:
@@ -3635,12 +3685,12 @@ except ApiException as e:
                       <article id="api-ReadDocs-computeMarkers-0" data-group="User" data-name="computeMarkers" data-version="0">
                         <div class="pull-left">
                           <h1>computeMarkers</h1>
-                          <p></p>
+                          <p>Рассчитать психолингвистические маркеры по документам в указанных корпусах</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
                         <p></p>
-                        <p class="marked">Рассчитать психолингвистические маркеры по документам в указанных корпусах</p>
+                        <p class="marked"></p>
                         <p></p>
                         <br />
                         <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/corp/{corp_ids}/markers</span></code></pre>
@@ -3724,6 +3774,7 @@ array[String] *markers = ; // Список маркеров, которые не
 
 ReadDocsApi *apiInstance = [[ReadDocsApi alloc] init];
 
+// Рассчитать психолингвистические маркеры по документам в указанных корпусах
 [apiInstance computeMarkersWith:corpIds
     markers:markers
               completionHandler: ^(array[DocumentStatistic] output, NSError* error) {
@@ -3782,6 +3833,7 @@ namespace Example
 
             try
             {
+                // Рассчитать психолингвистические маркеры по документам в указанных корпусах
                 array[DocumentStatistic] result = apiInstance.computeMarkers(corpIds, markers);
                 Debug.WriteLine(result);
             }
@@ -3846,6 +3898,7 @@ corpIds =  # array[UUID] |
 markers =  # array[String] | Список маркеров, которые необходимо рассчитать (optional)
 
 try: 
+    # Рассчитать психолингвистические маркеры по документам в указанных корпусах
     api_response = api_instance.compute_markers(corpIds, markers=markers)
     pprint(api_response)
 except ApiException as e:
@@ -3973,12 +4026,12 @@ except ApiException as e:
                       <article id="api-ReadDocs-computeStats-0" data-group="User" data-name="computeStats" data-version="0">
                         <div class="pull-left">
                           <h1>computeStats</h1>
-                          <p></p>
+                          <p>Рассчитать статистические показатели по документам в указанных корпусах</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
                         <p></p>
-                        <p class="marked">Рассчитать статистические показатели по документам в указанных корпусах</p>
+                        <p class="marked"></p>
                         <p></p>
                         <br />
                         <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/corp/{corp_ids}/stats</span></code></pre>
@@ -4062,6 +4115,7 @@ array[String] *statistics = ; // Список показателей, котор
 
 ReadDocsApi *apiInstance = [[ReadDocsApi alloc] init];
 
+// Рассчитать статистические показатели по документам в указанных корпусах
 [apiInstance computeStatsWith:corpIds
     statistics:statistics
               completionHandler: ^(array[inline_response_200] output, NSError* error) {
@@ -4120,6 +4174,7 @@ namespace Example
 
             try
             {
+                // Рассчитать статистические показатели по документам в указанных корпусах
                 array[inline_response_200] result = apiInstance.computeStats(corpIds, statistics);
                 Debug.WriteLine(result);
             }
@@ -4184,6 +4239,7 @@ corpIds =  # array[UUID] |
 statistics =  # array[String] | Список показателей, которые необходимо рассчитать (optional)
 
 try: 
+    # Рассчитать статистические показатели по документам в указанных корпусах
     api_response = api_instance.compute_stats(corpIds, statistics=statistics)
     pprint(api_response)
 except ApiException as e:
@@ -4311,12 +4367,12 @@ except ApiException as e:
                       <article id="api-ReadDocs-getCorp-0" data-group="User" data-name="getCorp" data-version="0">
                         <div class="pull-left">
                           <h1>getCorp</h1>
-                          <p></p>
+                          <p>Вернуть все данные по корпусу</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
                         <p></p>
-                        <p class="marked">Вернуть все данные по корпусу</p>
+                        <p class="marked"></p>
                         <p></p>
                         <br />
                         <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/corp/{corp_id}</span></code></pre>
@@ -4397,6 +4453,7 @@ UUID *corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // id корпуса
 
 ReadDocsApi *apiInstance = [[ReadDocsApi alloc] init];
 
+// Вернуть все данные по корпусу
 [apiInstance getCorpWith:corpId
               completionHandler: ^(Corpus output, NSError* error) {
                             if (output) {
@@ -4451,6 +4508,7 @@ namespace Example
 
             try
             {
+                // Вернуть все данные по корпусу
                 Corpus result = apiInstance.getCorp(corpId);
                 Debug.WriteLine(result);
             }
@@ -4512,6 +4570,7 @@ api_instance = swagger_client.ReadDocsApi()
 corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d # UUID | id корпуса
 
 try: 
+    # Вернуть все данные по корпусу
     api_response = api_instance.get_corp(corpId)
     pprint(api_response)
 except ApiException as e:
@@ -4609,16 +4668,321 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
-                    <div id="api-ReadDocs-getDoc">
-                      <article id="api-ReadDocs-getDoc-0" data-group="User" data-name="getDoc" data-version="0">
+                    <div id="api-ReadDocs-getDictionary">
+                      <article id="api-ReadDocs-getDictionary-0" data-group="User" data-name="getDictionary" data-version="0">
                         <div class="pull-left">
-                          <h1>getDoc</h1>
-                          <p></p>
+                          <h1>getDictionary</h1>
+                          <p>Вернуть словарь по id</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
                         <p></p>
-                        <p class="marked">Получить документ</p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/dictionary/{dict_id}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-ReadDocs-getDictionary-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-ReadDocs-getDictionary-0-java">Java</a></li>
+                          <li class=""><a href="#examples-ReadDocs-getDictionary-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-ReadDocs-getDictionary-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-ReadDocs-getDictionary-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-ReadDocs-getDictionary-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-ReadDocs-getDictionary-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-ReadDocs-getDictionary-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-ReadDocs-getDictionary-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-ReadDocs-getDictionary-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-ReadDocs-getDictionary-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-ReadDocs-getDictionary-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://virtserver.swaggerhub.com/Rexhaif/RSA-API/3.0.0/dictionary/{dict_id}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-ReadDocs-getDictionary-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.ReadDocsApi;
+
+import java.io.File;
+import java.util.*;
+
+public class ReadDocsApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
+        ReadDocsApi apiInstance = new ReadDocsApi();
+        UUID dictId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id словаря
+        try {
+            Dictionary result = apiInstance.getDictionary(dictId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ReadDocsApi#getDictionary");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-ReadDocs-getDictionary-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.ReadDocsApi;
+
+public class ReadDocsApiExample {
+
+    public static void main(String[] args) {
+        ReadDocsApi apiInstance = new ReadDocsApi();
+        UUID dictId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id словаря
+        try {
+            Dictionary result = apiInstance.getDictionary(dictId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ReadDocsApi#getDictionary");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-ReadDocs-getDictionary-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-ReadDocs-getDictionary-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+UUID *dictId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // id словаря
+
+ReadDocsApi *apiInstance = [[ReadDocsApi alloc] init];
+
+// Вернуть словарь по id
+[apiInstance getDictionaryWith:dictId
+              completionHandler: ^(Dictionary output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-ReadDocs-getDictionary-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ApiRsa = require('api__rsa');
+var defaultClient = ApiRsa.ApiClient.instance;
+
+
+var api = new ApiRsa.ReadDocsApi()
+var dictId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // {{UUID}} id словаря
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.getDictionary(dictId, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-ReadDocs-getDictionary-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-ReadDocs-getDictionary-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class getDictionaryExample
+    {
+        public void main()
+        {
+
+
+            var apiInstance = new ReadDocsApi();
+            var dictId = new UUID(); // UUID | id словаря
+
+            try
+            {
+                // Вернуть словарь по id
+                Dictionary result = apiInstance.getDictionary(dictId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ReadDocsApi.getDictionary: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-ReadDocs-getDictionary-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$api_instance = new Swagger\Client\ApiReadDocsApi();
+$dictId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id словаря
+
+try {
+    $result = $api_instance->getDictionary($dictId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReadDocsApi->getDictionary: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-ReadDocs-getDictionary-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::ReadDocsApi;
+
+
+my $api_instance = WWW::SwaggerClient::ReadDocsApi->new();
+my $dictId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; # UUID | id словаря
+
+eval { 
+    my $result = $api_instance->getDictionary(dictId => $dictId);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling ReadDocsApi->getDictionary: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-ReadDocs-getDictionary-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = swagger_client.ReadDocsApi()
+dictId = 38400000-8cf0-11bd-b23e-10b96e4ef00d # UUID | id словаря
+
+try: 
+    # Вернуть словарь по id
+    api_response = api_instance.get_dictionary(dictId)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReadDocsApi->getDictionary: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">dict_id*</td>
+                                  <td>
+                                  
+                                  
+                                      <div id="d2e199_getDictionary_dictId">
+                                          <div class="json-schema-view">
+                                              <div class="primitive">
+                                                  <span class="type">
+                                                      UUID
+                                                  </span>
+                                                      <span class="format">
+                                                          (uuid)
+                                                      </span>
+                                  
+                                                      <div class="inner description">
+                                                          id словаря
+                                                      </div>
+                                              </div>
+                                                  <div class="inner required">
+                                                      Required
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - Словарь найден </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-getDictionary-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-getDictionary-200-schema">
+                                  <div id='responses-getDictionary-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Словарь найден",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/Dictionary"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-getDictionary-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-getDictionary-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-getDictionary-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-ReadDocs-getDoc">
+                      <article id="api-ReadDocs-getDoc-0" data-group="User" data-name="getDoc" data-version="0">
+                        <div class="pull-left">
+                          <h1>getDoc</h1>
+                          <p>Получить документ</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
                         <p></p>
                         <br />
                         <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/corp/{corp_id}/doc/{doc_id}</span></code></pre>
@@ -4702,6 +5066,7 @@ UUID *docId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // id документа
 
 ReadDocsApi *apiInstance = [[ReadDocsApi alloc] init];
 
+// Получить документ
 [apiInstance getDocWith:corpId
     docId:docId
               completionHandler: ^(Document output, NSError* error) {
@@ -4759,6 +5124,7 @@ namespace Example
 
             try
             {
+                // Получить документ
                 Document result = apiInstance.getDoc(corpId, docId);
                 Debug.WriteLine(result);
             }
@@ -4823,6 +5189,7 @@ corpId = 38400000-8cf0-11bd-b23e-10b96e4ef00d # UUID | id корпуса
 docId = 38400000-8cf0-11bd-b23e-10b96e4ef00d # UUID | id документа
 
 try: 
+    # Получить документ
     api_response = api_instance.get_doc(corpId, docId)
     pprint(api_response)
 except ApiException as e:
@@ -4949,12 +5316,12 @@ except ApiException as e:
                       <article id="api-ReadDocs-getPredicates-0" data-group="User" data-name="getPredicates" data-version="0">
                         <div class="pull-left">
                           <h1>getPredicates</h1>
-                          <p></p>
+                          <p>Найти предикатно-аргументные пары по заданным условиям</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
                         <p></p>
-                        <p class="marked">Найти предикатно-аргументные пары по заданным условиям</p>
+                        <p class="marked"></p>
                         <p></p>
                         <br />
                         <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/corp/{corp_ids}/predicates</span></code></pre>
@@ -5041,6 +5408,7 @@ String *predicate = predicate_example; // текст предиката, кот�
 
 ReadDocsApi *apiInstance = [[ReadDocsApi alloc] init];
 
+// Найти предикатно-аргументные пары по заданным условиям
 [apiInstance getPredicatesWith:corpIds
     argument:argument
     predicate:predicate
@@ -5102,6 +5470,7 @@ namespace Example
 
             try
             {
+                // Найти предикатно-аргументные пары по заданным условиям
                 array[ArgumentPredicateTuple] result = apiInstance.getPredicates(corpIds, argument, predicate);
                 Debug.WriteLine(result);
             }
@@ -5169,6 +5538,7 @@ argument = argument_example # String | текст аргумента, котор
 predicate = predicate_example # String | текст предиката, который должны содержать пары (optional)
 
 try: 
+    # Найти предикатно-аргументные пары по заданным условиям
     api_response = api_instance.get_predicates(corpIds, argument=argument, predicate=predicate)
     pprint(api_response)
 except ApiException as e:
@@ -5315,12 +5685,12 @@ except ApiException as e:
                       <article id="api-ReadDocs-highlightLexics-0" data-group="User" data-name="highlightLexics" data-version="0">
                         <div class="pull-left">
                           <h1>highlightLexics</h1>
-                          <p></p>
+                          <p>Выделить специфичную лексику по словарям из документов в указанных корпусах</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
                         <p></p>
-                        <p class="marked">Выделить специфичную лексику по словарям из документов в указанных корпусах</p>
+                        <p class="marked"></p>
                         <p></p>
                         <br />
                         <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/corp/{corp_ids}/lexics</span></code></pre>
@@ -5404,6 +5774,7 @@ array[UUID] *dicts = ; // id словарей, которые необходим
 
 ReadDocsApi *apiInstance = [[ReadDocsApi alloc] init];
 
+// Выделить специфичную лексику по словарям из документов в указанных корпусах
 [apiInstance highlightLexicsWith:corpIds
     dicts:dicts
               completionHandler: ^(array[WordTuple] output, NSError* error) {
@@ -5462,6 +5833,7 @@ namespace Example
 
             try
             {
+                // Выделить специфичную лексику по словарям из документов в указанных корпусах
                 array[WordTuple] result = apiInstance.highlightLexics(corpIds, dicts);
                 Debug.WriteLine(result);
             }
@@ -5526,6 +5898,7 @@ corpIds =  # array[UUID] |
 dicts =  # array[UUID] | id словарей, которые необходимо использовать в рассчете (optional)
 
 try: 
+    # Выделить специфичную лексику по словарям из документов в указанных корпусах
     api_response = api_instance.highlight_lexics(corpIds, dicts=dicts)
     pprint(api_response)
 except ApiException as e:
@@ -5656,7 +6029,7 @@ except ApiException as e:
                       <article id="api-ReadDocs-listCorpuses-0" data-group="User" data-name="listCorpuses" data-version="0">
                         <div class="pull-left">
                           <h1>listCorpuses</h1>
-                          <p>List all corpuses</p>
+                          <p>Вернуть список корпусов</p>
                         </div>
                         <div class="pull-right"></div>
                         <div class="clearfix"></div>
@@ -5739,7 +6112,7 @@ public class ReadDocsApiExample {
 
 ReadDocsApi *apiInstance = [[ReadDocsApi alloc] init];
 
-// List all corpuses
+// Вернуть список корпусов
 [apiInstance listCorpusesWithCompletionHandler: 
               ^(array[Corpus] output, NSError* error) {
                             if (output) {
@@ -5791,7 +6164,7 @@ namespace Example
 
             try
             {
-                // List all corpuses
+                // Вернуть список корпусов
                 array[Corpus] result = apiInstance.listCorpuses();
                 Debug.WriteLine(result);
             }
@@ -5850,7 +6223,7 @@ from pprint import pprint
 api_instance = swagger_client.ReadDocsApi()
 
 try: 
-    # List all corpuses
+    # Вернуть список корпусов
     api_response = api_instance.list_corpuses()
     pprint(api_response)
 except ApiException as e:
