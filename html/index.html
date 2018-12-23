@@ -200,10 +200,23 @@
   <ul>
   <li><a href="#createOrg"><code><span class="http-method">post</span> /org</code></a></li>
   <li><a href="#deleteOrg"><code><span class="http-method">delete</span> /org/{org_id}</code></a></li>
-  <li><a href="#getOrg"><code><span class="http-method">get</span> /org/{org_id}</code></a></li>
   <li><a href="#listOrgs"><code><span class="http-method">get</span> /org</code></a></li>
   </ul>
-  <h4><a href="#ManageDocs">ManageDocs</a></h4>
+  <h4><a href="#AnalyzeCorps">AnalyzeCorps</a></h4>
+  <ul>
+  <li><a href="#computeMarkers"><code><span class="http-method">get</span> /corp/{corp_ids}/markers</code></a></li>
+  <li><a href="#computeStats"><code><span class="http-method">get</span> /corp/{corp_ids}/stats</code></a></li>
+  <li><a href="#getPredicates"><code><span class="http-method">get</span> /corp/{corp_ids}/predicates</code></a></li>
+  <li><a href="#highlightLexics"><code><span class="http-method">get</span> /corp/{corp_ids}/lexics</code></a></li>
+  </ul>
+  <h4><a href="#AnalyzeDocs">AnalyzeDocs</a></h4>
+  <ul>
+  <li><a href="#computeMarkers"><code><span class="http-method">get</span> /doc/{doc_ids}/markers</code></a></li>
+  <li><a href="#computeStats"><code><span class="http-method">get</span> /doc/{doc_ids}/stats</code></a></li>
+  <li><a href="#getPredicates"><code><span class="http-method">get</span> /doc/{doc_ids}/predicates</code></a></li>
+  <li><a href="#highlightLexics"><code><span class="http-method">get</span> /doc/{doc_ids}/lexics</code></a></li>
+  </ul>
+  <h4><a href="#Manage">Manage</a></h4>
   <ul>
   <li><a href="#addDocument"><code><span class="http-method">post</span> /corp/{corp_id}/doc</code></a></li>
   <li><a href="#createCorp"><code><span class="http-method">post</span> /corp</code></a></li>
@@ -211,23 +224,15 @@
   <li><a href="#deleteCorp"><code><span class="http-method">delete</span> /corp/{corp_id}</code></a></li>
   <li><a href="#updateDictionary"><code><span class="http-method">put</span> /dictionary/{dict_id}</code></a></li>
   </ul>
-  <h4><a href="#ManageOrgs">ManageOrgs</a></h4>
+  <h4><a href="#Read">Read</a></h4>
   <ul>
-  <li><a href="#deleteOrg"><code><span class="http-method">delete</span> /org/{org_id}</code></a></li>
-  <li><a href="#getOrg"><code><span class="http-method">get</span> /org/{org_id}</code></a></li>
-  </ul>
-  <h4><a href="#ReadDocs">ReadDocs</a></h4>
-  <ul>
-  <li><a href="#computeMarkers"><code><span class="http-method">get</span> /corp/{corp_ids}/markers</code></a></li>
-  <li><a href="#computeStats"><code><span class="http-method">get</span> /corp/{corp_ids}/stats</code></a></li>
   <li><a href="#getCorp"><code><span class="http-method">get</span> /corp/{corp_id}</code></a></li>
   <li><a href="#getDictionary"><code><span class="http-method">get</span> /dictionary/{dict_id}</code></a></li>
   <li><a href="#getDoc"><code><span class="http-method">get</span> /corp/{corp_id}/doc/{doc_id}</code></a></li>
-  <li><a href="#getPredicates"><code><span class="http-method">get</span> /doc/{doc_ids}/predicates</code></a></li>
-  <li><a href="#getPredicates_1"><code><span class="http-method">get</span> /corp/{corp_ids}/predicates</code></a></li>
-  <li><a href="#highlightLexics"><code><span class="http-method">get</span> /corp/{corp_ids}/lexics</code></a></li>
+  <li><a href="#getOrg"><code><span class="http-method">get</span> /org/{org_id}</code></a></li>
   <li><a href="#listCorpuses"><code><span class="http-method">get</span> /corp</code></a></li>
   <li><a href="#listDictionaries"><code><span class="http-method">get</span> /dictionary</code></a></li>
+  <li><a href="#searchDocs"><code><span class="http-method">get</span> /doc</code></a></li>
   </ul>
 
   <h1><a name="Admin">Admin</a></h1>
@@ -306,46 +311,6 @@
         <a href="#"></a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="getOrg"></a>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /org/{org_id}</code></pre></div>
-    <div class="method-summary">Вернуть всю информацию по организации (<span class="nickname">getOrg</span>)</div>
-    <div class="method-notes"></div>
-
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">org_id (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id организации format: uuid</div>    </div>  <!-- field-items -->
-
-
-
-
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#Organization">Organization</a>
-      
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Объект организации с данным id
-        <a href="#Organization">Organization</a>
-  </div> <!-- method -->
-  <hr/>
   <div class="method"><a name="listOrgs"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -381,7 +346,377 @@
         
   </div> <!-- method -->
   <hr/>
-  <h1><a name="ManageDocs">ManageDocs</a></h1>
+  <h1><a name="AnalyzeCorps">AnalyzeCorps</a></h1>
+  <div class="method"><a name="computeMarkers"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /corp/{corp_ids}/markers</code></pre></div>
+    <div class="method-summary">Рассчитать психолингвистические маркеры по документам в указанных корпусах (<span class="nickname">computeMarkers</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">corp_ids (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: uuid</div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">markers (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Список маркеров, которые необходимо рассчитать </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#DocumentStatistic">DocumentStatistic</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Маркеры рассчитаны
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="computeStats"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /corp/{corp_ids}/stats</code></pre></div>
+    <div class="method-summary">Рассчитать статистические показатели по документам в указанных корпусах (<span class="nickname">computeStats</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">corp_ids (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: uuid</div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">statistics (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Список показателей, которые необходимо рассчитать </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#inline_response_200">inline_response_200</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Показатели рассчитаны
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getPredicates"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /corp/{corp_ids}/predicates</code></pre></div>
+    <div class="method-summary">Найти предикатно-аргументные пары по заданным условиям (<span class="nickname">getPredicates</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">corp_ids (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: uuid</div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">argument (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; текст аргумента, который должны содержать пары </div>      <div class="param">predicate (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; текст предиката, который должны содержать пары </div>      <div class="param">role (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; название роли, которую должны реализовывать аргументы </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#ArgumentPredicateTuple">ArgumentPredicateTuple</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    пары найдены
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="highlightLexics"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /corp/{corp_ids}/lexics</code></pre></div>
+    <div class="method-summary">Выделить специфичную лексику по словарям из документов в указанных корпусах (<span class="nickname">highlightLexics</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">corp_ids (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: uuid</div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">dicts (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; id словарей, которые необходимо использовать в рассчете format: uuid</div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#WordTuple">WordTuple</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Слова из словарей найдены
+        
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="AnalyzeDocs">AnalyzeDocs</a></h1>
+  <div class="method"><a name="computeMarkers"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /doc/{doc_ids}/markers</code></pre></div>
+    <div class="method-summary">Рассчитать психолингвистические маркеры по документам (<span class="nickname">computeMarkers</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">doc_ids (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id документов format: uuid</div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">markers (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Список маркеров, которые необходимо рассчитать </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#DocumentStatistic">DocumentStatistic</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Маркеры рассчитаны
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="computeStats"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /doc/{doc_ids}/stats</code></pre></div>
+    <div class="method-summary">Рассчитать статистические показатели по документам (<span class="nickname">computeStats</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">doc_ids (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id документов format: uuid</div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">statistics (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Список показателей, которые необходимо рассчитать </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#inline_response_200">inline_response_200</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Показатели рассчитаны
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getPredicates"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /doc/{doc_ids}/predicates</code></pre></div>
+    <div class="method-summary">Найти предикатно-аргументные пары по заданным условиям (<span class="nickname">getPredicates</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">doc_ids (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id документов format: uuid</div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">argument (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; текст аргумента, который должны содержать пары </div>      <div class="param">predicate (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; текст предиката, который должны содержать пары </div>      <div class="param">role (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; название роли, которую должны реализовывать аргументы </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#ArgumentPredicateTuple">ArgumentPredicateTuple</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    пары найдены
+        
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="highlightLexics"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /doc/{doc_ids}/lexics</code></pre></div>
+    <div class="method-summary">Выделить специфичную лексику по словарям из документов (<span class="nickname">highlightLexics</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">doc_ids (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id документов format: uuid</div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">dicts (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; id словарей, которые необходимо использовать format: uuid</div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#WordTuple">WordTuple</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">201</h4>
+    Слова из словарей найдены
+        
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Manage">Manage</a></h1>
   <div class="method"><a name="addDocument"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -403,7 +738,7 @@
 
     <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">body <a href="#body_2">body_2</a> (optional)</div>
+      <div class="param">body <a href="#Document">Document</a> (optional)</div>
       
             <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
     </div>  <!-- field-items -->
@@ -437,7 +772,7 @@
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
     <pre class="post"><code class="huge"><span class="http-method">post</span> /corp</code></pre></div>
-    <div class="method-summary">Создать новый корупс (<span class="nickname">createCorp</span>)</div>
+    <div class="method-summary">Создать новый корпус (<span class="nickname">createCorp</span>)</div>
     <div class="method-notes"></div>
 
 
@@ -594,167 +929,7 @@
         <a href="#"></a>
   </div> <!-- method -->
   <hr/>
-  <h1><a name="ManageOrgs">ManageOrgs</a></h1>
-  <div class="method"><a name="deleteOrg"></a>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /org/{org_id}</code></pre></div>
-    <div class="method-summary">Удалить организацию по id (<span class="nickname">deleteOrg</span>)</div>
-    <div class="method-notes"></div>
-
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">org_id (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id удаляемой организации format: uuid</div>    </div>  <!-- field-items -->
-
-
-
-
-
-
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Организация удалена
-        <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="getOrg"></a>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /org/{org_id}</code></pre></div>
-    <div class="method-summary">Вернуть всю информацию по организации (<span class="nickname">getOrg</span>)</div>
-    <div class="method-notes"></div>
-
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">org_id (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id организации format: uuid</div>    </div>  <!-- field-items -->
-
-
-
-
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#Organization">Organization</a>
-      
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Объект организации с данным id
-        <a href="#Organization">Organization</a>
-  </div> <!-- method -->
-  <hr/>
-  <h1><a name="ReadDocs">ReadDocs</a></h1>
-  <div class="method"><a name="computeMarkers"></a>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /corp/{corp_ids}/markers</code></pre></div>
-    <div class="method-summary">Рассчитать психолингвистические маркеры по документам в указанных корпусах (<span class="nickname">computeMarkers</span>)</div>
-    <div class="method-notes"></div>
-
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">corp_ids (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: uuid</div>    </div>  <!-- field-items -->
-
-
-
-
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">markers (optional)</div>
-      
-            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Список маркеров, которые необходимо рассчитать </div>    </div>  <!-- field-items -->
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      array[<a href="#DocumentStatistic">DocumentStatistic</a>]
-      
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Маркеры рассчитаны
-        
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="computeStats"></a>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /corp/{corp_ids}/stats</code></pre></div>
-    <div class="method-summary">Рассчитать статистические показатели по документам в указанных корпусах (<span class="nickname">computeStats</span>)</div>
-    <div class="method-notes"></div>
-
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">corp_ids (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: uuid</div>    </div>  <!-- field-items -->
-
-
-
-
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">statistics (optional)</div>
-      
-            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Список показателей, которые необходимо рассчитать </div>    </div>  <!-- field-items -->
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      array[<a href="#inline_response_200">inline_response_200</a>]
-      
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Показатели рассчитаны
-        
-  </div> <!-- method -->
-  <hr/>
+  <h1><a name="Read">Read</a></h1>
   <div class="method"><a name="getCorp"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -877,34 +1052,27 @@
         <a href="#Document">Document</a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="getPredicates"></a>
+  <div class="method"><a name="getOrg"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /doc/{doc_ids}/predicates</code></pre></div>
-    <div class="method-summary">Найти предикатно-аргументные пары по заданным условиям (<span class="nickname">getPredicates</span>)</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /org/{org_id}</code></pre></div>
+    <div class="method-summary">Вернуть всю информацию по организации (<span class="nickname">getOrg</span>)</div>
     <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">doc_ids (required)</div>
+      <div class="param">org_id (required)</div>
       
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id документов format: uuid</div>    </div>  <!-- field-items -->
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id организации format: uuid</div>    </div>  <!-- field-items -->
 
 
 
 
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">argument (optional)</div>
-      
-            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; текст аргумента, который должны содержать пары </div>      <div class="param">predicate (optional)</div>
-      
-            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; текст предиката, который должны содержать пары </div>    </div>  <!-- field-items -->
 
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      array[<a href="#ArgumentPredicateTuple">ArgumentPredicateTuple</a>]
+      <a href="#Organization">Organization</a>
       
     </div>
 
@@ -920,100 +1088,8 @@
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    пары найдены
-        
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="getPredicates_1"></a>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /corp/{corp_ids}/predicates</code></pre></div>
-    <div class="method-summary">Найти предикатно-аргументные пары по заданным условиям (<span class="nickname">getPredicates_1</span>)</div>
-    <div class="method-notes"></div>
-
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">corp_ids (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: uuid</div>    </div>  <!-- field-items -->
-
-
-
-
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">argument (optional)</div>
-      
-            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; текст аргумента, который должны содержать пары </div>      <div class="param">predicate (optional)</div>
-      
-            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; текст предиката, который должны содержать пары </div>    </div>  <!-- field-items -->
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      array[<a href="#ArgumentPredicateTuple">ArgumentPredicateTuple</a>]
-      
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    пары найдены
-        
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="highlightLexics"></a>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /corp/{corp_ids}/lexics</code></pre></div>
-    <div class="method-summary">Выделить специфичную лексику по словарям из документов в указанных корпусах (<span class="nickname">highlightLexics</span>)</div>
-    <div class="method-notes"></div>
-
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">corp_ids (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: uuid</div>    </div>  <!-- field-items -->
-
-
-
-
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">dicts (optional)</div>
-      
-            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; id словарей, которые необходимо использовать в рассчете format: uuid</div>    </div>  <!-- field-items -->
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      array[<a href="#WordTuple">WordTuple</a>]
-      
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">201</h4>
-    Слова из словарей найдены
-        
+    Объект организации с данным id
+        <a href="#Organization">Organization</a>
   </div> <!-- method -->
   <hr/>
   <div class="method"><a name="listCorpuses"></a>
@@ -1086,6 +1162,57 @@
         
   </div> <!-- method -->
   <hr/>
+  <div class="method"><a name="searchDocs"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /doc</code></pre></div>
+    <div class="method-summary">Поиск по всем документам (<span class="nickname">searchDocs</span>)</div>
+    <div class="method-notes"></div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">title (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  </div>      <div class="param">author (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; фильтровать по автору документа </div>      <div class="param">created_before (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash;  format: date-time</div>      <div class="param">created_after (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; фильтровать по времени создания документа(нижняя граница) format: date-time</div>      <div class="param">tags (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; фильтровать по тегам документа </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      array[<a href="#Document">Document</a>]
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Документы найдены
+        
+    <h4 class="field-label">404</h4>
+    
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
 
   <h2><a name="__Models">Models</a></h2>
   [ Jump to <a href="#__Methods">Methods</a> ]
@@ -1104,7 +1231,6 @@
     <li><a href="#WordTuple"><code>WordTuple</code></a></li>
     <li><a href="#body"><code>body</code></a></li>
     <li><a href="#body_1"><code>body_1</code></a></li>
-    <li><a href="#body_2"><code>body_2</code></a></li>
     <li><a href="#inline_response_200"><code>inline_response_200</code></a></li>
     <li><a href="#inline_response_201"><code>inline_response_201</code></a></li>
     <li><a href="#inline_response_201_1"><code>inline_response_201_1</code></a></li>
@@ -1149,6 +1275,7 @@
 <div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">author </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">created_at </div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
+<div class="param">tags </div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
 <div class="param">text (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">metadata (optional)</div><div class="param-desc"><span class="param-type"><a href="#object">Object</a></span>  </div>
     </div>  <!-- field-items -->
@@ -1222,16 +1349,6 @@
     <div class="field-items">
       <div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">parent_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="body_2"><code>body_2</code></a> <a class="up" href="#__Models">Up</a></h3>
-    
-    <div class="field-items">
-      <div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">text </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">author (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">created_at (optional)</div><div class="param-desc"><span class="param-type"><a href="#DateTime">Date</a></span>  format: date-time</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
