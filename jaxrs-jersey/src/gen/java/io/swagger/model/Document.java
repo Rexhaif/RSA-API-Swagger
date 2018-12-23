@@ -23,7 +23,7 @@ import javax.validation.constraints.*;
 /**
  * Document
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T18:01:53.311Z[GMT]")public class Document   {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T18:09:07.883Z[GMT]")public class Document   {
   @JsonProperty("id")
   private UUID id = null;
 

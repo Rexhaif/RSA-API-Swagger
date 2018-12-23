@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 /**
  * WordTuple
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T18:01:53.311Z[GMT]")public class WordTuple   {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T18:09:07.883Z[GMT]")public class WordTuple   {
   @JsonProperty("document_id")
   private UUID documentId = null;
 
