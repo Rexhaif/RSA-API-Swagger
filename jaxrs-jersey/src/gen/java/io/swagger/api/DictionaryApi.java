@@ -36,7 +36,7 @@ import javax.validation.constraints.*;
 @Path("/dictionary")
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T18:09:07.883Z[GMT]")public class DictionaryApi  {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T18:38:52.268Z[GMT]")public class DictionaryApi  {
    private final DictionaryApiService delegate;
 
    public DictionaryApi(@Context ServletConfig servletContext) {
@@ -65,7 +65,7 @@ import javax.validation.constraints.*;
     @Consumes({ "application/json" })
     @Produces({ "application/json" })
     @Operation(summary = "Создать новый словарь", description = "", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "manage-docs" })
+        @SecurityRequirement(name = "bearerAuth")    }, tags={ "manage" })
     @ApiResponses(value = { 
         @ApiResponse(responseCode = "201", description = "Словарь создан", content = @Content(schema = @Schema(implementation = InlineResponse2011.class))) })
     public Response createDictionary(@Parameter(description = "" ) Dictionary body
@@ -79,7 +79,7 @@ import javax.validation.constraints.*;
     
     @Produces({ "application/json" })
     @Operation(summary = "Вернуть словарь по id", description = "", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "read-docs" })
+        @SecurityRequirement(name = "bearerAuth")    }, tags={ "read" })
     @ApiResponses(value = { 
         @ApiResponse(responseCode = "200", description = "Словарь найден", content = @Content(schema = @Schema(implementation = Dictionary.class))) })
     public Response getDictionary(@Parameter(description = "id словаря",required=true) @PathParam("dict_id") UUID dictId
@@ -92,7 +92,7 @@ import javax.validation.constraints.*;
     
     @Produces({ "application/json" })
     @Operation(summary = "Вывести список всех словарей", description = "", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "read-docs" })
+        @SecurityRequirement(name = "bearerAuth")    }, tags={ "read" })
     @ApiResponses(value = { 
         @ApiResponse(responseCode = "200", description = "Список словарей", content = @Content(array = @ArraySchema(schema = @Schema(implementation = Dictionary.class)))) })
     public Response listDictionaries(@Context SecurityContext securityContext)
@@ -104,7 +104,7 @@ import javax.validation.constraints.*;
     @Consumes({ "application/json" })
     
     @Operation(summary = "Добавить слова в словарь", description = "", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "manage-docs" })
+        @SecurityRequirement(name = "bearerAuth")    }, tags={ "manage" })
     @ApiResponses(value = { 
         @ApiResponse(responseCode = "200", description = "Слова добавлены") })
     public Response updateDictionary(@Parameter(description = "id словаря",required=true) @PathParam("dict_id") UUID dictId

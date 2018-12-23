@@ -16,14 +16,16 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 import javax.validation.constraints.*;
 
 /**
  * Document
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T18:09:07.883Z[GMT]")public class Document   {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T18:38:52.268Z[GMT]")public class Document   {
   @JsonProperty("id")
   private UUID id = null;
 
@@ -35,6 +37,9 @@ import javax.validation.constraints.*;
 
   @JsonProperty("created_at")
   private Date createdAt = null;
+
+  @JsonProperty("tags")
+  private List<String> tags = new ArrayList<String>();
 
   @JsonProperty("text")
   private String text = null;
@@ -122,6 +127,31 @@ import javax.validation.constraints.*;
     this.createdAt = createdAt;
   }
 
+  public Document tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public Document addTagsItem(String tagsItem) {
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+  /**
+   * Get tags
+   * @return tags
+   **/
+  @JsonProperty("tags")
+  @Schema(required = true, description = "")
+  @NotNull
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
   public Document text(String text) {
     this.text = text;
     return this;
@@ -174,13 +204,14 @@ import javax.validation.constraints.*;
         Objects.equals(this.title, document.title) &&
         Objects.equals(this.author, document.author) &&
         Objects.equals(this.createdAt, document.createdAt) &&
+        Objects.equals(this.tags, document.tags) &&
         Objects.equals(this.text, document.text) &&
         Objects.equals(this.metadata, document.metadata);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, author, createdAt, text, metadata);
+    return Objects.hash(id, title, author, createdAt, tags, text, metadata);
   }
 
 
@@ -193,6 +224,7 @@ import javax.validation.constraints.*;
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    author: ").append(toIndentedString(author)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("}");

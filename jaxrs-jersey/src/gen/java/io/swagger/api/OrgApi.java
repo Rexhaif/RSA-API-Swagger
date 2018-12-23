@@ -36,7 +36,7 @@ import javax.validation.constraints.*;
 @Path("/org")
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T18:09:07.883Z[GMT]")public class OrgApi  {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T18:38:52.268Z[GMT]")public class OrgApi  {
    private final OrgApiService delegate;
 
    public OrgApi(@Context ServletConfig servletContext) {
@@ -79,7 +79,7 @@ import javax.validation.constraints.*;
     
     
     @Operation(summary = "Удалить организацию по id", description = "", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "admin", "manage-orgs" })
+        @SecurityRequirement(name = "bearerAuth")    }, tags={ "admin" })
     @ApiResponses(value = { 
         @ApiResponse(responseCode = "200", description = "Организация удалена") })
     public Response deleteOrg(@Parameter(description = "id удаляемой организации",required=true) @PathParam("org_id") UUID orgId
@@ -92,7 +92,7 @@ import javax.validation.constraints.*;
     
     @Produces({ "application/json" })
     @Operation(summary = "Вернуть всю информацию по организации", description = "", security = {
-        @SecurityRequirement(name = "bearerAuth")    }, tags={ "admin", "manage-orgs" })
+        @SecurityRequirement(name = "bearerAuth")    }, tags={ "read" })
     @ApiResponses(value = { 
         @ApiResponse(responseCode = "200", description = "Объект организации с данным id", content = @Content(schema = @Schema(implementation = Organization.class))) })
     public Response getOrg(@Parameter(description = "id организации",required=true) @PathParam("org_id") UUID orgId

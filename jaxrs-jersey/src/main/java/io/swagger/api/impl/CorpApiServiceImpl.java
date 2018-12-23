@@ -5,7 +5,6 @@ import io.swagger.model.*;
 
 import io.swagger.model.ArgumentPredicateTuple;
 import io.swagger.model.Body1;
-import io.swagger.model.Body2;
 import io.swagger.model.Corpus;
 import io.swagger.model.Document;
 import io.swagger.model.DocumentStatistic;
@@ -25,9 +24,9 @@ import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.validation.constraints.*;
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T18:09:07.883Z[GMT]")public class CorpApiServiceImpl extends CorpApiService {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T18:38:52.268Z[GMT]")public class CorpApiServiceImpl extends CorpApiService {
     @Override
-    public Response addDocument(UUID corpId, Body2 body, SecurityContext securityContext) throws NotFoundException {
+    public Response addDocument(UUID corpId, Document body, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }
@@ -62,7 +61,7 @@ import javax.validation.constraints.*;
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }
     @Override
-    public Response getPredicates(List<UUID> corpIds,  String argument,  String predicate, SecurityContext securityContext) throws NotFoundException {
+    public Response getPredicates(List<UUID> corpIds,  String argument,  String predicate,  String role, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }
