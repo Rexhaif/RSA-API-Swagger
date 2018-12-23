@@ -905,6 +905,15 @@
     }
   }
 };
+            defs.inline_response_201_1 = {
+  "type" : "object",
+  "properties" : {
+    "dict_id" : {
+      "type" : "string",
+      "format" : "uuid"
+    }
+  }
+};
             defs.Member = {
   "required" : [ "id", "name", "org_id" ],
   "type" : "object",
@@ -1011,8 +1020,14 @@
                     <li data-group="ManageDocs" data-name="createCorp" class="">
                       <a href="#api-ManageDocs-createCorp">createCorp</a>
                     </li>
+                    <li data-group="ManageDocs" data-name="createDictionary" class="">
+                      <a href="#api-ManageDocs-createDictionary">createDictionary</a>
+                    </li>
                     <li data-group="ManageDocs" data-name="deleteCorp" class="">
                       <a href="#api-ManageDocs-deleteCorp">deleteCorp</a>
+                    </li>
+                    <li data-group="ManageDocs" data-name="updateDictionary" class="">
+                      <a href="#api-ManageDocs-updateDictionary">updateDictionary</a>
                     </li>
                   <li class="nav-header" data-group="ManageOrgs"><a href="#api-ManageOrgs">API Methods - ManageOrgs</a></li>
                     <li data-group="ManageOrgs" data-name="deleteOrg" class="">
@@ -2856,6 +2871,311 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
+                    <div id="api-ManageDocs-createDictionary">
+                      <article id="api-ManageDocs-createDictionary-0" data-group="User" data-name="createDictionary" data-version="0">
+                        <div class="pull-left">
+                          <h1>createDictionary</h1>
+                          <p>Создать новый словарь</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/dictionary</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-ManageDocs-createDictionary-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-ManageDocs-createDictionary-0-java">Java</a></li>
+                          <li class=""><a href="#examples-ManageDocs-createDictionary-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-ManageDocs-createDictionary-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-ManageDocs-createDictionary-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-ManageDocs-createDictionary-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-ManageDocs-createDictionary-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-ManageDocs-createDictionary-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-ManageDocs-createDictionary-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-ManageDocs-createDictionary-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-ManageDocs-createDictionary-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-ManageDocs-createDictionary-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X POST "https://virtserver.swaggerhub.com/Rexhaif/RSA-API/3.0.0/dictionary"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-ManageDocs-createDictionary-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.ManageDocsApi;
+
+import java.io.File;
+import java.util.*;
+
+public class ManageDocsApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
+        ManageDocsApi apiInstance = new ManageDocsApi();
+        Dictionary body = ; // Dictionary | 
+        try {
+            inline_response_201_1 result = apiInstance.createDictionary(body);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ManageDocsApi#createDictionary");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-ManageDocs-createDictionary-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.ManageDocsApi;
+
+public class ManageDocsApiExample {
+
+    public static void main(String[] args) {
+        ManageDocsApi apiInstance = new ManageDocsApi();
+        Dictionary body = ; // Dictionary | 
+        try {
+            inline_response_201_1 result = apiInstance.createDictionary(body);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ManageDocsApi#createDictionary");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-ManageDocs-createDictionary-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-ManageDocs-createDictionary-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+Dictionary *body = ; //  (optional)
+
+ManageDocsApi *apiInstance = [[ManageDocsApi alloc] init];
+
+// Создать новый словарь
+[apiInstance createDictionaryWith:body
+              completionHandler: ^(inline_response_201_1 output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-ManageDocs-createDictionary-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ApiRsa = require('api__rsa');
+var defaultClient = ApiRsa.ApiClient.instance;
+
+
+var api = new ApiRsa.ManageDocsApi()
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.createDictionary(, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-ManageDocs-createDictionary-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-ManageDocs-createDictionary-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class createDictionaryExample
+    {
+        public void main()
+        {
+
+
+            var apiInstance = new ManageDocsApi();
+            var body = new Dictionary(); // Dictionary |  (optional) 
+
+            try
+            {
+                // Создать новый словарь
+                inline_response_201_1 result = apiInstance.createDictionary(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ManageDocsApi.createDictionary: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-ManageDocs-createDictionary-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$api_instance = new Swagger\Client\ApiManageDocsApi();
+$body = ; // Dictionary | 
+
+try {
+    $result = $api_instance->createDictionary($body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManageDocsApi->createDictionary: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-ManageDocs-createDictionary-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::ManageDocsApi;
+
+
+my $api_instance = WWW::SwaggerClient::ManageDocsApi->new();
+my $body = WWW::SwaggerClient::Object::Dictionary->new(); # Dictionary | 
+
+eval { 
+    my $result = $api_instance->createDictionary(body => $body);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling ManageDocsApi->createDictionary: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-ManageDocs-createDictionary-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = swagger_client.ManageDocsApi()
+body =  # Dictionary |  (optional)
+
+try: 
+    # Создать новый словарь
+    api_response = api_instance.create_dictionary(body=body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ManageDocsApi->createDictionary: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">body </td>
+                                <td>
+                                
+                                
+                                <script>
+                                $(document).ready(function() {
+                                  var schemaWrapper = ;
+                                  var schema = schemaWrapper.schema;
+                                  if (schema.$ref != null) {
+                                    schema = defsParser.$refs.get(schema.$ref);
+                                  } else {
+                                    schemaWrapper.definitions = Object.assign({}, defs);
+                                    $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                      console.log(err);
+                                    });
+                                  }
+                                
+                                  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+                                  var result = $('#d2e199_createDictionary_body');
+                                  result.empty();
+                                  result.append(view.render());
+                                });
+                                </script>
+                                <div id="d2e199_createDictionary_body"></div>
+                                </td>
+                                </tr>
+                            </table>
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 201 - Словарь создан </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-createDictionary-201-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-createDictionary-201-schema">
+                                  <div id='responses-createDictionary-201-schema-201' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Словарь создан",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/inline_response_201_1"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-createDictionary-201-schema-data').val(stringify(schema));
+                                        var result = $('#responses-createDictionary-201-schema-201');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-createDictionary-201-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
                     <div id="api-ManageDocs-deleteCorp">
                       <article id="api-ManageDocs-deleteCorp-0" data-group="User" data-name="deleteCorp" data-version="0">
                         <div class="pull-left">
@@ -3103,6 +3423,303 @@ except ApiException as e:
 
                           <h2>Responses</h2>
                             <h3> Status: 200 - Корпус удален </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-ManageDocs-updateDictionary">
+                      <article id="api-ManageDocs-updateDictionary-0" data-group="User" data-name="updateDictionary" data-version="0">
+                        <div class="pull-left">
+                          <h1>updateDictionary</h1>
+                          <p>Добавить слова в словарь</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/dictionary/{dict_id}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-ManageDocs-updateDictionary-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-ManageDocs-updateDictionary-0-java">Java</a></li>
+                          <li class=""><a href="#examples-ManageDocs-updateDictionary-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-ManageDocs-updateDictionary-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-ManageDocs-updateDictionary-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-ManageDocs-updateDictionary-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-ManageDocs-updateDictionary-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-ManageDocs-updateDictionary-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-ManageDocs-updateDictionary-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-ManageDocs-updateDictionary-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-ManageDocs-updateDictionary-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-ManageDocs-updateDictionary-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X PUT "https://virtserver.swaggerhub.com/Rexhaif/RSA-API/3.0.0/dictionary/{dict_id}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-ManageDocs-updateDictionary-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.ManageDocsApi;
+
+import java.io.File;
+import java.util.*;
+
+public class ManageDocsApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
+        ManageDocsApi apiInstance = new ManageDocsApi();
+        UUID dictId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id словаря
+        array[String] body = ; // array[String] | 
+        try {
+            apiInstance.updateDictionary(dictId, body);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ManageDocsApi#updateDictionary");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-ManageDocs-updateDictionary-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.ManageDocsApi;
+
+public class ManageDocsApiExample {
+
+    public static void main(String[] args) {
+        ManageDocsApi apiInstance = new ManageDocsApi();
+        UUID dictId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id словаря
+        array[String] body = ; // array[String] | 
+        try {
+            apiInstance.updateDictionary(dictId, body);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ManageDocsApi#updateDictionary");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-ManageDocs-updateDictionary-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-ManageDocs-updateDictionary-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+UUID *dictId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // id словаря
+array[String] *body = ; //  (optional)
+
+ManageDocsApi *apiInstance = [[ManageDocsApi alloc] init];
+
+// Добавить слова в словарь
+[apiInstance updateDictionaryWith:dictId:body
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-ManageDocs-updateDictionary-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ApiRsa = require('api__rsa');
+var defaultClient = ApiRsa.ApiClient.instance;
+
+
+var api = new ApiRsa.ManageDocsApi()
+var dictId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // {{UUID}} id словаря
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.updateDictionary(dictId, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-ManageDocs-updateDictionary-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-ManageDocs-updateDictionary-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class updateDictionaryExample
+    {
+        public void main()
+        {
+
+
+            var apiInstance = new ManageDocsApi();
+            var dictId = new UUID(); // UUID | id словаря
+            var body = new array[String](); // array[String] |  (optional) 
+
+            try
+            {
+                // Добавить слова в словарь
+                apiInstance.updateDictionary(dictId, body);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ManageDocsApi.updateDictionary: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-ManageDocs-updateDictionary-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$api_instance = new Swagger\Client\ApiManageDocsApi();
+$dictId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id словаря
+$body = ; // array[String] | 
+
+try {
+    $api_instance->updateDictionary($dictId, $body);
+} catch (Exception $e) {
+    echo 'Exception when calling ManageDocsApi->updateDictionary: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-ManageDocs-updateDictionary-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::ManageDocsApi;
+
+
+my $api_instance = WWW::SwaggerClient::ManageDocsApi->new();
+my $dictId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; # UUID | id словаря
+my $body = [WWW::SwaggerClient::Object::array[String]->new()]; # array[String] | 
+
+eval { 
+    $api_instance->updateDictionary(dictId => $dictId, body => $body);
+};
+if ($@) {
+    warn "Exception when calling ManageDocsApi->updateDictionary: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-ManageDocs-updateDictionary-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = swagger_client.ManageDocsApi()
+dictId = 38400000-8cf0-11bd-b23e-10b96e4ef00d # UUID | id словаря
+body =  # array[String] |  (optional)
+
+try: 
+    # Добавить слова в словарь
+    api_instance.update_dictionary(dictId, body=body)
+except ApiException as e:
+    print("Exception when calling ManageDocsApi->updateDictionary: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">dict_id*</td>
+                                  <td>
+                                  
+                                  
+                                      <div id="d2e199_updateDictionary_dictId">
+                                          <div class="json-schema-view">
+                                              <div class="primitive">
+                                                  <span class="type">
+                                                      UUID
+                                                  </span>
+                                                      <span class="format">
+                                                          (uuid)
+                                                      </span>
+                                  
+                                                      <div class="inner description">
+                                                          id словаря
+                                                      </div>
+                                              </div>
+                                                  <div class="inner required">
+                                                      Required
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+                            </table>
+
+
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">body </td>
+                                <td>
+                                
+                                
+                                <script>
+                                $(document).ready(function() {
+                                  var schemaWrapper = ;
+                                  var schema = schemaWrapper.schema;
+                                  if (schema.$ref != null) {
+                                    schema = defsParser.$refs.get(schema.$ref);
+                                  } else {
+                                    schemaWrapper.definitions = Object.assign({}, defs);
+                                    $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                      console.log(err);
+                                    });
+                                  }
+                                
+                                  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+                                  var result = $('#d2e199_updateDictionary_body');
+                                  result.empty();
+                                  result.append(view.render());
+                                });
+                                </script>
+                                <div id="d2e199_updateDictionary_body"></div>
+                                </td>
+                                </tr>
+                            </table>
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - Слова добавлены </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                             </ul>
