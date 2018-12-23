@@ -43,7 +43,7 @@ import javax.validation.constraints.*;
 @Path("/corp")
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-17T16:16:40.169Z[GMT]")public class CorpApi  {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T17:51:19.196Z[GMT]")public class CorpApi  {
    private final CorpApiService delegate;
 
    public CorpApi(@Context ServletConfig servletContext) {
@@ -71,7 +71,7 @@ import javax.validation.constraints.*;
     @Path("/{corp_id}/doc")
     @Consumes({ "application/json" })
     @Produces({ "application/json" })
-    @Operation(summary = "", description = "Загрузка нового документа в корпус", security = {
+    @Operation(summary = "Загрузка нового документа в корпус", description = "", security = {
         @SecurityRequirement(name = "bearerAuth")    }, tags={ "manage-docs" })
     @ApiResponses(value = { 
         @ApiResponse(responseCode = "201", description = "Документ создан, возвращается id", content = @Content(schema = @Schema(implementation = InlineResponse201.class))) })
@@ -86,7 +86,7 @@ import javax.validation.constraints.*;
     @Path("/{corp_ids}/markers")
     
     @Produces({ "application/json" })
-    @Operation(summary = "", description = "Рассчитать психолингвистические маркеры по документам в указанных корпусах", security = {
+    @Operation(summary = "Рассчитать психолингвистические маркеры по документам в указанных корпусах", description = "", security = {
         @SecurityRequirement(name = "bearerAuth")    }, tags={ "read-docs" })
     @ApiResponses(value = { 
         @ApiResponse(responseCode = "200", description = "Маркеры рассчитаны", content = @Content(array = @ArraySchema(schema = @Schema(implementation = DocumentStatistic.class)))) })
@@ -100,7 +100,7 @@ import javax.validation.constraints.*;
     @Path("/{corp_ids}/stats")
     
     @Produces({ "application/json" })
-    @Operation(summary = "", description = "Рассчитать статистические показатели по документам в указанных корпусах", security = {
+    @Operation(summary = "Рассчитать статистические показатели по документам в указанных корпусах", description = "", security = {
         @SecurityRequirement(name = "bearerAuth")    }, tags={ "read-docs" })
     @ApiResponses(value = { 
         @ApiResponse(responseCode = "200", description = "Показатели рассчитаны", content = @Content(array = @ArraySchema(schema = @Schema(implementation = InlineResponse200.class)))) })
@@ -128,7 +128,7 @@ import javax.validation.constraints.*;
     @Path("/{corp_id}")
     
     
-    @Operation(summary = "", description = "Удалить корпус", security = {
+    @Operation(summary = "Удалить корпус", description = "", security = {
         @SecurityRequirement(name = "bearerAuth")    }, tags={ "manage-docs" })
     @ApiResponses(value = { 
         @ApiResponse(responseCode = "200", description = "Корпус удален") })
@@ -141,7 +141,7 @@ import javax.validation.constraints.*;
     @Path("/{corp_id}")
     
     @Produces({ "application/json" })
-    @Operation(summary = "", description = "Вернуть все данные по корпусу", security = {
+    @Operation(summary = "Вернуть все данные по корпусу", description = "", security = {
         @SecurityRequirement(name = "bearerAuth")    }, tags={ "read-docs" })
     @ApiResponses(value = { 
         @ApiResponse(responseCode = "200", description = "Корпус найден, возвращается объект", content = @Content(schema = @Schema(implementation = Corpus.class))) })
@@ -154,7 +154,7 @@ import javax.validation.constraints.*;
     @Path("/{corp_id}/doc/{doc_id}")
     
     @Produces({ "application/json" })
-    @Operation(summary = "", description = "Получить документ", security = {
+    @Operation(summary = "Получить документ", description = "", security = {
         @SecurityRequirement(name = "bearerAuth")    }, tags={ "read-docs" })
     @ApiResponses(value = { 
         @ApiResponse(responseCode = "200", description = "Документ найден", content = @Content(schema = @Schema(implementation = Document.class))) })
@@ -168,7 +168,7 @@ import javax.validation.constraints.*;
     @Path("/{corp_ids}/predicates")
     
     @Produces({ "application/json" })
-    @Operation(summary = "", description = "Найти предикатно-аргументные пары по заданным условиям", security = {
+    @Operation(summary = "Найти предикатно-аргументные пары по заданным условиям", description = "", security = {
         @SecurityRequirement(name = "bearerAuth")    }, tags={ "read-docs" })
     @ApiResponses(value = { 
         @ApiResponse(responseCode = "200", description = "пары найдены", content = @Content(array = @ArraySchema(schema = @Schema(implementation = ArgumentPredicateTuple.class)))) })
@@ -183,7 +183,7 @@ import javax.validation.constraints.*;
     @Path("/{corp_ids}/lexics")
     
     @Produces({ "application/json" })
-    @Operation(summary = "", description = "Выделить специфичную лексику по словарям из документов в указанных корпусах", security = {
+    @Operation(summary = "Выделить специфичную лексику по словарям из документов в указанных корпусах", description = "", security = {
         @SecurityRequirement(name = "bearerAuth")    }, tags={ "read-docs" })
     @ApiResponses(value = { 
         @ApiResponse(responseCode = "201", description = "Слова из словарей найдены", content = @Content(array = @ArraySchema(schema = @Schema(implementation = WordTuple.class)))) })
@@ -197,7 +197,7 @@ import javax.validation.constraints.*;
     
     
     @Produces({ "application/json" })
-    @Operation(summary = "List all corpuses", description = "", security = {
+    @Operation(summary = "Вернуть список корпусов", description = "", security = {
         @SecurityRequirement(name = "bearerAuth")    }, tags={ "read-docs" })
     @ApiResponses(value = { 
         @ApiResponse(responseCode = "200", description = "A array of corpuses", content = @Content(array = @ArraySchema(schema = @Schema(implementation = Corpus.class)))) })

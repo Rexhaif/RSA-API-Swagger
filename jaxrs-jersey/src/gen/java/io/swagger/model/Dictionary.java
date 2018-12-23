@@ -16,23 +16,28 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 import javax.validation.constraints.*;
 
 /**
- * Member
+ * Dictionary
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T17:51:19.196Z[GMT]")public class Member   {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T17:51:19.196Z[GMT]")public class Dictionary   {
   @JsonProperty("id")
   private UUID id = null;
 
   @JsonProperty("name")
   private String name = null;
 
-  @JsonProperty("org_id")
-  private UUID orgId = null;
+  @JsonProperty("owner_id")
+  private UUID ownerId = null;
 
-  public Member id(UUID id) {
+  @JsonProperty("words")
+  private List<String> words = new ArrayList<String>();
+
+  public Dictionary id(UUID id) {
     this.id = id;
     return this;
   }
@@ -42,7 +47,7 @@ import javax.validation.constraints.*;
    * @return id
    **/
   @JsonProperty("id")
-  @Schema(example = "d290f1ee-6c54-4b01-90e6-d701748f0851", required = true, description = "")
+  @Schema(required = true, description = "")
   @NotNull
   public UUID getId() {
     return id;
@@ -52,7 +57,7 @@ import javax.validation.constraints.*;
     this.id = id;
   }
 
-  public Member name(String name) {
+  public Dictionary name(String name) {
     this.name = name;
     return this;
   }
@@ -62,7 +67,7 @@ import javax.validation.constraints.*;
    * @return name
    **/
   @JsonProperty("name")
-  @Schema(example = "Иван Иванов", required = true, description = "")
+  @Schema(required = true, description = "")
   @NotNull
   public String getName() {
     return name;
@@ -72,24 +77,49 @@ import javax.validation.constraints.*;
     this.name = name;
   }
 
-  public Member orgId(UUID orgId) {
-    this.orgId = orgId;
+  public Dictionary ownerId(UUID ownerId) {
+    this.ownerId = ownerId;
     return this;
   }
 
   /**
-   * Get orgId
-   * @return orgId
+   * Get ownerId
+   * @return ownerId
    **/
-  @JsonProperty("org_id")
-  @Schema(example = "d290f1ee-6c54-4b01-90e6-d701748f0851", required = true, description = "")
+  @JsonProperty("owner_id")
+  @Schema(required = true, description = "")
   @NotNull
-  public UUID getOrgId() {
-    return orgId;
+  public UUID getOwnerId() {
+    return ownerId;
   }
 
-  public void setOrgId(UUID orgId) {
-    this.orgId = orgId;
+  public void setOwnerId(UUID ownerId) {
+    this.ownerId = ownerId;
+  }
+
+  public Dictionary words(List<String> words) {
+    this.words = words;
+    return this;
+  }
+
+  public Dictionary addWordsItem(String wordsItem) {
+    this.words.add(wordsItem);
+    return this;
+  }
+
+  /**
+   * Get words
+   * @return words
+   **/
+  @JsonProperty("words")
+  @Schema(required = true, description = "")
+  @NotNull
+  public List<String> getWords() {
+    return words;
+  }
+
+  public void setWords(List<String> words) {
+    this.words = words;
   }
 
 
@@ -101,26 +131,28 @@ import javax.validation.constraints.*;
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Member member = (Member) o;
-    return Objects.equals(this.id, member.id) &&
-        Objects.equals(this.name, member.name) &&
-        Objects.equals(this.orgId, member.orgId);
+    Dictionary dictionary = (Dictionary) o;
+    return Objects.equals(this.id, dictionary.id) &&
+        Objects.equals(this.name, dictionary.name) &&
+        Objects.equals(this.ownerId, dictionary.ownerId) &&
+        Objects.equals(this.words, dictionary.words);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, orgId);
+    return Objects.hash(id, name, ownerId, words);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Member {\n");
+    sb.append("class Dictionary {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
+    sb.append("    ownerId: ").append(toIndentedString(ownerId)).append("\n");
+    sb.append("    words: ").append(toIndentedString(words)).append("\n");
     sb.append("}");
     return sb.toString();
   }

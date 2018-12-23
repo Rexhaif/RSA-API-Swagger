@@ -36,7 +36,7 @@ import javax.validation.constraints.*;
 @Path("/org")
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-17T16:16:40.169Z[GMT]")public class OrgApi  {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T17:51:19.196Z[GMT]")public class OrgApi  {
    private final OrgApiService delegate;
 
    public OrgApi(@Context ServletConfig servletContext) {
@@ -64,7 +64,7 @@ import javax.validation.constraints.*;
     
     @Consumes({ "application/json" })
     @Produces({ "application/json" })
-    @Operation(summary = "", description = "Создать новую организацию", security = {
+    @Operation(summary = "Создать новую организацию", description = "", security = {
         @SecurityRequirement(name = "bearerAuth")    }, tags={ "admin" })
     @ApiResponses(value = { 
         @ApiResponse(responseCode = "201", description = "Организация создана, возвращается объект орагнизации", content = @Content(schema = @Schema(implementation = Organization.class))) })
@@ -78,7 +78,7 @@ import javax.validation.constraints.*;
     @Path("/{org_id}")
     
     
-    @Operation(summary = "", description = "Удалить организацию по id", security = {
+    @Operation(summary = "Удалить организацию по id", description = "", security = {
         @SecurityRequirement(name = "bearerAuth")    }, tags={ "admin", "manage-orgs" })
     @ApiResponses(value = { 
         @ApiResponse(responseCode = "200", description = "Организация удалена") })
@@ -91,7 +91,7 @@ import javax.validation.constraints.*;
     @Path("/{org_id}")
     
     @Produces({ "application/json" })
-    @Operation(summary = "", description = "Вернуть всю информацию по организации", security = {
+    @Operation(summary = "Вернуть всю информацию по организации", description = "", security = {
         @SecurityRequirement(name = "bearerAuth")    }, tags={ "admin", "manage-orgs" })
     @ApiResponses(value = { 
         @ApiResponse(responseCode = "200", description = "Объект организации с данным id", content = @Content(schema = @Schema(implementation = Organization.class))) })
@@ -104,7 +104,7 @@ import javax.validation.constraints.*;
     
     
     @Produces({ "application/json" })
-    @Operation(summary = "", description = "Вывести список всех организаций", security = {
+    @Operation(summary = "Вывести список всех организаций", description = "", security = {
         @SecurityRequirement(name = "bearerAuth")    }, tags={ "admin" })
     @ApiResponses(value = { 
         @ApiResponse(responseCode = "200", description = "Список организаций", content = @Content(array = @ArraySchema(schema = @Schema(implementation = Organization.class)))) })
