@@ -3,7 +3,7 @@ package io.swagger.api.factories;
 import io.swagger.api.OrgApiService;
 import io.swagger.api.impl.OrgApiServiceImpl;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T18:38:52.268Z[GMT]")public class OrgApiServiceFactory {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T18:39:19.625Z[GMT]")public class OrgApiServiceFactory {
     private final static OrgApiService service = new OrgApiServiceImpl();
 
     public static OrgApiService getOrgApi() {

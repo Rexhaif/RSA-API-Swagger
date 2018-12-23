@@ -22,7 +22,7 @@ import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.validation.constraints.*;
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T18:38:52.268Z[GMT]")public class DocApiServiceImpl extends DocApiService {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T18:39:19.625Z[GMT]")public class DocApiServiceImpl extends DocApiService {
     @Override
     public Response computeMarkers(List<UUID> docIds,  List<String> markers, SecurityContext securityContext) throws NotFoundException {
         // do some magic!

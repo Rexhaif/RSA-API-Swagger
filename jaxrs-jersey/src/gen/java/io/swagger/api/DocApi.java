@@ -40,7 +40,7 @@ import javax.validation.constraints.*;
 @Path("/doc")
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T18:38:52.268Z[GMT]")public class DocApi  {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T18:39:19.625Z[GMT]")public class DocApi  {
    private final DocApiService delegate;
 
    public DocApi(@Context ServletConfig servletContext) {
@@ -131,10 +131,10 @@ import javax.validation.constraints.*;
     @ApiResponses(value = { 
         @ApiResponse(responseCode = "200", description = "Документы найдены", content = @Content(array = @ArraySchema(schema = @Schema(implementation = Document.class)))),
         
-        @ApiResponse(responseCode = "404", description = "") })
-    public Response searchDocs(@Parameter(description = "") @QueryParam("title") String title
+        @ApiResponse(responseCode = "404", description = "Документы по данным условиям не найдены") })
+    public Response searchDocs(@Parameter(description = "фильтровать по фрагменту названия документа") @QueryParam("title") String title
 ,@Parameter(description = "фильтровать по автору документа") @QueryParam("author") String author
-,@Parameter(description = "") @QueryParam("created_before") Date createdBefore
+,@Parameter(description = "фильтровать по времени создания документа(верхняя граница)") @QueryParam("created_before") Date createdBefore
 ,@Parameter(description = "фильтровать по времени создания документа(нижняя граница)") @QueryParam("created_after") Date createdAfter
 ,@Parameter(description = "фильтровать по тегам документа") @QueryParam("tags") List<String> tags
 ,@Context SecurityContext securityContext)

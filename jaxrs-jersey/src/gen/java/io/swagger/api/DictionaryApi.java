@@ -36,7 +36,7 @@ import javax.validation.constraints.*;
 @Path("/dictionary")
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T18:38:52.268Z[GMT]")public class DictionaryApi  {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T18:39:19.625Z[GMT]")public class DictionaryApi  {
    private final DictionaryApiService delegate;
 
    public DictionaryApi(@Context ServletConfig servletContext) {

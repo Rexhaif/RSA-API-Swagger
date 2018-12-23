@@ -22,7 +22,7 @@ import javax.validation.constraints.*;
 /**
  * EntityStatisticEntity
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T18:38:52.268Z[GMT]")public class EntityStatisticEntity   {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T18:39:19.625Z[GMT]")public class EntityStatisticEntity   {
   /**
    * Gets or Sets entityType
    */
