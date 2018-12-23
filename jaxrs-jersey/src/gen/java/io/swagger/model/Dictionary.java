@@ -24,7 +24,7 @@ import javax.validation.constraints.*;
 /**
  * Dictionary
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T17:51:19.196Z[GMT]")public class Dictionary   {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T17:59:28.366Z[GMT]")public class Dictionary   {
   @JsonProperty("id")
   private UUID id = null;
 

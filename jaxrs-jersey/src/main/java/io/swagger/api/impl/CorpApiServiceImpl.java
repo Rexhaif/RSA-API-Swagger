@@ -25,7 +25,7 @@ import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.validation.constraints.*;
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T17:51:19.196Z[GMT]")public class CorpApiServiceImpl extends CorpApiService {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T17:59:28.366Z[GMT]")public class CorpApiServiceImpl extends CorpApiService {
     @Override
     public Response addDocument(UUID corpId, Body2 body, SecurityContext securityContext) throws NotFoundException {
         // do some magic!

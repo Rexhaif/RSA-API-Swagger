@@ -20,29 +20,29 @@ import java.util.UUID;
 import javax.validation.constraints.*;
 
 /**
- * InlineResponse201
+ * InlineResponse2011
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T17:59:28.366Z[GMT]")public class InlineResponse201   {
-  @JsonProperty("document_id")
-  private UUID documentId = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T17:59:28.366Z[GMT]")public class InlineResponse2011   {
+  @JsonProperty("dict_id")
+  private UUID dictId = null;
 
-  public InlineResponse201 documentId(UUID documentId) {
-    this.documentId = documentId;
+  public InlineResponse2011 dictId(UUID dictId) {
+    this.dictId = dictId;
     return this;
   }
 
   /**
-   * Get documentId
-   * @return documentId
+   * Get dictId
+   * @return dictId
    **/
-  @JsonProperty("document_id")
+  @JsonProperty("dict_id")
   @Schema(description = "")
-  public UUID getDocumentId() {
-    return documentId;
+  public UUID getDictId() {
+    return dictId;
   }
 
-  public void setDocumentId(UUID documentId) {
-    this.documentId = documentId;
+  public void setDictId(UUID dictId) {
+    this.dictId = dictId;
   }
 
 
@@ -54,22 +54,22 @@ import javax.validation.constraints.*;
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse201 inlineResponse201 = (InlineResponse201) o;
-    return Objects.equals(this.documentId, inlineResponse201.documentId);
+    InlineResponse2011 inlineResponse2011 = (InlineResponse2011) o;
+    return Objects.equals(this.dictId, inlineResponse2011.dictId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentId);
+    return Objects.hash(dictId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse201 {\n");
+    sb.append("class InlineResponse2011 {\n");
     
-    sb.append("    documentId: ").append(toIndentedString(documentId)).append("\n");
+    sb.append("    dictId: ").append(toIndentedString(dictId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

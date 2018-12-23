@@ -14,6 +14,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
 import io.swagger.model.Dictionary;
+import io.swagger.model.InlineResponse2011;
 import java.util.UUID;
 
 import java.util.Map;
@@ -35,7 +36,7 @@ import javax.validation.constraints.*;
 @Path("/dictionary")
 
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T17:51:19.196Z[GMT]")public class DictionaryApi  {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2018-12-23T17:59:28.366Z[GMT]")public class DictionaryApi  {
    private final DictionaryApiService delegate;
 
    public DictionaryApi(@Context ServletConfig servletContext) {
@@ -59,6 +60,20 @@ import javax.validation.constraints.*;
       this.delegate = delegate;
    }
 
+    @POST
+    
+    @Consumes({ "application/json" })
+    @Produces({ "application/json" })
+    @Operation(summary = "Создать новый словарь", description = "", security = {
+        @SecurityRequirement(name = "bearerAuth")    }, tags={ "manage-docs" })
+    @ApiResponses(value = { 
+        @ApiResponse(responseCode = "201", description = "Словарь создан", content = @Content(schema = @Schema(implementation = InlineResponse2011.class))) })
+    public Response createDictionary(@Parameter(description = "" ) Dictionary body
+
+,@Context SecurityContext securityContext)
+    throws NotFoundException {
+        return delegate.createDictionary(body,securityContext);
+    }
     @GET
     @Path("/{dict_id}")
     
@@ -71,5 +86,20 @@ import javax.validation.constraints.*;
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.getDictionary(dictId,securityContext);
+    }
+    @PUT
+    @Path("/{dict_id}")
+    @Consumes({ "application/json" })
+    
+    @Operation(summary = "Добавить слова в словарь", description = "", security = {
+        @SecurityRequirement(name = "bearerAuth")    }, tags={ "manage-docs" })
+    @ApiResponses(value = { 
+        @ApiResponse(responseCode = "200", description = "Слова добавлены") })
+    public Response updateDictionary(@Parameter(description = "id словаря",required=true) @PathParam("dict_id") UUID dictId
+,@Parameter(description = "" ) List<String> body
+
+,@Context SecurityContext securityContext)
+    throws NotFoundException {
+        return delegate.updateDictionary(dictId,body,securityContext);
     }
 }
