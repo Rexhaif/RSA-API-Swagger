@@ -219,6 +219,7 @@
   <li><a href="#computeMarkers"><code><span class="http-method">get</span> /corp/{corp_ids}/markers</code></a></li>
   <li><a href="#computeStats"><code><span class="http-method">get</span> /corp/{corp_ids}/stats</code></a></li>
   <li><a href="#getCorp"><code><span class="http-method">get</span> /corp/{corp_id}</code></a></li>
+  <li><a href="#getDictionary"><code><span class="http-method">get</span> /dictionary/{dict_id}</code></a></li>
   <li><a href="#getDoc"><code><span class="http-method">get</span> /corp/{corp_id}/doc/{doc_id}</code></a></li>
   <li><a href="#getPredicates"><code><span class="http-method">get</span> /corp/{corp_ids}/predicates</code></a></li>
   <li><a href="#highlightLexics"><code><span class="http-method">get</span> /corp/{corp_ids}/lexics</code></a></li>
@@ -230,8 +231,8 @@
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
     <pre class="post"><code class="huge"><span class="http-method">post</span> /org</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">createOrg</span>)</div>
-    <div class="method-notes">Создать новую организацию</div>
+    <div class="method-summary">Создать новую организацию (<span class="nickname">createOrg</span>)</div>
+    <div class="method-notes"></div>
 
 
     <h3 class="field-label">Consumes</h3>
@@ -276,8 +277,8 @@
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
     <pre class="delete"><code class="huge"><span class="http-method">delete</span> /org/{org_id}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">deleteOrg</span>)</div>
-    <div class="method-notes">Удалить организацию по id</div>
+    <div class="method-summary">Удалить организацию по id (<span class="nickname">deleteOrg</span>)</div>
+    <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
@@ -305,8 +306,8 @@
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
     <pre class="get"><code class="huge"><span class="http-method">get</span> /org/{org_id}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">getOrg</span>)</div>
-    <div class="method-notes">Вернуть всю информацию по организации</div>
+    <div class="method-summary">Вернуть всю информацию по организации (<span class="nickname">getOrg</span>)</div>
+    <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
@@ -345,8 +346,8 @@
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
     <pre class="get"><code class="huge"><span class="http-method">get</span> /org</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">listOrgs</span>)</div>
-    <div class="method-notes">Вывести список всех организаций</div>
+    <div class="method-summary">Вывести список всех организаций (<span class="nickname">listOrgs</span>)</div>
+    <div class="method-notes"></div>
 
 
 
@@ -381,8 +382,8 @@
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
     <pre class="post"><code class="huge"><span class="http-method">post</span> /corp/{corp_id}/doc</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">addDocument</span>)</div>
-    <div class="method-notes">Загрузка нового документа в корпус</div>
+    <div class="method-summary">Загрузка нового документа в корпус (<span class="nickname">addDocument</span>)</div>
+    <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
@@ -478,8 +479,8 @@
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
     <pre class="delete"><code class="huge"><span class="http-method">delete</span> /corp/{corp_id}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">deleteCorp</span>)</div>
-    <div class="method-notes">Удалить корпус</div>
+    <div class="method-summary">Удалить корпус (<span class="nickname">deleteCorp</span>)</div>
+    <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
@@ -508,8 +509,8 @@
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
     <pre class="delete"><code class="huge"><span class="http-method">delete</span> /org/{org_id}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">deleteOrg</span>)</div>
-    <div class="method-notes">Удалить организацию по id</div>
+    <div class="method-summary">Удалить организацию по id (<span class="nickname">deleteOrg</span>)</div>
+    <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
@@ -537,8 +538,8 @@
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
     <pre class="get"><code class="huge"><span class="http-method">get</span> /org/{org_id}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">getOrg</span>)</div>
-    <div class="method-notes">Вернуть всю информацию по организации</div>
+    <div class="method-summary">Вернуть всю информацию по организации (<span class="nickname">getOrg</span>)</div>
+    <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
@@ -578,8 +579,8 @@
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
     <pre class="get"><code class="huge"><span class="http-method">get</span> /corp/{corp_ids}/markers</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">computeMarkers</span>)</div>
-    <div class="method-notes">Рассчитать психолингвистические маркеры по документам в указанных корпусах</div>
+    <div class="method-summary">Рассчитать психолингвистические маркеры по документам в указанных корпусах (<span class="nickname">computeMarkers</span>)</div>
+    <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
@@ -623,8 +624,8 @@
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
     <pre class="get"><code class="huge"><span class="http-method">get</span> /corp/{corp_ids}/stats</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">computeStats</span>)</div>
-    <div class="method-notes">Рассчитать статистические показатели по документам в указанных корпусах</div>
+    <div class="method-summary">Рассчитать статистические показатели по документам в указанных корпусах (<span class="nickname">computeStats</span>)</div>
+    <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
@@ -668,8 +669,8 @@
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
     <pre class="get"><code class="huge"><span class="http-method">get</span> /corp/{corp_id}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">getCorp</span>)</div>
-    <div class="method-notes">Вернуть все данные по корпусу</div>
+    <div class="method-summary">Вернуть все данные по корпусу (<span class="nickname">getCorp</span>)</div>
+    <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
@@ -704,12 +705,52 @@
         <a href="#Corpus">Corpus</a>
   </div> <!-- method -->
   <hr/>
+  <div class="method"><a name="getDictionary"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /dictionary/{dict_id}</code></pre></div>
+    <div class="method-summary">Вернуть словарь по id (<span class="nickname">getDictionary</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">dict_id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id словаря format: uuid</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Dictionary">Dictionary</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Словарь найден
+        <a href="#Dictionary">Dictionary</a>
+  </div> <!-- method -->
+  <hr/>
   <div class="method"><a name="getDoc"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
     <pre class="get"><code class="huge"><span class="http-method">get</span> /corp/{corp_id}/doc/{doc_id}</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">getDoc</span>)</div>
-    <div class="method-notes">Получить документ</div>
+    <div class="method-summary">Получить документ (<span class="nickname">getDoc</span>)</div>
+    <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
@@ -750,8 +791,8 @@
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
     <pre class="get"><code class="huge"><span class="http-method">get</span> /corp/{corp_ids}/predicates</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">getPredicates</span>)</div>
-    <div class="method-notes">Найти предикатно-аргументные пары по заданным условиям</div>
+    <div class="method-summary">Найти предикатно-аргументные пары по заданным условиям (<span class="nickname">getPredicates</span>)</div>
+    <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
@@ -797,8 +838,8 @@
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
     <pre class="get"><code class="huge"><span class="http-method">get</span> /corp/{corp_ids}/lexics</code></pre></div>
-    <div class="method-summary"> (<span class="nickname">highlightLexics</span>)</div>
-    <div class="method-notes">Выделить специфичную лексику по словарям из документов в указанных корпусах</div>
+    <div class="method-summary">Выделить специфичную лексику по словарям из документов в указанных корпусах (<span class="nickname">highlightLexics</span>)</div>
+    <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
@@ -842,7 +883,7 @@
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
     <pre class="get"><code class="huge"><span class="http-method">get</span> /corp</code></pre></div>
-    <div class="method-summary">List all corpuses (<span class="nickname">listCorpuses</span>)</div>
+    <div class="method-summary">Вернуть список корпусов (<span class="nickname">listCorpuses</span>)</div>
     <div class="method-notes"></div>
 
 
@@ -881,6 +922,7 @@
   <ol>
     <li><a href="#ArgumentPredicateTuple"><code>ArgumentPredicateTuple</code></a></li>
     <li><a href="#Corpus"><code>Corpus</code></a></li>
+    <li><a href="#Dictionary"><code>Dictionary</code></a></li>
     <li><a href="#Document"><code>Document</code></a></li>
     <li><a href="#DocumentStatistic"><code>DocumentStatistic</code></a></li>
     <li><a href="#EntityStatistic"><code>EntityStatistic</code></a></li>
@@ -914,6 +956,16 @@
 <div class="param">owner_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
 <div class="param">parent_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
 <div class="param">documents (optional)</div><div class="param-desc"><span class="param-type"><a href="#Document">array[Document]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="Dictionary"><code>Dictionary</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
+<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">owner_id </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
+<div class="param">words </div><div class="param-desc"><span class="param-type"><a href="#string">array[String]</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
