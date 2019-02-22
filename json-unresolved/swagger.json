@@ -79,6 +79,11 @@
               "application/json" : {
                 "schema" : {
                   "properties" : {
+                    "user_id" : {
+                      "description" : "id созданного пользователя",
+                      "type" : "string",
+                      "format" : "uuid"
+                    },
                     "access_token" : {
                       "description" : "Короткосрочный токен доступа к операциям с api",
                       "type" : "string"
@@ -96,7 +101,52 @@
       }
     },
     "/org/{org_id}/{user_id}/token" : {
-      "post" : null
+      "post" : {
+        "summary" : "создать новый токен для текущего пользователя",
+        "operationId" : "create-token",
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ],
+        "tags" : [ "manage" ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "org_id",
+          "schema" : {
+            "type" : "string",
+            "format" : "uuid"
+          },
+          "required" : true
+        }, {
+          "in" : "path",
+          "name" : "user_id",
+          "schema" : {
+            "type" : "string",
+            "format" : "uuid"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Токен создан",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "properties" : {
+                    "access_token" : {
+                      "description" : "Короткосрочный токен доступа к операциям с api",
+                      "type" : "string"
+                    },
+                    "refresh_token" : {
+                      "description" : "Долгоживущий токен для обновления access_token",
+                      "type" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     },
     "/refresh" : {
       "post" : {
