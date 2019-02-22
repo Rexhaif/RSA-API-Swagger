@@ -886,6 +886,19 @@
             defs.inline_response_200 = {
   "type" : "object",
   "properties" : {
+    "access_token" : {
+      "type" : "string",
+      "description" : "Короткосрочный токен доступа к операциям с api"
+    },
+    "refresh_token" : {
+      "type" : "string",
+      "description" : "Долгоживущий токен для обновления access_token"
+    }
+  }
+};
+            defs.inline_response_200_1 = {
+  "type" : "object",
+  "properties" : {
     "stat_name" : {
       "type" : "string"
     },
@@ -2326,7 +2339,7 @@ public class AnalyzeCorpsApiExample {
         array[UUID] corpIds = ; // array[UUID] | 
         array[String] statistics = ; // array[String] | Список показателей, которые необходимо рассчитать
         try {
-            array[inline_response_200] result = apiInstance.computeStats(corpIds, statistics);
+            array[inline_response_200_1] result = apiInstance.computeStats(corpIds, statistics);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AnalyzeCorpsApi#computeStats");
@@ -2346,7 +2359,7 @@ public class AnalyzeCorpsApiExample {
         array[UUID] corpIds = ; // array[UUID] | 
         array[String] statistics = ; // array[String] | Список показателей, которые необходимо рассчитать
         try {
-            array[inline_response_200] result = apiInstance.computeStats(corpIds, statistics);
+            array[inline_response_200_1] result = apiInstance.computeStats(corpIds, statistics);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AnalyzeCorpsApi#computeStats");
@@ -2369,7 +2382,7 @@ AnalyzeCorpsApi *apiInstance = [[AnalyzeCorpsApi alloc] init];
 // Рассчитать статистические показатели по документам в указанных корпусах
 [apiInstance computeStatsWith:corpIds
     statistics:statistics
-              completionHandler: ^(array[inline_response_200] output, NSError* error) {
+              completionHandler: ^(array[inline_response_200_1] output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -2426,7 +2439,7 @@ namespace Example
             try
             {
                 // Рассчитать статистические показатели по документам в указанных корпусах
-                array[inline_response_200] result = apiInstance.computeStats(corpIds, statistics);
+                array[inline_response_200_1] result = apiInstance.computeStats(corpIds, statistics);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2582,7 +2595,7 @@ except ApiException as e:
       "schema" : {
         "type" : "array",
         "items" : {
-          "$ref" : "#/components/schemas/inline_response_200"
+          "$ref" : "#/components/schemas/inline_response_200_1"
         }
       }
     }
@@ -3755,7 +3768,7 @@ public class AnalyzeDocsApiExample {
         array[UUID] docIds = ; // array[UUID] | id документов
         array[String] statistics = ; // array[String] | Список показателей, которые необходимо рассчитать
         try {
-            array[inline_response_200] result = apiInstance.computeStats(docIds, statistics);
+            array[inline_response_200_1] result = apiInstance.computeStats(docIds, statistics);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AnalyzeDocsApi#computeStats");
@@ -3775,7 +3788,7 @@ public class AnalyzeDocsApiExample {
         array[UUID] docIds = ; // array[UUID] | id документов
         array[String] statistics = ; // array[String] | Список показателей, которые необходимо рассчитать
         try {
-            array[inline_response_200] result = apiInstance.computeStats(docIds, statistics);
+            array[inline_response_200_1] result = apiInstance.computeStats(docIds, statistics);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AnalyzeDocsApi#computeStats");
@@ -3798,7 +3811,7 @@ AnalyzeDocsApi *apiInstance = [[AnalyzeDocsApi alloc] init];
 // Рассчитать статистические показатели по документам
 [apiInstance computeStatsWith:docIds
     statistics:statistics
-              completionHandler: ^(array[inline_response_200] output, NSError* error) {
+              completionHandler: ^(array[inline_response_200_1] output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -3855,7 +3868,7 @@ namespace Example
             try
             {
                 // Рассчитать статистические показатели по документам
-                array[inline_response_200] result = apiInstance.computeStats(docIds, statistics);
+                array[inline_response_200_1] result = apiInstance.computeStats(docIds, statistics);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -4014,7 +4027,7 @@ except ApiException as e:
       "schema" : {
         "type" : "array",
         "items" : {
-          "$ref" : "#/components/schemas/inline_response_200"
+          "$ref" : "#/components/schemas/inline_response_200_1"
         }
       }
     }
@@ -5805,7 +5818,8 @@ public class ManageApiExample {
         Body body = ; // Body | 
         UUID orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id организации, в которую добавляется пользователь
         try {
-            apiInstance.createUser(bodyorgId);
+            inline_response_200 result = apiInstance.createUser(bodyorgId);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ManageApi#createUser");
             e.printStackTrace();
@@ -5824,7 +5838,8 @@ public class ManageApiExample {
         Body body = ; // Body | 
         UUID orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id организации, в которую добавляется пользователь
         try {
-            apiInstance.createUser(bodyorgId);
+            inline_response_200 result = apiInstance.createUser(bodyorgId);
+            System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ManageApi#createUser");
             e.printStackTrace();
@@ -5846,7 +5861,10 @@ ManageApi *apiInstance = [[ManageApi alloc] init];
 // Create new user
 [apiInstance createUserWith:body
     orgId:orgId
-              completionHandler: ^(NSError* error) {
+              completionHandler: ^(inline_response_200 output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
                             if (error) {
                                 NSLog(@"Error: %@", error);
                             }
@@ -5867,7 +5885,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 api.createUser(body, orgId, callback);
@@ -5899,7 +5917,8 @@ namespace Example
             try
             {
                 // Create new user
-                apiInstance.createUser(bodyorgId);
+                inline_response_200 result = apiInstance.createUser(bodyorgId);
+                Debug.WriteLine(result);
             }
             catch (Exception e)
             {
@@ -5921,7 +5940,8 @@ $body = ; // Body |
 $orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id организации, в которую добавляется пользователь
 
 try {
-    $api_instance->createUser($body$orgId);
+    $result = $api_instance->createUser($body$orgId);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ManageApi->createUser: ', $e->getMessage(), PHP_EOL;
 }
@@ -5939,7 +5959,8 @@ my $body = WWW::SwaggerClient::Object::Body->new(); # Body |
 my $orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; # UUID | id организации, в которую добавляется пользователь
 
 eval { 
-    $api_instance->createUser(body => $bodyorgId => $orgId);
+    my $result = $api_instance->createUser(body => $bodyorgId => $orgId);
+    print Dumper($result);
 };
 if ($@) {
     warn "Exception when calling ManageApi->createUser: $@\n";
@@ -5961,7 +5982,8 @@ orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d # UUID | id организации,
 
 try: 
     # Create new user
-    api_instance.create_user(bodyorgId)
+    api_response = api_instance.create_user(bodyorgId)
+    pprint(api_response)
 except ApiException as e:
     print("Exception when calling ManageApi->createUser: %s\n" % e)</code></pre>
                             </div>
@@ -6043,9 +6065,48 @@ except ApiException as e:
                             <h3> Status: 200 - пользователь создан </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-createUser-200-schema">Schema</a>
+                                </li>
+
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-createUser-200-schema">
+                                  <div id='responses-createUser-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "пользователь создан",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/inline_response_200"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-createUser-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-createUser-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-createUser-200-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
