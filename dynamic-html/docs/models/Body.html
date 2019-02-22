@@ -1,12 +1,19 @@
 
 <h2>Body</h2>
 <ul class="parameter">
-  <li class="param-required-true">title : String
+  <li class="param-required-false">user_title : String
     <br/>
   </li>
 </ul>
 <ul class="parameter">
-  <li class="param-required-true">manager_id : UUID
+  <li class="param-required-false">user_role : String
     <br/>
+      <dl class="param-enum">
+        <dt>Enum:
+            <dd>admin</dd>
+            <dd>editor</dd>
+            <dd>user</dd>
+        </dt>
+      </dl>
   </li>
 </ul>
