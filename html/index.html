@@ -224,6 +224,7 @@
   <li><a href="#createToken"><code><span class="http-method">post</span> /org/{org_id}/{user_id}/token</code></a></li>
   <li><a href="#createUser"><code><span class="http-method">post</span> /org/{org_id}/user</code></a></li>
   <li><a href="#deleteCorp"><code><span class="http-method">delete</span> /corp/{corp_id}</code></a></li>
+  <li><a href="#getOrg"><code><span class="http-method">get</span> /org/{org_id}/</code></a></li>
   <li><a href="#updateDictionary"><code><span class="http-method">put</span> /dictionary/{dict_id}</code></a></li>
   </ul>
   <h4><a href="#Read">Read</a></h4>
@@ -985,6 +986,46 @@
         <a href="#"></a>
   </div> <!-- method -->
   <hr/>
+  <div class="method"><a name="getOrg"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /org/{org_id}/</code></pre></div>
+    <div class="method-summary">Получить информацию о организации (<span class="nickname">getOrg</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">org_id (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash;  format: uuid</div>    </div>  <!-- field-items -->
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#Organization">Organization</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    
+        <a href="#Organization">Organization</a>
+  </div> <!-- method -->
+  <hr/>
   <div class="method"><a name="updateDictionary"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -1357,8 +1398,8 @@
     <li><a href="#DocumentStatistic"><code>DocumentStatistic</code></a></li>
     <li><a href="#EntityStatistic"><code>EntityStatistic</code></a></li>
     <li><a href="#EntityStatistic_entity"><code>EntityStatistic_entity</code></a></li>
-    <li><a href="#Member"><code>Member</code></a></li>
     <li><a href="#Organization"><code>Organization</code></a></li>
+    <li><a href="#User"><code>User</code></a></li>
     <li><a href="#WordTuple"><code>WordTuple</code></a></li>
     <li><a href="#body"><code>body</code></a></li>
     <li><a href="#body_1"><code>body_1</code></a></li>
@@ -1441,15 +1482,6 @@
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="Member"><code>Member</code></a> <a class="up" href="#__Models">Up</a></h3>
-    
-    <div class="field-items">
-      <div class="param">id </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
-<div class="param">name </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">org_id </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
     <h3><a name="Organization"><code>Organization</code></a> <a class="up" href="#__Models">Up</a></h3>
     
     <div class="field-items">
@@ -1457,7 +1489,15 @@
 <div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">manager_id </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
 <div class="param">parent_id (optional)</div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
-<div class="param">members (optional)</div><div class="param-desc"><span class="param-type"><a href="#Member">array[Member]</a></span>  </div>
+<div class="param">members (optional)</div><div class="param-desc"><span class="param-type"><a href="#User">array[User]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="User"><code>User</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">user_id </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
+<div class="param">user_title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
