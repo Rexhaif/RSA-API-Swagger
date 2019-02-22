@@ -253,7 +253,7 @@
 
     <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">body <a href="#body">body</a> (required)</div>
+      <div class="param">body <a href="#body_1">body_1</a> (required)</div>
       
             <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
     </div>  <!-- field-items -->
@@ -785,7 +785,7 @@
 
     <h3 class="field-label">Request body</h3>
     <div class="field-items">
-      <div class="param">body <a href="#body_1">body_1</a> (required)</div>
+      <div class="param">body <a href="#body_2">body_2</a> (required)</div>
       
             <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
     </div>  <!-- field-items -->
@@ -874,7 +874,18 @@
       
             <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; id организации, в которую добавляется пользователь format: uuid</div>    </div>  <!-- field-items -->
 
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
 
+    <h3 class="field-label">Request body</h3>
+    <div class="field-items">
+      <div class="param">body <a href="#body">body</a> (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Body Parameter</span> &mdash;  </div>
+    </div>  <!-- field-items -->
 
 
 
@@ -885,6 +896,9 @@
 
 
     <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    пользователь создан
+        <a href="#"></a>
   </div> <!-- method -->
   <hr/>
   <div class="method"><a name="deleteCorp"></a>
@@ -1258,6 +1272,7 @@
     <li><a href="#WordTuple"><code>WordTuple</code></a></li>
     <li><a href="#body"><code>body</code></a></li>
     <li><a href="#body_1"><code>body_1</code></a></li>
+    <li><a href="#body_2"><code>body_2</code></a></li>
     <li><a href="#inline_response_200"><code>inline_response_200</code></a></li>
     <li><a href="#inline_response_201"><code>inline_response_201</code></a></li>
     <li><a href="#inline_response_201_1"><code>inline_response_201_1</code></a></li>
@@ -1366,12 +1381,22 @@
     <h3><a name="body"><code>body</code></a> <a class="up" href="#__Models">Up</a></h3>
     
     <div class="field-items">
+      <div class="param">user_title (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">user_role (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">admin</div><div class="param-enum">editor</div><div class="param-enum">user</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="body_1"><code>body_1</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
       <div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">manager_id </div><div class="param-desc"><span class="param-type"><a href="#UUID">UUID</a></span>  format: uuid</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="body_1"><code>body_1</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="body_2"><code>body_2</code></a> <a class="up" href="#__Models">Up</a></h3>
     
     <div class="field-items">
       <div class="param">title </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
