@@ -1088,6 +1088,9 @@
                     <li data-group="Read" data-name="listDictionaries" class="">
                       <a href="#api-Read-listDictionaries">listDictionaries</a>
                     </li>
+                    <li data-group="Read" data-name="refreshToken" class="">
+                      <a href="#api-Read-refreshToken">refreshToken</a>
+                    </li>
                     <li data-group="Read" data-name="searchDocs" class="">
                       <a href="#api-Read-searchDocs">searchDocs</a>
                     </li>
@@ -8451,6 +8454,270 @@ except ApiException as e:
                                     </script>
                                   </div>
                                   <input id='responses-listDictionaries-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Read-refreshToken">
+                      <article id="api-Read-refreshToken-0" data-group="User" data-name="refreshToken" data-version="0">
+                        <div class="pull-left">
+                          <h1>refreshToken</h1>
+                          <p>Oбновление access_token и refresh_token с помощью предыдущего refresh_token</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">refresh_token необходимо подать в заголовке Authorization: Bearer &lt;refresh_token&gt;</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/refresh</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Read-refreshToken-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Read-refreshToken-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Read-refreshToken-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Read-refreshToken-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Read-refreshToken-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Read-refreshToken-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Read-refreshToken-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Read-refreshToken-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Read-refreshToken-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Read-refreshToken-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Read-refreshToken-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Read-refreshToken-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X POST "https://virtserver.swaggerhub.com/Rexhaif/RSA-API/3.0.0/refresh"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Read-refreshToken-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.ReadApi;
+
+import java.io.File;
+import java.util.*;
+
+public class ReadApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
+        ReadApi apiInstance = new ReadApi();
+        try {
+            inline_response_200 result = apiInstance.refreshToken();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ReadApi#refreshToken");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Read-refreshToken-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.ReadApi;
+
+public class ReadApiExample {
+
+    public static void main(String[] args) {
+        ReadApi apiInstance = new ReadApi();
+        try {
+            inline_response_200 result = apiInstance.refreshToken();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ReadApi#refreshToken");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Read-refreshToken-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Read-refreshToken-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+
+ReadApi *apiInstance = [[ReadApi alloc] init];
+
+// Oбновление access_token и refresh_token с помощью предыдущего refresh_token
+[apiInstance refreshTokenWithCompletionHandler: 
+              ^(inline_response_200 output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Read-refreshToken-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ApiRsa = require('api__rsa');
+var defaultClient = ApiRsa.ApiClient.instance;
+
+
+var api = new ApiRsa.ReadApi()
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.refreshToken(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Read-refreshToken-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Read-refreshToken-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class refreshTokenExample
+    {
+        public void main()
+        {
+
+
+            var apiInstance = new ReadApi();
+
+            try
+            {
+                // Oбновление access_token и refresh_token с помощью предыдущего refresh_token
+                inline_response_200 result = apiInstance.refreshToken();
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ReadApi.refreshToken: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Read-refreshToken-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$api_instance = new Swagger\Client\ApiReadApi();
+
+try {
+    $result = $api_instance->refreshToken();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReadApi->refreshToken: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Read-refreshToken-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::ReadApi;
+
+
+my $api_instance = WWW::SwaggerClient::ReadApi->new();
+
+eval { 
+    my $result = $api_instance->refreshToken();
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling ReadApi->refreshToken: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Read-refreshToken-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = swagger_client.ReadApi()
+
+try: 
+    # Oбновление access_token и refresh_token с помощью предыдущего refresh_token
+    api_response = api_instance.refresh_token()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ReadApi->refreshToken: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - токен обновлен </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-refreshToken-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-refreshToken-200-schema">
+                                  <div id='responses-refreshToken-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "токен обновлен",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/inline_response_200"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-refreshToken-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-refreshToken-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-refreshToken-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
 
