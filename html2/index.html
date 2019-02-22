@@ -713,6 +713,20 @@
   }
 };
             defs.body = {
+  "type" : "object",
+  "properties" : {
+    "user_title" : {
+      "type" : "string",
+      "example" : "Ivan Ivanov"
+    },
+    "user_role" : {
+      "type" : "string",
+      "example" : "admin",
+      "enum" : [ "admin", "editor", "user" ]
+    }
+  }
+};
+            defs.body_1 = {
   "required" : [ "manager_id", "title" ],
   "type" : "object",
   "properties" : {
@@ -725,7 +739,7 @@
     }
   }
 };
-            defs.body_1 = {
+            defs.body_2 = {
   "required" : [ "title" ],
   "type" : "object",
   "properties" : {
@@ -1135,7 +1149,7 @@ public class AdminApiExample {
 
 
         AdminApi apiInstance = new AdminApi();
-        Body body = ; // Body | 
+        Body_1 body = ; // Body_1 | 
         try {
             Organization result = apiInstance.createOrg(body);
             System.out.println(result);
@@ -1154,7 +1168,7 @@ public class AdminApiExample {
 
     public static void main(String[] args) {
         AdminApi apiInstance = new AdminApi();
-        Body body = ; // Body | 
+        Body_1 body = ; // Body_1 | 
         try {
             Organization result = apiInstance.createOrg(body);
             System.out.println(result);
@@ -1171,7 +1185,7 @@ public class AdminApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-Admin-createOrg-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-Body *body = ; // 
+Body_1 *body = ; // 
 
 AdminApi *apiInstance = [[AdminApi alloc] init];
 
@@ -1194,7 +1208,7 @@ var defaultClient = ApiRsa.ApiClient.instance;
 
 
 var api = new ApiRsa.AdminApi()
-var body = ; // {{Body}} 
+var body = ; // {{Body_1}} 
 
 var callback = function(error, data, response) {
   if (error) {
@@ -1226,7 +1240,7 @@ namespace Example
 
 
             var apiInstance = new AdminApi();
-            var body = new Body(); // Body | 
+            var body = new Body_1(); // Body_1 | 
 
             try
             {
@@ -1250,7 +1264,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api_instance = new Swagger\Client\ApiAdminApi();
-$body = ; // Body | 
+$body = ; // Body_1 | 
 
 try {
     $result = $api_instance->createOrg($body);
@@ -1268,7 +1282,7 @@ use WWW::SwaggerClient::AdminApi;
 
 
 my $api_instance = WWW::SwaggerClient::AdminApi->new();
-my $body = WWW::SwaggerClient::Object::Body->new(); # Body | 
+my $body = WWW::SwaggerClient::Object::Body_1->new(); # Body_1 | 
 
 eval { 
     my $result = $api_instance->createOrg(body => $body);
@@ -1289,7 +1303,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.AdminApi()
-body =  # Body | 
+body =  # Body_1 | 
 
 try: 
     # Создать новую организацию
@@ -5177,7 +5191,7 @@ public class ManageApiExample {
 
 
         ManageApi apiInstance = new ManageApi();
-        Body_1 body = ; // Body_1 | 
+        Body_2 body = ; // Body_2 | 
         try {
             Corpus result = apiInstance.createCorp(body);
             System.out.println(result);
@@ -5196,7 +5210,7 @@ public class ManageApiExample {
 
     public static void main(String[] args) {
         ManageApi apiInstance = new ManageApi();
-        Body_1 body = ; // Body_1 | 
+        Body_2 body = ; // Body_2 | 
         try {
             Corpus result = apiInstance.createCorp(body);
             System.out.println(result);
@@ -5213,7 +5227,7 @@ public class ManageApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-Manage-createCorp-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-Body_1 *body = ; // 
+Body_2 *body = ; // 
 
 ManageApi *apiInstance = [[ManageApi alloc] init];
 
@@ -5236,7 +5250,7 @@ var defaultClient = ApiRsa.ApiClient.instance;
 
 
 var api = new ApiRsa.ManageApi()
-var body = ; // {{Body_1}} 
+var body = ; // {{Body_2}} 
 
 var callback = function(error, data, response) {
   if (error) {
@@ -5268,7 +5282,7 @@ namespace Example
 
 
             var apiInstance = new ManageApi();
-            var body = new Body_1(); // Body_1 | 
+            var body = new Body_2(); // Body_2 | 
 
             try
             {
@@ -5292,7 +5306,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api_instance = new Swagger\Client\ApiManageApi();
-$body = ; // Body_1 | 
+$body = ; // Body_2 | 
 
 try {
     $result = $api_instance->createCorp($body);
@@ -5310,7 +5324,7 @@ use WWW::SwaggerClient::ManageApi;
 
 
 my $api_instance = WWW::SwaggerClient::ManageApi->new();
-my $body = WWW::SwaggerClient::Object::Body_1->new(); # Body_1 | 
+my $body = WWW::SwaggerClient::Object::Body_2->new(); # Body_2 | 
 
 eval { 
     my $result = $api_instance->createCorp(body => $body);
@@ -5331,7 +5345,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.ManageApi()
-body =  # Body_1 | 
+body =  # Body_2 | 
 
 try: 
     # Создать новый корпус
@@ -5788,9 +5802,10 @@ public class ManageApiExample {
 
 
         ManageApi apiInstance = new ManageApi();
+        Body body = ; // Body | 
         UUID orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id организации, в которую добавляется пользователь
         try {
-            apiInstance.createUser(orgId);
+            apiInstance.createUser(bodyorgId);
         } catch (ApiException e) {
             System.err.println("Exception when calling ManageApi#createUser");
             e.printStackTrace();
@@ -5806,9 +5821,10 @@ public class ManageApiExample {
 
     public static void main(String[] args) {
         ManageApi apiInstance = new ManageApi();
+        Body body = ; // Body | 
         UUID orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id организации, в которую добавляется пользователь
         try {
-            apiInstance.createUser(orgId);
+            apiInstance.createUser(bodyorgId);
         } catch (ApiException e) {
             System.err.println("Exception when calling ManageApi#createUser");
             e.printStackTrace();
@@ -5822,12 +5838,14 @@ public class ManageApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-Manage-createUser-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+Body *body = ; // 
 UUID *orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // id организации, в которую добавляется пользователь
 
 ManageApi *apiInstance = [[ManageApi alloc] init];
 
 // Create new user
-[apiInstance createUserWith:orgId
+[apiInstance createUserWith:body
+    orgId:orgId
               completionHandler: ^(NSError* error) {
                             if (error) {
                                 NSLog(@"Error: %@", error);
@@ -5842,6 +5860,7 @@ var defaultClient = ApiRsa.ApiClient.instance;
 
 
 var api = new ApiRsa.ManageApi()
+var body = ; // {{Body}} 
 var orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // {{UUID}} id организации, в которую добавляется пользователь
 
 var callback = function(error, data, response) {
@@ -5851,7 +5870,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.createUser(orgId, callback);
+api.createUser(body, orgId, callback);
 </code></pre>
                             </div>
 
@@ -5874,12 +5893,13 @@ namespace Example
 
 
             var apiInstance = new ManageApi();
+            var body = new Body(); // Body | 
             var orgId = new UUID(); // UUID | id организации, в которую добавляется пользователь
 
             try
             {
                 // Create new user
-                apiInstance.createUser(orgId);
+                apiInstance.createUser(bodyorgId);
             }
             catch (Exception e)
             {
@@ -5897,10 +5917,11 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 $api_instance = new Swagger\Client\ApiManageApi();
+$body = ; // Body | 
 $orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | id организации, в которую добавляется пользователь
 
 try {
-    $api_instance->createUser($orgId);
+    $api_instance->createUser($body$orgId);
 } catch (Exception $e) {
     echo 'Exception when calling ManageApi->createUser: ', $e->getMessage(), PHP_EOL;
 }
@@ -5914,10 +5935,11 @@ use WWW::SwaggerClient::ManageApi;
 
 
 my $api_instance = WWW::SwaggerClient::ManageApi->new();
+my $body = WWW::SwaggerClient::Object::Body->new(); # Body | 
 my $orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; # UUID | id организации, в которую добавляется пользователь
 
 eval { 
-    $api_instance->createUser(orgId => $orgId);
+    $api_instance->createUser(body => $bodyorgId => $orgId);
 };
 if ($@) {
     warn "Exception when calling ManageApi->createUser: $@\n";
@@ -5934,11 +5956,12 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.ManageApi()
+body =  # Body | 
 orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d # UUID | id организации, в которую добавляется пользователь
 
 try: 
     # Create new user
-    api_instance.create_user(orgId)
+    api_instance.create_user(bodyorgId)
 except ApiException as e:
     print("Exception when calling ManageApi->createUser: %s\n" % e)</code></pre>
                             </div>
@@ -5980,10 +6003,51 @@ except ApiException as e:
                             </table>
 
 
+                            <div class="methodsubtabletitle">Body parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">body <span style="color:red;">*</span></td>
+                                <td>
+                                
+                                
+                                <script>
+                                $(document).ready(function() {
+                                  var schemaWrapper = ;
+                                  var schema = schemaWrapper.schema;
+                                  if (schema.$ref != null) {
+                                    schema = defsParser.$refs.get(schema.$ref);
+                                  } else {
+                                    schemaWrapper.definitions = Object.assign({}, defs);
+                                    $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                      console.log(err);
+                                    });
+                                  }
+                                
+                                  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
+                                  var result = $('#d2e199_createUser_body');
+                                  result.empty();
+                                  result.append(view.render());
+                                });
+                                </script>
+                                <div id="d2e199_createUser_body"></div>
+                                </td>
+                                </tr>
+                            </table>
 
 
 
                           <h2>Responses</h2>
+                            <h3> Status: 200 - пользователь создан </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
                         </article>
                       </div>
                       <hr>
