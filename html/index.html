@@ -233,6 +233,7 @@
   <li><a href="#getOrg"><code><span class="http-method">get</span> /org/{org_id}</code></a></li>
   <li><a href="#listCorpuses"><code><span class="http-method">get</span> /corp</code></a></li>
   <li><a href="#listDictionaries"><code><span class="http-method">get</span> /dictionary</code></a></li>
+  <li><a href="#refreshToken"><code><span class="http-method">post</span> /refresh</code></a></li>
   <li><a href="#searchDocs"><code><span class="http-method">get</span> /doc</code></a></li>
   </ul>
 
@@ -1212,6 +1213,41 @@
     <h4 class="field-label">200</h4>
     Список словарей
         
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="refreshToken"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /refresh</code></pre></div>
+    <div class="method-summary">Oбновление access_token и refresh_token с помощью предыдущего refresh_token (<span class="nickname">refreshToken</span>)</div>
+    <div class="method-notes">refresh_token необходимо подать в заголовке Authorization: Bearer &amp;lt;refresh_token&amp;gt;</div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#inline_response_200">inline_response_200</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    токен обновлен
+        <a href="#inline_response_200">inline_response_200</a>
   </div> <!-- method -->
   <hr/>
   <div class="method"><a name="searchDocs"></a>
