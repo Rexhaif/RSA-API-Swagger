@@ -27,12 +27,48 @@
     "description" : "Чтение документов, корпусов, словарей и т.д"
   }, {
     "name" : "manage",
-    "description" : "Методы для управления корпусами, документами, словарями и маркерами"
+    "description" : "Методы для управления корпусами, документами, словарями и пользователями внутри организации"
   }, {
     "name" : "admin",
     "description" : "Методы для управления системой"
   } ],
   "paths" : {
+    "/org/{org_id}/user" : {
+      "post" : {
+        "summary" : "Create new user",
+        "operationId" : "create-user",
+        "tags" : [ "manage" ],
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "org_id",
+          "schema" : {
+            "type" : "string",
+            "format" : "uuid"
+          },
+          "required" : true,
+          "description" : "id организации, в которую добавляется пользователь"
+        } ],
+        "request_body" : {
+          "description" : "Информация о пользователе",
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "properties" : {
+                  "user_title" : {
+                    "description" : "Имя пользователя",
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/doc" : {
       "get" : {
         "summary" : "Поиск по всем документам",
