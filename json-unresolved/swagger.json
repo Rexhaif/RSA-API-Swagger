@@ -95,6 +95,41 @@
         }
       }
     },
+    "/org/{org_id}/{user_id}/token" : {
+      "post" : null
+    },
+    "/refresh" : {
+      "post" : {
+        "summary" : "Oбновление access_token и refresh_token с помощью предыдущего refresh_token",
+        "description" : "refresh_token необходимо подать в заголовке Authorization: Bearer <refresh_token>",
+        "operationId" : "refresh-token",
+        "tags" : [ "read" ],
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "токен обновлен",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "properties" : {
+                    "access_token" : {
+                      "description" : "Короткосрочный токен доступа к операциям с api",
+                      "type" : "string"
+                    },
+                    "refresh_token" : {
+                      "description" : "Долгоживущий токен для обновления access_token",
+                      "type" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/doc" : {
       "get" : {
         "summary" : "Поиск по всем документам",
