@@ -33,6 +33,31 @@
     "description" : "Методы для управления системой"
   } ],
   "paths" : {
+    "/org/{org_id}/" : {
+      "get" : {
+        "summary" : "Получить список пользователей в организации",
+        "operationId" : "get-users",
+        "tags" : [ "manage" ],
+        "security" : [ {
+          "bearerAuth" : [ ]
+        } ],
+        "parameters" : [ {
+          "in" : "path",
+          "name" : "org_id",
+          "schema" : {
+            "type" : "string",
+            "format" : "uuid"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : "Список пользователей",
+          "content" : {
+            "application/json" : null
+          }
+        }
+      }
+    },
     "/org/{org_id}/user" : {
       "post" : {
         "summary" : "Create new user",
@@ -1104,28 +1129,23 @@
           "members" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/Member"
+              "$ref" : "#/components/schemas/User"
             }
           }
         }
       },
-      "Member" : {
+      "User" : {
         "type" : "object",
-        "required" : [ "id", "name", "org_id" ],
+        "required" : [ "user_id", "user_title" ],
         "properties" : {
-          "id" : {
+          "user_id" : {
             "type" : "string",
             "format" : "uuid",
             "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
           },
-          "name" : {
+          "user_title" : {
             "type" : "string",
             "example" : "Иван Иванов"
-          },
-          "org_id" : {
-            "type" : "string",
-            "format" : "uuid",
-            "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
           }
         }
       },
