@@ -886,6 +886,11 @@
             defs.inline_response_200 = {
   "type" : "object",
   "properties" : {
+    "user_id" : {
+      "type" : "string",
+      "description" : "id созданного пользователя",
+      "format" : "uuid"
+    },
     "access_token" : {
       "type" : "string",
       "description" : "Короткосрочный токен доступа к операциям с api"
@@ -897,6 +902,19 @@
   }
 };
             defs.inline_response_200_1 = {
+  "type" : "object",
+  "properties" : {
+    "access_token" : {
+      "type" : "string",
+      "description" : "Короткосрочный токен доступа к операциям с api"
+    },
+    "refresh_token" : {
+      "type" : "string",
+      "description" : "Долгоживущий токен для обновления access_token"
+    }
+  }
+};
+            defs.inline_response_200_2 = {
   "type" : "object",
   "properties" : {
     "stat_name" : {
@@ -1059,6 +1077,9 @@
                     </li>
                     <li data-group="Manage" data-name="createDictionary" class="">
                       <a href="#api-Manage-createDictionary">createDictionary</a>
+                    </li>
+                    <li data-group="Manage" data-name="createToken" class="">
+                      <a href="#api-Manage-createToken">createToken</a>
                     </li>
                     <li data-group="Manage" data-name="createUser" class="">
                       <a href="#api-Manage-createUser">createUser</a>
@@ -2342,7 +2363,7 @@ public class AnalyzeCorpsApiExample {
         array[UUID] corpIds = ; // array[UUID] | 
         array[String] statistics = ; // array[String] | Список показателей, которые необходимо рассчитать
         try {
-            array[inline_response_200_1] result = apiInstance.computeStats(corpIds, statistics);
+            array[inline_response_200_2] result = apiInstance.computeStats(corpIds, statistics);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AnalyzeCorpsApi#computeStats");
@@ -2362,7 +2383,7 @@ public class AnalyzeCorpsApiExample {
         array[UUID] corpIds = ; // array[UUID] | 
         array[String] statistics = ; // array[String] | Список показателей, которые необходимо рассчитать
         try {
-            array[inline_response_200_1] result = apiInstance.computeStats(corpIds, statistics);
+            array[inline_response_200_2] result = apiInstance.computeStats(corpIds, statistics);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AnalyzeCorpsApi#computeStats");
@@ -2385,7 +2406,7 @@ AnalyzeCorpsApi *apiInstance = [[AnalyzeCorpsApi alloc] init];
 // Рассчитать статистические показатели по документам в указанных корпусах
 [apiInstance computeStatsWith:corpIds
     statistics:statistics
-              completionHandler: ^(array[inline_response_200_1] output, NSError* error) {
+              completionHandler: ^(array[inline_response_200_2] output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -2442,7 +2463,7 @@ namespace Example
             try
             {
                 // Рассчитать статистические показатели по документам в указанных корпусах
-                array[inline_response_200_1] result = apiInstance.computeStats(corpIds, statistics);
+                array[inline_response_200_2] result = apiInstance.computeStats(corpIds, statistics);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2598,7 +2619,7 @@ except ApiException as e:
       "schema" : {
         "type" : "array",
         "items" : {
-          "$ref" : "#/components/schemas/inline_response_200_1"
+          "$ref" : "#/components/schemas/inline_response_200_2"
         }
       }
     }
@@ -3771,7 +3792,7 @@ public class AnalyzeDocsApiExample {
         array[UUID] docIds = ; // array[UUID] | id документов
         array[String] statistics = ; // array[String] | Список показателей, которые необходимо рассчитать
         try {
-            array[inline_response_200_1] result = apiInstance.computeStats(docIds, statistics);
+            array[inline_response_200_2] result = apiInstance.computeStats(docIds, statistics);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AnalyzeDocsApi#computeStats");
@@ -3791,7 +3812,7 @@ public class AnalyzeDocsApiExample {
         array[UUID] docIds = ; // array[UUID] | id документов
         array[String] statistics = ; // array[String] | Список показателей, которые необходимо рассчитать
         try {
-            array[inline_response_200_1] result = apiInstance.computeStats(docIds, statistics);
+            array[inline_response_200_2] result = apiInstance.computeStats(docIds, statistics);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AnalyzeDocsApi#computeStats");
@@ -3814,7 +3835,7 @@ AnalyzeDocsApi *apiInstance = [[AnalyzeDocsApi alloc] init];
 // Рассчитать статистические показатели по документам
 [apiInstance computeStatsWith:docIds
     statistics:statistics
-              completionHandler: ^(array[inline_response_200_1] output, NSError* error) {
+              completionHandler: ^(array[inline_response_200_2] output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -3871,7 +3892,7 @@ namespace Example
             try
             {
                 // Рассчитать статистические показатели по документам
-                array[inline_response_200_1] result = apiInstance.computeStats(docIds, statistics);
+                array[inline_response_200_2] result = apiInstance.computeStats(docIds, statistics);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -4030,7 +4051,7 @@ except ApiException as e:
       "schema" : {
         "type" : "array",
         "items" : {
-          "$ref" : "#/components/schemas/inline_response_200_1"
+          "$ref" : "#/components/schemas/inline_response_200_2"
         }
       }
     }
@@ -5762,6 +5783,339 @@ except ApiException as e:
                                     </script>
                                   </div>
                                   <input id='responses-createDictionary-201-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Manage-createToken">
+                      <article id="api-Manage-createToken-0" data-group="User" data-name="createToken" data-version="0">
+                        <div class="pull-left">
+                          <h1>createToken</h1>
+                          <p>создать новый токен для текущего пользователя</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/org/{org_id}/{user_id}/token</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Manage-createToken-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Manage-createToken-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Manage-createToken-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Manage-createToken-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Manage-createToken-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Manage-createToken-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Manage-createToken-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Manage-createToken-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Manage-createToken-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Manage-createToken-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Manage-createToken-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Manage-createToken-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X POST "https://virtserver.swaggerhub.com/Rexhaif/RSA-API/3.0.0/org/{org_id}/{user_id}/token"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Manage-createToken-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.ManageApi;
+
+import java.io.File;
+import java.util.*;
+
+public class ManageApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+
+        ManageApi apiInstance = new ManageApi();
+        UUID orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | 
+        UUID userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | 
+        try {
+            inline_response_200_1 result = apiInstance.createToken(orgId, userId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ManageApi#createToken");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Manage-createToken-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.ManageApi;
+
+public class ManageApiExample {
+
+    public static void main(String[] args) {
+        ManageApi apiInstance = new ManageApi();
+        UUID orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | 
+        UUID userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | 
+        try {
+            inline_response_200_1 result = apiInstance.createToken(orgId, userId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ManageApi#createToken");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Manage-createToken-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Manage-createToken-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+UUID *orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // 
+UUID *userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // 
+
+ManageApi *apiInstance = [[ManageApi alloc] init];
+
+// создать новый токен для текущего пользователя
+[apiInstance createTokenWith:orgId
+    userId:userId
+              completionHandler: ^(inline_response_200_1 output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Manage-createToken-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ApiRsa = require('api__rsa');
+var defaultClient = ApiRsa.ApiClient.instance;
+
+
+var api = new ApiRsa.ManageApi()
+var orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // {{UUID}} 
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // {{UUID}} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.createToken(orgId, userId, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Manage-createToken-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Manage-createToken-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class createTokenExample
+    {
+        public void main()
+        {
+
+
+            var apiInstance = new ManageApi();
+            var orgId = new UUID(); // UUID | 
+            var userId = new UUID(); // UUID | 
+
+            try
+            {
+                // создать новый токен для текущего пользователя
+                inline_response_200_1 result = apiInstance.createToken(orgId, userId);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ManageApi.createToken: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Manage-createToken-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$api_instance = new Swagger\Client\ApiManageApi();
+$orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | 
+$userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // UUID | 
+
+try {
+    $result = $api_instance->createToken($orgId, $userId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ManageApi->createToken: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Manage-createToken-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::ManageApi;
+
+
+my $api_instance = WWW::SwaggerClient::ManageApi->new();
+my $orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; # UUID | 
+my $userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; # UUID | 
+
+eval { 
+    my $result = $api_instance->createToken(orgId => $orgId, userId => $userId);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling ManageApi->createToken: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Manage-createToken-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = swagger_client.ManageApi()
+orgId = 38400000-8cf0-11bd-b23e-10b96e4ef00d # UUID | 
+userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d # UUID | 
+
+try: 
+    # создать новый токен для текущего пользователя
+    api_response = api_instance.create_token(orgId, userId)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ManageApi->createToken: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">org_id*</td>
+                                  <td>
+                                  
+                                  
+                                      <div id="d2e199_createToken_orgId">
+                                          <div class="json-schema-view">
+                                              <div class="primitive">
+                                                  <span class="type">
+                                                      UUID
+                                                  </span>
+                                                      <span class="format">
+                                                          (uuid)
+                                                      </span>
+                                  
+                                              </div>
+                                                  <div class="inner required">
+                                                      Required
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+                                  <tr><td style="width:150px;">user_id*</td>
+                                  <td>
+                                  
+                                  
+                                      <div id="d2e199_createToken_userId">
+                                          <div class="json-schema-view">
+                                              <div class="primitive">
+                                                  <span class="type">
+                                                      UUID
+                                                  </span>
+                                                      <span class="format">
+                                                          (uuid)
+                                                      </span>
+                                  
+                                              </div>
+                                                  <div class="inner required">
+                                                      Required
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - Токен создан </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-createToken-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-createToken-200-schema">
+                                  <div id='responses-createToken-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Токен создан",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/inline_response_200_1"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-createToken-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-createToken-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-createToken-200-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
 
@@ -8511,7 +8865,7 @@ public class ReadApiExample {
 
         ReadApi apiInstance = new ReadApi();
         try {
-            inline_response_200 result = apiInstance.refreshToken();
+            inline_response_200_1 result = apiInstance.refreshToken();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ReadApi#refreshToken");
@@ -8529,7 +8883,7 @@ public class ReadApiExample {
     public static void main(String[] args) {
         ReadApi apiInstance = new ReadApi();
         try {
-            inline_response_200 result = apiInstance.refreshToken();
+            inline_response_200_1 result = apiInstance.refreshToken();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ReadApi#refreshToken");
@@ -8549,7 +8903,7 @@ ReadApi *apiInstance = [[ReadApi alloc] init];
 
 // Oбновление access_token и refresh_token с помощью предыдущего refresh_token
 [apiInstance refreshTokenWithCompletionHandler: 
-              ^(inline_response_200 output, NSError* error) {
+              ^(inline_response_200_1 output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -8600,7 +8954,7 @@ namespace Example
             try
             {
                 // Oбновление access_token и refresh_token с помощью предыдущего refresh_token
-                inline_response_200 result = apiInstance.refreshToken();
+                inline_response_200_1 result = apiInstance.refreshToken();
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -8693,7 +9047,7 @@ except ApiException as e:
   "content" : {
     "application/json" : {
       "schema" : {
-        "$ref" : "#/components/schemas/inline_response_200"
+        "$ref" : "#/components/schemas/inline_response_200_1"
       }
     }
   }
