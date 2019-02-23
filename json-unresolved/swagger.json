@@ -52,7 +52,7 @@
         } ],
         "responses" : {
           "200" : {
-            "descroption" : "Список пользователей",
+            "description" : "Список пользователей",
             "content" : {
               "application/json" : {
                 "schema" : {
